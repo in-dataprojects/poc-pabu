@@ -104,6 +104,8 @@
     <elementParameter field="MODULE_LIST" name="LIBRARY" value="&quot;mvn:br.com.pabu/opus-service-lib/4.14.24/jar&quot;"/>
     <elementParameter field="TABLE" name="HOTLIBS"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="LABEL" value="__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="HINT" value="&lt;b>__UNIQUE_NAME__&lt;/b>&lt;br>__COMMENT__"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
   <node componentName="tLibraryLoad" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="440" posY="80">
@@ -111,6 +113,8 @@
     <elementParameter field="MODULE_LIST" name="LIBRARY" value="&quot;mvn:io.gitlab.labaz/transpropify/1.2.1/jar&quot;"/>
     <elementParameter field="TABLE" name="HOTLIBS"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="LABEL" value="__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="HINT" value="&lt;b>__UNIQUE_NAME__&lt;/b>&lt;br>__COMMENT__"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
   <node componentName="tLibraryLoad" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="640" posY="80">
@@ -118,18 +122,22 @@
     <elementParameter field="MODULE_LIST" name="LIBRARY" value="&quot;mvn:org.talend.libraries/opus-service-lib-4.14.24-javadoc/6.0.0-SNAPSHOT/jar&quot;"/>
     <elementParameter field="TABLE" name="HOTLIBS"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="LABEL" value="__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="HINT" value="&lt;b>__UNIQUE_NAME__&lt;/b>&lt;br>__COMMENT__"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
   <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="240" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaFlex_1" show="false"/>
     <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_START" value="import OpusServiceCaller;&#xD;&#xA;&#xD;&#xA;String opusrespStream =&quot;&quot;;"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_START" value="String opusrespStream =&quot;&quot;;"/>
     <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_MAIN" value="public class Test {&#xD;&#xA;&#xD;&#xA;    public static int main() {&#xD;&#xA;&#xD;&#xA;        String hostport = &quot;locahost:8123&quot;;&#xD;&#xA;&#xD;&#xA;        String jsonargs = &quot;{ \&quot;codigos\&quot;: { \&quot;cliente\&quot;: \&quot;065737\&quot;, \&quot;empresa\&quot;: \&quot;01\&quot; }}&quot;;&#xD;&#xA;&#xD;&#xA;        InputStream jsonInputStream = new ByteArrayInputStream(jsonargs.getBytes());&#xD;&#xA;           &#xD;&#xA;        try (OpusServiceCaller opus = new OpusServiceCaller(CommonUtils.DEFAULT_AUTH)) {&#xD;&#xA;            opus.connect(hostport);&#xD;&#xA;&#xD;&#xA;            ByteArrayOutputStream opusrespStream = new ByteArrayOutputStream();&#xD;&#xA;            try {&#xD;&#xA;                opus.callToStream(jsonInputStream, opusrespStream);&#xD;&#xA;            } catch (MalformedJsonException ex) {&#xD;&#xA;                System.out.println(&quot;Json corrompido:&quot; + jsonargs);&#xD;&#xA;                throw new RuntimeException(ex);&#xD;&#xA;            }&#xD;&#xA;&#xD;&#xA;            System.out.println(opusrespStream.toString());&#xD;&#xA;            System.out.flush();&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;}"/>
     <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_END" value="globalMap.put(&quot;apiResponse&quot;, opusrespStream);"/>
     <elementParameter field="CHECK" name="Version_V2_0" value="false" show="false"/>
     <elementParameter field="CHECK" name="Version_V3_2" value="false" show="false"/>
     <elementParameter field="CHECK" name="Version_V4.0" value="true" show="false"/>
     <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;&#xA;import br.com.pabu.opusServiceLib.OpusServiceCaller;&#xA;import java.io.InputStream;"/>
+    <elementParameter field="TEXT" name="LABEL" value="__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="HINT" value="&lt;b>__UNIQUE_NAME__&lt;/b>&lt;br>__COMMENT__"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJavaFlex_1">
       <column comment="" key="false" length="-1" name="out" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -154,16 +162,67 @@
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="HINT" value="&lt;b>__UNIQUE_NAME__&lt;/b>&lt;br>__COMMENT__"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tLogRow_1">
+      <column comment="" key="false" length="-1" name="out" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="240" posY="400">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaFlex_2" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_START" value="String jarPath = &quot;C:/Talend/jars/opus-service-lib-4.14.24-jar-with-dependencies.jar&quot;;&#xD;&#xA;String[] command = {&#xD;&#xA;&#x9;    &quot;java&quot;,&#xD;&#xA;&#x9;    &quot;-jar&quot;,&#xD;&#xA;&#x9;    jarPath,&#xD;&#xA;&#x9;    &quot;--run&quot;,&#xD;&#xA;&#x9;    &quot;localhost:8123&quot;,&#xD;&#xA;&#x9;    &quot;codigos.cliente=065737&quot;,&#xD;&#xA;&#x9;    &quot;codigos.empresa=01&quot;&#xD;&#xA;&#x9;};&#xD;&#xA;&#xD;&#xA;ProcessBuilder pb = new ProcessBuilder(command);&#xD;&#xA;&#xD;&#xA;pb.redirectErrorStream(true);&#xD;&#xA;&#xD;&#xA;System.out.println(&quot;Iniciando a execução do arquivo JAR...&quot;);&#xD;&#xA;System.out.println(&quot;Comando: &quot; + String.join(&quot; &quot;, command));&#xD;&#xA;&#xD;&#xA;try {&#xD;&#xA;    Process process = pb.start();&#xD;&#xA;    globalMap.put(&quot;meuProcessoJar&quot;, process); &#xD;&#xA;} catch (java.io.IOException e) {&#xD;&#xA;    e.printStackTrace();&#xD;&#xA;    throw new RuntimeException(&quot;Falha ao iniciar o processo do JAR.&quot;, e);&#xD;&#xA;}"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_MAIN" value=""/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_END" value="Process process = (Process) globalMap.get(&quot;meuProcessoJar&quot;);&#xD;&#xA;&#xD;&#xA;if (process != null) {&#xD;&#xA; System.out.println(&quot;Aguardando o processo finalizar e lendo a saída...&quot;);&#xD;&#xA;&#xD;&#xA; try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(process.getInputStream()))) {&#xD;&#xA;     String line;&#xD;&#xA;     while ((line = reader.readLine()) != null) {&#xD;&#xA;         System.out.println(line);&#xD;&#xA;     }&#xD;&#xA; } catch (java.io.IOException e) {&#xD;&#xA;     e.printStackTrace();&#xD;&#xA; }&#xD;&#xA;&#xD;&#xA; try {&#xD;&#xA;     int exitCode = process.waitFor();&#xD;&#xA;     System.out.println(&quot;\nProcesso JAR finalizado com código de saída: &quot; + exitCode);&#xD;&#xA;&#xD;&#xA;     if (exitCode != 0) {&#xD;&#xA;         System.err.println(&quot;O processo JAR terminou com um erro.&quot;);&#xD;&#xA;&#xD;&#xA;     }&#xD;&#xA; } catch (InterruptedException e) {&#xD;&#xA;     Thread.currentThread().interrupt();&#xD;&#xA;     e.printStackTrace();&#xD;&#xA;     throw new RuntimeException(&quot;A execução do job foi interrompida enquanto aguardava o JAR.&quot;, e);&#xD;&#xA; }&#xD;&#xA;}"/>
+    <elementParameter field="CHECK" name="Version_V2_0" value="false" show="false"/>
+    <elementParameter field="CHECK" name="Version_V3_2" value="false" show="false"/>
+    <elementParameter field="CHECK" name="Version_V4.0" value="true" show="false"/>
+    <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;&#xA;import br.com.pabu.opusServiceLib.OpusServiceCaller;&#xA;import java.io.InputStream;"/>
+    <elementParameter field="TEXT" name="LABEL" value="__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="HINT" value="&lt;b>__UNIQUE_NAME__&lt;/b>&lt;br>__COMMENT__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJavaFlex_2">
+      <column comment="" key="false" length="-1" name="out" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="480" posY="400">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_2" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE" value="true" show="false"/>
+    <elementParameter field="RADIO" name="PRINT_LABEL" value="false" show="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter field="TABLE" name="LENGTHS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="out" id="0"/>
+      <elementValue elementRef="LENGTH" value="10" id="1"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="HINT" value="&lt;b>__UNIQUE_NAME__&lt;/b>&lt;br>__COMMENT__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tLogRow_2">
       <column comment="" key="false" length="-1" name="out" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tLibraryLoad_1" offsetLabelX="0" offsetLabelY="0" source="tLibraryLoad_1" target="tLibraryLoad_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2" show="false"/>
   </connection>
-  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tLibraryLoad_1" offsetLabelX="0" offsetLabelY="0" source="tLibraryLoad_1" target="tJavaFlex_1">
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tLibraryLoad_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tLibraryLoad_1" target="tJavaFlex_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tLibraryLoad_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tLibraryLoad_1" target="tJavaFlex_2">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2" show="false"/>
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tLibraryLoad_2" offsetLabelX="0" offsetLabelY="0" source="tLibraryLoad_2" target="tLibraryLoad_3">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk3" show="false"/>
@@ -171,6 +230,11 @@
   <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tJavaFlex_1" offsetLabelX="0" offsetLabelY="0" source="tJavaFlex_1" target="tLogRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row2" lineStyle="0" metaname="tJavaFlex_2" offsetLabelX="0" offsetLabelY="0" source="tJavaFlex_2" target="tLogRow_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row2" show="false"/>
   </connection>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLibraryLoad_1" show="false"/>
@@ -183,5 +247,8 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaFlex_1" show="false"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaFlex_2" show="false"/>
   </subjob>
 </talendfile:ProcessType>
