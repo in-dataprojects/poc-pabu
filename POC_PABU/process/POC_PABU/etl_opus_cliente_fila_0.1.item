@@ -5,6 +5,8 @@
     <contextParameter comment="" name="ZSID" prompt="ZSID?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxwcPsEfCvS7dW_eK8Qg"/>
     <contextParameter comment="" name="ZWSRET" prompt="ZWSRET?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="" internalId="_eFSxwsPsEfCvS7dW_eK8Qg"/>
     <contextParameter comment="" name="ZWSMSG" prompt="ZWSMSG?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxw8PsEfCvS7dW_eK8Qg"/>
+    <contextParameter comment="" name="ponteiro_max" prompt="ponteiro_max?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="1000000000" internalId="_GKNscMxiEfCzps9qGw9O5w"/>
+    <contextParameter comment="" name="ponteiro_atual" prompt="ponteiro_atual?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_GKNsccxiEfCzps9qGw9O5w"/>
   </context>
   <parameters>
     <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" value="Info" show="false"/>
@@ -104,89 +106,7 @@
     <elementParameter field="TEXT" name="FOOTER_CODE" value="" show="false"/>
     <elementParameter field="TEXT" name="FOOTER_IMPORT" value="" show="false"/>
   </parameters>
-  <node componentName="tSystem" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="120" posY="80">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSystem_1" show="false"/>
-    <elementParameter field="CHECK" name="ROOTDIR" value="false"/>
-    <elementParameter field="DIRECTORY" name="DIRECTORY" value="&quot;C:/Talend/studio/workspace&quot;" show="false"/>
-    <elementParameter field="RADIO" name="USE_SINGLE_COMMAND" value="true"/>
-    <elementParameter field="MEMO_JAVA" name="COMMAND" value="&quot;java -jar C:/Talend1/jars/opus-service-lib-4.14.24-jar-with-dependencies.jar --run 192.168.1.10:45530 ZWSIDIN=&quot;+context.ponteiro+&quot; ZWSQREGS=3&quot;&#x9;"/>
-    <elementParameter field="RADIO" name="USE_ARRAY_COMMAND" value="false"/>
-    <elementParameter field="TABLE" name="ARRAY_COMMAND" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="OUTPUT" value="NORMAL_OUTPUT"/>
-    <elementParameter field="CLOSED_LIST" name="ERROROUTPUT" value="RETRIEVE_OUTPUT"/>
-    <elementParameter field="TABLE" name="PARAMS"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tSystem_1">
-      <column key="false" length="255" name="outputline" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tFileOutputJSON" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="400" posY="80">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileOutputJSON_1" show="false"/>
-    <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Users/fabio.soares_in1/Documents/PABU/json/cliente.json&quot;"/>
-    <elementParameter field="CHECK" name="GENERATE_JSON_ARRAY" value="false"/>
-    <elementParameter field="TEXT" name="DATABLOCKNAME" value="&quot;Resp&quot;"/>
-    <elementParameter field="CHECK" name="CREATE" value="true"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tFileOutputJSON_1">
-      <column key="false" length="255" name="outputline" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tFileInputJSON" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="120" posY="200">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputJSON_1" show="false"/>
-    <elementParameter field="CLOSED_LIST" name="READ_BY" value="JSONPATH"/>
-    <elementParameter field="CLOSED_LIST" name="JSON_PATH_VERSION" value="2_1_0"/>
-    <elementParameter field="CHECK" name="USEURL" value="false"/>
-    <elementParameter field="TEXT" name="URLPATH" value="&quot;http://localhost:8080/JSON/JSON_file.txt&quot;" show="false"/>
-    <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Users/fabio.soares_in1/Documents/PABU/json/cliente.json&quot;"/>
-    <elementParameter field="TEXT" name="LOOP_QUERY" value="&quot;/bills/bill/line&quot;" show="false"/>
-    <elementParameter field="TEXT" name="JSON_LOOP_QUERY" value="&quot;$.Resp[*]&quot;"/>
-    <elementParameter field="TABLE" name="MAPPING" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="outputline" id="0"/>
-      <elementValue elementRef="QUERY" value="" id="1"/>
-    </elementParameter>
-    <elementParameter field="TABLE" name="MAPPING_JSONPATH">
-      <elementValue elementRef="SCHEMA_COLUMN" value="outputline" id="0"/>
-      <elementValue elementRef="QUERY" value="&quot;$.outputline&quot;" id="1"/>
-    </elementParameter>
-    <elementParameter field="TABLE" name="MAPPINGXPATH" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="outputline" id="0"/>
-      <elementValue elementRef="QUERY" value="" id="1"/>
-      <elementValue elementRef="NODECHECK" value="false" id="2"/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
-    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
-    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;" show="false"/>
-    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;" show="false"/>
-    <elementParameter field="CHECK" name="CHECK_DATE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="USE_LOOP_AS_ROOT" value="true"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;UTF-8&quot;"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="UTF-8"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tFileInputJSON_1">
-      <column comment="" key="false" length="-1" name="outputline" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <metadata connector="REJECT" name="REJECT">
-      <column comment="" key="false" length="-1" name="outputline" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="320" posY="200">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaFlex_1" show="false"/>
-    <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_START" value="StringBuilder jsonBuilder = new StringBuilder();&#xD;&#xA;boolean inResponseBlock = false;"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_MAIN" value="String currentLine = input_row.outputline;&#xD;&#xA;&#xD;&#xA;if (currentLine.contains(&quot;---[ Resp ]---&quot;)) {&#xD;&#xA; inResponseBlock = true;&#xD;&#xA;} &#xD;&#xA;else if (inResponseBlock &amp;&amp; currentLine.contains(&quot;:&quot;)) {&#xD;&#xA; jsonBuilder.append(currentLine.trim());&#xD;&#xA;}"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_END" value="String jsonFinal = jsonBuilder.toString();&#xD;&#xA;&#xD;&#xA;String jsonCorrigido = &quot;{&quot; + jsonFinal + &quot;}&quot;;&#xD;&#xA;&#xD;&#xA;if (jsonCorrigido.contains(&quot;,}&quot;)) {&#xD;&#xA; jsonCorrigido = jsonCorrigido.replace(&quot;,}&quot;, &quot;}&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;globalMap.put(&quot;jsonCompleto&quot;, jsonCorrigido);&#xD;&#xA;&#xD;&#xA;System.out.println(&quot;DEBUG: JSON final salvo no globalMap -> |&quot; + globalMap.get(&quot;jsonCompleto&quot;) + &quot;|&quot;);"/>
-    <elementParameter field="CHECK" name="Version_V2_0" value="false" show="false"/>
-    <elementParameter field="CHECK" name="Version_V3_2" value="false" show="false"/>
-    <elementParameter field="CHECK" name="Version_V4.0" value="true" show="false"/>
-    <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tJavaFlex_1">
-      <column comment="" key="false" length="-1" name="jsonCompleto" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tFixedFlowInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="120" posY="320">
+  <node componentName="tFixedFlowInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="120" posY="400">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFixedFlowInput_1" show="false"/>
     <elementParameter field="TEXT" name="NB_ROWS" value="1"/>
     <elementParameter field="RADIO" name="USE_SINGLEMODE" value="true"/>
@@ -207,93 +127,497 @@
       <column comment="" key="false" length="-1" name="conteudo_json" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="280" posY="320">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tExtractJSONFields_1" show="false"/>
-    <elementParameter field="TEXT" name="COMPONENT_NAME" value="tExtractJSONFields" show="false"/>
-    <elementParameter field="TEXT" name="VERSION" value="0.102 (ALPHA)" show="false"/>
-    <elementParameter field="TEXT" name="FAMILY" value="Processing/Fields" show="false"/>
-    <elementParameter field="CHECK" name="STARTABLE" value="false" show="false"/>
-    <elementParameter field="CHECK" name="SUBTREE_START" value="false" show="false"/>
-    <elementParameter field="CHECK" name="END_OF_FLOW" value="false" show="false"/>
-    <elementParameter field="TEXT" name="HELP" value="org.talend.help.tExtractJSONFields" show="false"/>
-    <elementParameter field="DIRECTORY" name="IREPORT_PATH" value="" show="false"/>
-    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Talend1\configuration\lib\java" show="false"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="" show="false"/>
+  <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="280" posY="400">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tExtractJSONFields_2" show="false"/>
     <elementParameter field="CLOSED_LIST" name="READ_BY" value="JSONPATH"/>
     <elementParameter field="CLOSED_LIST" name="JSON_PATH_VERSION" value="2_1_0"/>
     <elementParameter field="PREV_COLUMN_LIST" name="JSONFIELD" value="conteudo_json"/>
-    <elementParameter field="TEXT" name="LOOP_QUERY" value="&quot;/bills/bill/line&quot;" show="false"/>
-    <elementParameter field="TEXT" name="JSON_LOOP_QUERY" value="&quot;$.clientes&quot;"/>
+    <elementParameter field="TEXT" name="LOOP_QUERY" value="&quot;/&quot;" show="false"/>
+    <elementParameter field="TEXT" name="JSON_LOOP_QUERY" value="&quot;$&quot;"/>
     <elementParameter field="TABLE" name="MAPPING" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="LTSTAMP" id="0"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CODCLI" id="0"/>
+      <elementValue elementRef="QUERY" value="&quot;CODCLI&quot;" id="1"/>
+      <elementValue elementRef="NODECHECK" value="false" id="2"/>
+      <elementValue elementRef="ISARRAY" value="false" id="3"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TEMACO" id="4"/>
+      <elementValue elementRef="QUERY" value="&quot;TEMACO&quot;" id="5"/>
+      <elementValue elementRef="NODECHECK" value="false" id="6"/>
+      <elementValue elementRef="ISARRAY" value="false" id="7"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TSTAMP" id="8"/>
+      <elementValue elementRef="QUERY" value="&quot;TSTAMP&quot;" id="9"/>
+      <elementValue elementRef="NODECHECK" value="false" id="10"/>
+      <elementValue elementRef="ISARRAY" value="false" id="11"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VTSTAMP" id="12"/>
+      <elementValue elementRef="QUERY" value="&quot;VTSTAMP&quot;" id="13"/>
+      <elementValue elementRef="NODECHECK" value="false" id="14"/>
+      <elementValue elementRef="ISARRAY" value="false" id="15"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WALM" id="16"/>
+      <elementValue elementRef="QUERY" value="&quot;WALM&quot;" id="17"/>
+      <elementValue elementRef="NODECHECK" value="false" id="18"/>
+      <elementValue elementRef="ISARRAY" value="false" id="19"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WEMP" id="20"/>
+      <elementValue elementRef="QUERY" value="&quot;WEMP&quot;" id="21"/>
+      <elementValue elementRef="NODECHECK" value="false" id="22"/>
+      <elementValue elementRef="ISARRAY" value="false" id="23"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WFIL" id="24"/>
+      <elementValue elementRef="QUERY" value="&quot;WFIL&quot;" id="25"/>
+      <elementValue elementRef="NODECHECK" value="false" id="26"/>
+      <elementValue elementRef="ISARRAY" value="false" id="27"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZSID" id="28"/>
+      <elementValue elementRef="QUERY" value="&quot;ZSID&quot;" id="29"/>
+      <elementValue elementRef="NODECHECK" value="false" id="30"/>
+      <elementValue elementRef="ISARRAY" value="false" id="31"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDIN" id="32"/>
+      <elementValue elementRef="QUERY" value="&quot;ZWSIDIN&quot;" id="33"/>
+      <elementValue elementRef="NODECHECK" value="false" id="34"/>
+      <elementValue elementRef="ISARRAY" value="false" id="35"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDOUT" id="36"/>
+      <elementValue elementRef="QUERY" value="&quot;ZWSIDOUT&quot;" id="37"/>
+      <elementValue elementRef="NODECHECK" value="false" id="38"/>
+      <elementValue elementRef="ISARRAY" value="false" id="39"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSMSG" id="40"/>
+      <elementValue elementRef="QUERY" value="&quot;ZWSMSG&quot;" id="41"/>
+      <elementValue elementRef="NODECHECK" value="false" id="42"/>
+      <elementValue elementRef="ISARRAY" value="false" id="43"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSQREGS" id="44"/>
+      <elementValue elementRef="QUERY" value="&quot;ZWSQREGS&quot;" id="45"/>
+      <elementValue elementRef="NODECHECK" value="false" id="46"/>
+      <elementValue elementRef="ISARRAY" value="false" id="47"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSRET" id="48"/>
+      <elementValue elementRef="QUERY" value="&quot;ZWSRET&quot;" id="49"/>
+      <elementValue elementRef="NODECHECK" value="false" id="50"/>
+      <elementValue elementRef="ISARRAY" value="false" id="51"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="clientes" id="52"/>
+      <elementValue elementRef="QUERY" value="&quot;clientes&quot;" id="53"/>
+      <elementValue elementRef="NODECHECK" value="false" id="54"/>
+      <elementValue elementRef="ISARRAY" value="true" id="55"/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="MAPPING_4_JSONPATH">
+      <elementValue elementRef="SCHEMA_COLUMN" value="CODCLI" id="0"/>
+      <elementValue elementRef="QUERY" value="&quot;$.CODCLI&quot;" id="1"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TEMACO" id="2"/>
+      <elementValue elementRef="QUERY" value="&quot;$.TEMACO&quot;" id="3"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TSTAMP" id="4"/>
+      <elementValue elementRef="QUERY" value="&quot;$.TSTAMP&quot;" id="5"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VTSTAMP" id="6"/>
+      <elementValue elementRef="QUERY" value="&quot;$.VTSTAMP&quot;" id="7"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WALM" id="8"/>
+      <elementValue elementRef="QUERY" value="&quot;$.WALM&quot;" id="9"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WEMP" id="10"/>
+      <elementValue elementRef="QUERY" value="&quot;$.WEMP&quot;" id="11"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WFIL" id="12"/>
+      <elementValue elementRef="QUERY" value="&quot;$.WFIL&quot;" id="13"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZSID" id="14"/>
+      <elementValue elementRef="QUERY" value="&quot;$.ZSID&quot;" id="15"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDIN" id="16"/>
+      <elementValue elementRef="QUERY" value="&quot;$.ZWSIDIN&quot;" id="17"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDOUT" id="18"/>
+      <elementValue elementRef="QUERY" value="&quot;$.ZWSIDOUT&quot;" id="19"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSMSG" id="20"/>
+      <elementValue elementRef="QUERY" value="&quot;$.ZWSMSG&quot;" id="21"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSQREGS" id="22"/>
+      <elementValue elementRef="QUERY" value="&quot;$.ZWSQREGS&quot;" id="23"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSRET" id="24"/>
+      <elementValue elementRef="QUERY" value="&quot;$.ZWSRET&quot;" id="25"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="clientes" id="26"/>
+      <elementValue elementRef="QUERY" value="&quot;$.clientes&quot;" id="27"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;UTF-8&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="UTF-8" show="false"/>
+    <elementParameter field="CHECK" name="USE_LOOP_AS_ROOT" value="true"/>
+    <elementParameter field="CHECK" name="SPLIT_LIST" value="true" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tExtractJSONFields_2">
+      <column comment="" key="false" length="-1" name="CODCLI" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TEMACO" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="VTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WALM" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WEMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WFIL" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZSID" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDIN" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDOUT" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSMSG" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSQREGS" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSRET" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="clientes" nullable="true" pattern="" precision="-1" sourceType="" type="id_Object" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REJECT" name="REJECT">
+      <column comment="" key="false" length="-1" name="CODCLI" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TEMACO" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="VTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WALM" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WEMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WFIL" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZSID" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDIN" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDOUT" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSMSG" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSQREGS" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSRET" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_cliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="acessoPermitido" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="bairro" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="categoriaPreco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cep" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnae" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnpj" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoCliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoEmpresa" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="contato" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRamoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRegiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoSituacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoTipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="emailLogin" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="emails" nullable="true" pattern="" precision="-1" sourceType="" type="id_Object" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="endereco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="estado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ie" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="loginLiberado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="municipio" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeRepresentante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeVendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="pais" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="podeComprarRemano" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="potencialCompras" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ramoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="razaoSocial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="regiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="representante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="situacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="telefone" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="tipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="vendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorJSONField" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="480" posY="400">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tExtractJSONFields_1" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="READ_BY" value="JSONPATH"/>
+    <elementParameter field="CLOSED_LIST" name="JSON_PATH_VERSION" value="2_1_0"/>
+    <elementParameter field="PREV_COLUMN_LIST" name="JSONFIELD" value="clientes"/>
+    <elementParameter field="TEXT" name="LOOP_QUERY" value="&quot;/&quot;" show="false"/>
+    <elementParameter field="TEXT" name="JSON_LOOP_QUERY" value="&quot;$[*]&quot;"/>
+    <elementParameter field="TABLE" name="MAPPING" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="CODCLI" id="0"/>
       <elementValue elementRef="QUERY" value="" id="1"/>
       <elementValue elementRef="NODECHECK" value="false" id="2"/>
       <elementValue elementRef="ISARRAY" value="false" id="3"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="WALM" id="4"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TEMACO" id="4"/>
       <elementValue elementRef="QUERY" value="" id="5"/>
       <elementValue elementRef="NODECHECK" value="false" id="6"/>
       <elementValue elementRef="ISARRAY" value="false" id="7"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="WEMP" id="8"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TSTAMP" id="8"/>
       <elementValue elementRef="QUERY" value="" id="9"/>
       <elementValue elementRef="NODECHECK" value="false" id="10"/>
       <elementValue elementRef="ISARRAY" value="false" id="11"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="WFIL" id="12"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VTSTAMP" id="12"/>
       <elementValue elementRef="QUERY" value="" id="13"/>
       <elementValue elementRef="NODECHECK" value="false" id="14"/>
       <elementValue elementRef="ISARRAY" value="false" id="15"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ZSID" id="16"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WALM" id="16"/>
       <elementValue elementRef="QUERY" value="" id="17"/>
       <elementValue elementRef="NODECHECK" value="false" id="18"/>
       <elementValue elementRef="ISARRAY" value="false" id="19"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSMSG" id="20"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WEMP" id="20"/>
       <elementValue elementRef="QUERY" value="" id="21"/>
       <elementValue elementRef="NODECHECK" value="false" id="22"/>
       <elementValue elementRef="ISARRAY" value="false" id="23"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSRET" id="24"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WFIL" id="24"/>
       <elementValue elementRef="QUERY" value="" id="25"/>
       <elementValue elementRef="NODECHECK" value="false" id="26"/>
       <elementValue elementRef="ISARRAY" value="false" id="27"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ambiente" id="28"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZSID" id="28"/>
       <elementValue elementRef="QUERY" value="" id="29"/>
       <elementValue elementRef="NODECHECK" value="false" id="30"/>
       <elementValue elementRef="ISARRAY" value="false" id="31"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="entidade" id="32"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDIN" id="32"/>
       <elementValue elementRef="QUERY" value="" id="33"/>
       <elementValue elementRef="NODECHECK" value="false" id="34"/>
       <elementValue elementRef="ISARRAY" value="false" id="35"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="operacao" id="36"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDOUT" id="36"/>
       <elementValue elementRef="QUERY" value="" id="37"/>
       <elementValue elementRef="NODECHECK" value="false" id="38"/>
       <elementValue elementRef="ISARRAY" value="false" id="39"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="sistema" id="40"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSMSG" id="40"/>
       <elementValue elementRef="QUERY" value="" id="41"/>
       <elementValue elementRef="NODECHECK" value="false" id="42"/>
       <elementValue elementRef="ISARRAY" value="false" id="43"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSQREGS" id="44"/>
+      <elementValue elementRef="QUERY" value="" id="45"/>
+      <elementValue elementRef="NODECHECK" value="false" id="46"/>
+      <elementValue elementRef="ISARRAY" value="false" id="47"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSRET" id="48"/>
+      <elementValue elementRef="QUERY" value="" id="49"/>
+      <elementValue elementRef="NODECHECK" value="false" id="50"/>
+      <elementValue elementRef="ISARRAY" value="false" id="51"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="id_cliente" id="52"/>
+      <elementValue elementRef="QUERY" value="&quot;_id_&quot;" id="53"/>
+      <elementValue elementRef="NODECHECK" value="false" id="54"/>
+      <elementValue elementRef="ISARRAY" value="false" id="55"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="acessoPermitido" id="56"/>
+      <elementValue elementRef="QUERY" value="&quot;acessoPermitido&quot;" id="57"/>
+      <elementValue elementRef="NODECHECK" value="false" id="58"/>
+      <elementValue elementRef="ISARRAY" value="false" id="59"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="bairro" id="60"/>
+      <elementValue elementRef="QUERY" value="&quot;bairro&quot;" id="61"/>
+      <elementValue elementRef="NODECHECK" value="false" id="62"/>
+      <elementValue elementRef="ISARRAY" value="false" id="63"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="categoriaPreco" id="64"/>
+      <elementValue elementRef="QUERY" value="&quot;categoriaPreco&quot;" id="65"/>
+      <elementValue elementRef="NODECHECK" value="false" id="66"/>
+      <elementValue elementRef="ISARRAY" value="false" id="67"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cep" id="68"/>
+      <elementValue elementRef="QUERY" value="&quot;cep&quot;" id="69"/>
+      <elementValue elementRef="NODECHECK" value="false" id="70"/>
+      <elementValue elementRef="ISARRAY" value="false" id="71"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cnae" id="72"/>
+      <elementValue elementRef="QUERY" value="&quot;cnae&quot;" id="73"/>
+      <elementValue elementRef="NODECHECK" value="false" id="74"/>
+      <elementValue elementRef="ISARRAY" value="false" id="75"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cnpj" id="76"/>
+      <elementValue elementRef="QUERY" value="&quot;cnpj&quot;" id="77"/>
+      <elementValue elementRef="NODECHECK" value="false" id="78"/>
+      <elementValue elementRef="ISARRAY" value="false" id="79"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigoCliente" id="80"/>
+      <elementValue elementRef="QUERY" value="&quot;codigoCliente&quot;" id="81"/>
+      <elementValue elementRef="NODECHECK" value="false" id="82"/>
+      <elementValue elementRef="ISARRAY" value="false" id="83"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigoEmpresa" id="84"/>
+      <elementValue elementRef="QUERY" value="&quot;codigoEmpresa&quot;" id="85"/>
+      <elementValue elementRef="NODECHECK" value="false" id="86"/>
+      <elementValue elementRef="ISARRAY" value="false" id="87"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="contato" id="88"/>
+      <elementValue elementRef="QUERY" value="&quot;contato&quot;" id="89"/>
+      <elementValue elementRef="NODECHECK" value="false" id="90"/>
+      <elementValue elementRef="ISARRAY" value="false" id="91"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoFilialComercial" id="92"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoFilialComercial&quot;" id="93"/>
+      <elementValue elementRef="NODECHECK" value="false" id="94"/>
+      <elementValue elementRef="ISARRAY" value="false" id="95"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoFilialRegional" id="96"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoFilialRegional&quot;" id="97"/>
+      <elementValue elementRef="NODECHECK" value="false" id="98"/>
+      <elementValue elementRef="ISARRAY" value="false" id="99"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoRamoAtividade" id="100"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoRamoAtividade&quot;" id="101"/>
+      <elementValue elementRef="NODECHECK" value="false" id="102"/>
+      <elementValue elementRef="ISARRAY" value="false" id="103"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoRegiaoVenda" id="104"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoRegiaoVenda&quot;" id="105"/>
+      <elementValue elementRef="NODECHECK" value="false" id="106"/>
+      <elementValue elementRef="ISARRAY" value="false" id="107"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoSituacao" id="108"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoSituacao&quot;" id="109"/>
+      <elementValue elementRef="NODECHECK" value="false" id="110"/>
+      <elementValue elementRef="ISARRAY" value="false" id="111"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoTipoRC" id="112"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoTipoRC&quot;" id="113"/>
+      <elementValue elementRef="NODECHECK" value="false" id="114"/>
+      <elementValue elementRef="ISARRAY" value="false" id="115"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="emailLogin" id="116"/>
+      <elementValue elementRef="QUERY" value="&quot;emailLogin&quot;" id="117"/>
+      <elementValue elementRef="NODECHECK" value="false" id="118"/>
+      <elementValue elementRef="ISARRAY" value="false" id="119"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="emails" id="120"/>
+      <elementValue elementRef="QUERY" value="&quot;emails&quot;" id="121"/>
+      <elementValue elementRef="NODECHECK" value="false" id="122"/>
+      <elementValue elementRef="ISARRAY" value="true" id="123"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="endereco" id="124"/>
+      <elementValue elementRef="QUERY" value="" id="125"/>
+      <elementValue elementRef="NODECHECK" value="false" id="126"/>
+      <elementValue elementRef="ISARRAY" value="false" id="127"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="estado" id="128"/>
+      <elementValue elementRef="QUERY" value="" id="129"/>
+      <elementValue elementRef="NODECHECK" value="false" id="130"/>
+      <elementValue elementRef="ISARRAY" value="false" id="131"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="filialComercial" id="132"/>
+      <elementValue elementRef="QUERY" value="" id="133"/>
+      <elementValue elementRef="NODECHECK" value="false" id="134"/>
+      <elementValue elementRef="ISARRAY" value="false" id="135"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="filialRegional" id="136"/>
+      <elementValue elementRef="QUERY" value="" id="137"/>
+      <elementValue elementRef="NODECHECK" value="false" id="138"/>
+      <elementValue elementRef="ISARRAY" value="false" id="139"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ie" id="140"/>
+      <elementValue elementRef="QUERY" value="" id="141"/>
+      <elementValue elementRef="NODECHECK" value="false" id="142"/>
+      <elementValue elementRef="ISARRAY" value="false" id="143"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="loginLiberado" id="144"/>
+      <elementValue elementRef="QUERY" value="" id="145"/>
+      <elementValue elementRef="NODECHECK" value="false" id="146"/>
+      <elementValue elementRef="ISARRAY" value="false" id="147"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="municipio" id="148"/>
+      <elementValue elementRef="QUERY" value="" id="149"/>
+      <elementValue elementRef="NODECHECK" value="false" id="150"/>
+      <elementValue elementRef="ISARRAY" value="false" id="151"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="nomeRepresentante" id="152"/>
+      <elementValue elementRef="QUERY" value="" id="153"/>
+      <elementValue elementRef="NODECHECK" value="false" id="154"/>
+      <elementValue elementRef="ISARRAY" value="false" id="155"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="nomeVendedor" id="156"/>
+      <elementValue elementRef="QUERY" value="" id="157"/>
+      <elementValue elementRef="NODECHECK" value="false" id="158"/>
+      <elementValue elementRef="ISARRAY" value="false" id="159"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="pais" id="160"/>
+      <elementValue elementRef="QUERY" value="" id="161"/>
+      <elementValue elementRef="NODECHECK" value="false" id="162"/>
+      <elementValue elementRef="ISARRAY" value="false" id="163"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="podeComprarRemano" id="164"/>
+      <elementValue elementRef="QUERY" value="" id="165"/>
+      <elementValue elementRef="NODECHECK" value="false" id="166"/>
+      <elementValue elementRef="ISARRAY" value="false" id="167"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="potencialCompras" id="168"/>
+      <elementValue elementRef="QUERY" value="" id="169"/>
+      <elementValue elementRef="NODECHECK" value="false" id="170"/>
+      <elementValue elementRef="ISARRAY" value="false" id="171"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ramoAtividade" id="172"/>
+      <elementValue elementRef="QUERY" value="" id="173"/>
+      <elementValue elementRef="NODECHECK" value="false" id="174"/>
+      <elementValue elementRef="ISARRAY" value="false" id="175"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="razaoSocial" id="176"/>
+      <elementValue elementRef="QUERY" value="" id="177"/>
+      <elementValue elementRef="NODECHECK" value="false" id="178"/>
+      <elementValue elementRef="ISARRAY" value="false" id="179"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="regiaoVenda" id="180"/>
+      <elementValue elementRef="QUERY" value="" id="181"/>
+      <elementValue elementRef="NODECHECK" value="false" id="182"/>
+      <elementValue elementRef="ISARRAY" value="false" id="183"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="representante" id="184"/>
+      <elementValue elementRef="QUERY" value="" id="185"/>
+      <elementValue elementRef="NODECHECK" value="false" id="186"/>
+      <elementValue elementRef="ISARRAY" value="false" id="187"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="situacao" id="188"/>
+      <elementValue elementRef="QUERY" value="" id="189"/>
+      <elementValue elementRef="NODECHECK" value="false" id="190"/>
+      <elementValue elementRef="ISARRAY" value="false" id="191"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="telefone" id="192"/>
+      <elementValue elementRef="QUERY" value="" id="193"/>
+      <elementValue elementRef="NODECHECK" value="false" id="194"/>
+      <elementValue elementRef="ISARRAY" value="false" id="195"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="tipoRC" id="196"/>
+      <elementValue elementRef="QUERY" value="" id="197"/>
+      <elementValue elementRef="NODECHECK" value="false" id="198"/>
+      <elementValue elementRef="ISARRAY" value="false" id="199"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="vendedor" id="200"/>
+      <elementValue elementRef="QUERY" value="" id="201"/>
+      <elementValue elementRef="NODECHECK" value="false" id="202"/>
+      <elementValue elementRef="ISARRAY" value="false" id="203"/>
     </elementParameter>
     <elementParameter field="TABLE" name="MAPPING_4_JSONPATH">
-      <elementValue elementRef="SCHEMA_COLUMN" value="LTSTAMP" id="0"/>
-      <elementValue elementRef="QUERY" value="&quot;$.LTSTAMP&quot;" id="1"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="WALM" id="2"/>
-      <elementValue elementRef="QUERY" value="&quot;$.WALM&quot;" id="3"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="WEMP" id="4"/>
-      <elementValue elementRef="QUERY" value="&quot;$.WEMP&quot;" id="5"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="WFIL" id="6"/>
-      <elementValue elementRef="QUERY" value="&quot;$.WFIL&quot;" id="7"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ZSID" id="8"/>
-      <elementValue elementRef="QUERY" value="&quot;$.ZSID&quot;" id="9"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSMSG" id="10"/>
-      <elementValue elementRef="QUERY" value="&quot;$.ZWSMSG&quot;" id="11"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSRET" id="12"/>
-      <elementValue elementRef="QUERY" value="&quot;$.ZWSRET&quot;" id="13"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ambiente" id="14"/>
-      <elementValue elementRef="QUERY" value="&quot;$.ambiente&quot;" id="15"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="entidade" id="16"/>
-      <elementValue elementRef="QUERY" value="&quot;$.entidade&quot;" id="17"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="operacao" id="18"/>
-      <elementValue elementRef="QUERY" value="&quot;$.operacao&quot;" id="19"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="sistema" id="20"/>
-      <elementValue elementRef="QUERY" value="&quot;$.sistema&quot;" id="21"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CODCLI" id="0"/>
+      <elementValue elementRef="QUERY" value="" id="1"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TEMACO" id="2"/>
+      <elementValue elementRef="QUERY" value="" id="3"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TSTAMP" id="4"/>
+      <elementValue elementRef="QUERY" value="" id="5"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VTSTAMP" id="6"/>
+      <elementValue elementRef="QUERY" value="" id="7"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WALM" id="8"/>
+      <elementValue elementRef="QUERY" value="" id="9"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WEMP" id="10"/>
+      <elementValue elementRef="QUERY" value="" id="11"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WFIL" id="12"/>
+      <elementValue elementRef="QUERY" value="" id="13"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZSID" id="14"/>
+      <elementValue elementRef="QUERY" value="" id="15"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDIN" id="16"/>
+      <elementValue elementRef="QUERY" value="" id="17"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDOUT" id="18"/>
+      <elementValue elementRef="QUERY" value="" id="19"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSMSG" id="20"/>
+      <elementValue elementRef="QUERY" value="" id="21"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSQREGS" id="22"/>
+      <elementValue elementRef="QUERY" value="" id="23"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSRET" id="24"/>
+      <elementValue elementRef="QUERY" value="" id="25"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="id_cliente" id="26"/>
+      <elementValue elementRef="QUERY" value="&quot;$._id_&quot;" id="27"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="acessoPermitido" id="28"/>
+      <elementValue elementRef="QUERY" value="&quot;$.acessoPermitido&quot;" id="29"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="bairro" id="30"/>
+      <elementValue elementRef="QUERY" value="&quot;$.bairro&quot;" id="31"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="categoriaPreco" id="32"/>
+      <elementValue elementRef="QUERY" value="&quot;$.categoriaPreco&quot;" id="33"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cep" id="34"/>
+      <elementValue elementRef="QUERY" value="&quot;$.cep&quot;" id="35"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cnae" id="36"/>
+      <elementValue elementRef="QUERY" value="&quot;$.cnae&quot;" id="37"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cnpj" id="38"/>
+      <elementValue elementRef="QUERY" value="&quot;$.cnpj&quot;" id="39"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigoCliente" id="40"/>
+      <elementValue elementRef="QUERY" value="&quot;$.codigoCliente&quot;" id="41"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigoEmpresa" id="42"/>
+      <elementValue elementRef="QUERY" value="&quot;$.codigoEmpresa&quot;" id="43"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="contato" id="44"/>
+      <elementValue elementRef="QUERY" value="&quot;$.contato&quot;" id="45"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoFilialComercial" id="46"/>
+      <elementValue elementRef="QUERY" value="&quot;$.descricaoFilialComercial&quot;" id="47"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoFilialRegional" id="48"/>
+      <elementValue elementRef="QUERY" value="&quot;$.descricaoFilialRegional&quot;" id="49"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoRamoAtividade" id="50"/>
+      <elementValue elementRef="QUERY" value="&quot;$.descricaoRamoAtividade&quot;" id="51"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoRegiaoVenda" id="52"/>
+      <elementValue elementRef="QUERY" value="&quot;$.descricaoRegiaoVenda&quot;" id="53"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoSituacao" id="54"/>
+      <elementValue elementRef="QUERY" value="&quot;$.descricaoSituacao&quot;" id="55"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoTipoRC" id="56"/>
+      <elementValue elementRef="QUERY" value="&quot;$.descricaoTipoRC&quot;" id="57"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="emailLogin" id="58"/>
+      <elementValue elementRef="QUERY" value="&quot;$.emailLogin&quot;" id="59"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="emails" id="60"/>
+      <elementValue elementRef="QUERY" value="&quot;$.emails&quot;" id="61"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="endereco" id="62"/>
+      <elementValue elementRef="QUERY" value="&quot;$.endereco&quot;" id="63"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="estado" id="64"/>
+      <elementValue elementRef="QUERY" value="&quot;$.estado&quot;" id="65"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="filialComercial" id="66"/>
+      <elementValue elementRef="QUERY" value="&quot;$.filialComercial&quot;" id="67"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="filialRegional" id="68"/>
+      <elementValue elementRef="QUERY" value="&quot;$.filialRegional&quot;" id="69"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ie" id="70"/>
+      <elementValue elementRef="QUERY" value="&quot;$.ie&quot;" id="71"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="loginLiberado" id="72"/>
+      <elementValue elementRef="QUERY" value="&quot;$.loginLiberado&quot;" id="73"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="municipio" id="74"/>
+      <elementValue elementRef="QUERY" value="&quot;$.municipio&quot;" id="75"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="nomeRepresentante" id="76"/>
+      <elementValue elementRef="QUERY" value="&quot;$.nomeRepresentante&quot;" id="77"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="nomeVendedor" id="78"/>
+      <elementValue elementRef="QUERY" value="&quot;$.nomeVendedor&quot;" id="79"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="pais" id="80"/>
+      <elementValue elementRef="QUERY" value="&quot;$.pais&quot;" id="81"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="podeComprarRemano" id="82"/>
+      <elementValue elementRef="QUERY" value="&quot;$.podeComprarRemano&quot;" id="83"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="potencialCompras" id="84"/>
+      <elementValue elementRef="QUERY" value="&quot;$.potencialCompras&quot;" id="85"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ramoAtividade" id="86"/>
+      <elementValue elementRef="QUERY" value="&quot;$.ramoAtividade&quot;" id="87"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="razaoSocial" id="88"/>
+      <elementValue elementRef="QUERY" value="&quot;$.razaoSocial&quot;" id="89"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="regiaoVenda" id="90"/>
+      <elementValue elementRef="QUERY" value="&quot;$.regiaoVenda&quot;" id="91"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="representante" id="92"/>
+      <elementValue elementRef="QUERY" value="&quot;$.representante&quot;" id="93"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="situacao" id="94"/>
+      <elementValue elementRef="QUERY" value="&quot;$.situacao&quot;" id="95"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="telefone" id="96"/>
+      <elementValue elementRef="QUERY" value="&quot;$.telefone&quot;" id="97"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="tipoRC" id="98"/>
+      <elementValue elementRef="QUERY" value="&quot;$.tipoRC&quot;" id="99"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="vendedor" id="100"/>
+      <elementValue elementRef="QUERY" value="&quot;$.vendedor&quot;" id="101"/>
     </elementParameter>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
@@ -303,36 +627,568 @@
     <elementParameter field="CHECK" name="SPLIT_LIST" value="true" show="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tExtractJSONFields_1">
-      <column comment="" key="false" length="-1" name="LTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CODCLI" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TEMACO" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="VTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="WALM" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="WEMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="WFIL" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ZSID" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDIN" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDOUT" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ZWSMSG" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSQREGS" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ZWSRET" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ambiente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="entidade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="operacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="sistema" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_cliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="acessoPermitido" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="bairro" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="categoriaPreco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cep" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnae" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnpj" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoCliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoEmpresa" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="contato" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRamoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRegiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoSituacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoTipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="emailLogin" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="emails" nullable="true" pattern="" precision="-1" sourceType="" type="id_Object" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="endereco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="estado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ie" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="loginLiberado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="municipio" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeRepresentante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeVendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="pais" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="podeComprarRemano" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="potencialCompras" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ramoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="razaoSocial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="regiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="representante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="situacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="telefone" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="tipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="vendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
-      <column comment="" key="false" length="-1" name="LTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CODCLI" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TEMACO" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="VTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="WALM" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="WEMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="WFIL" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ZSID" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDIN" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDOUT" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ZWSMSG" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSQREGS" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ZWSRET" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ambiente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="entidade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="operacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="sistema" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_cliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="acessoPermitido" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="bairro" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="categoriaPreco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cep" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnae" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnpj" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoCliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoEmpresa" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="contato" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRamoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRegiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoSituacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoTipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="emailLogin" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email_id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="departamento" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="endereco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="estado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ie" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="loginLiberado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="municipio" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeRepresentante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeVendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="pais" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="podeComprarRemano" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="potencialCompras" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ramoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="razaoSocial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="regiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="representante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="situacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="telefone" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="tipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="vendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorJSONField" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="440" posY="320">
+  <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="640" posY="400">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tExtractJSONFields_4" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="READ_BY" value="JSONPATH"/>
+    <elementParameter field="CLOSED_LIST" name="JSON_PATH_VERSION" value="2_1_0"/>
+    <elementParameter field="PREV_COLUMN_LIST" name="JSONFIELD" value="emails"/>
+    <elementParameter field="TEXT" name="LOOP_QUERY" value="&quot;/&quot;" show="false"/>
+    <elementParameter field="TEXT" name="JSON_LOOP_QUERY" value="&quot;$[*]&quot;"/>
+    <elementParameter field="TABLE" name="MAPPING" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="CODCLI" id="0"/>
+      <elementValue elementRef="QUERY" value="" id="1"/>
+      <elementValue elementRef="NODECHECK" value="false" id="2"/>
+      <elementValue elementRef="ISARRAY" value="false" id="3"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TEMACO" id="4"/>
+      <elementValue elementRef="QUERY" value="" id="5"/>
+      <elementValue elementRef="NODECHECK" value="false" id="6"/>
+      <elementValue elementRef="ISARRAY" value="false" id="7"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TSTAMP" id="8"/>
+      <elementValue elementRef="QUERY" value="" id="9"/>
+      <elementValue elementRef="NODECHECK" value="false" id="10"/>
+      <elementValue elementRef="ISARRAY" value="false" id="11"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VTSTAMP" id="12"/>
+      <elementValue elementRef="QUERY" value="" id="13"/>
+      <elementValue elementRef="NODECHECK" value="false" id="14"/>
+      <elementValue elementRef="ISARRAY" value="false" id="15"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WALM" id="16"/>
+      <elementValue elementRef="QUERY" value="" id="17"/>
+      <elementValue elementRef="NODECHECK" value="false" id="18"/>
+      <elementValue elementRef="ISARRAY" value="false" id="19"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WEMP" id="20"/>
+      <elementValue elementRef="QUERY" value="" id="21"/>
+      <elementValue elementRef="NODECHECK" value="false" id="22"/>
+      <elementValue elementRef="ISARRAY" value="false" id="23"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WFIL" id="24"/>
+      <elementValue elementRef="QUERY" value="" id="25"/>
+      <elementValue elementRef="NODECHECK" value="false" id="26"/>
+      <elementValue elementRef="ISARRAY" value="false" id="27"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZSID" id="28"/>
+      <elementValue elementRef="QUERY" value="" id="29"/>
+      <elementValue elementRef="NODECHECK" value="false" id="30"/>
+      <elementValue elementRef="ISARRAY" value="false" id="31"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDIN" id="32"/>
+      <elementValue elementRef="QUERY" value="" id="33"/>
+      <elementValue elementRef="NODECHECK" value="false" id="34"/>
+      <elementValue elementRef="ISARRAY" value="false" id="35"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDOUT" id="36"/>
+      <elementValue elementRef="QUERY" value="" id="37"/>
+      <elementValue elementRef="NODECHECK" value="false" id="38"/>
+      <elementValue elementRef="ISARRAY" value="false" id="39"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSMSG" id="40"/>
+      <elementValue elementRef="QUERY" value="" id="41"/>
+      <elementValue elementRef="NODECHECK" value="false" id="42"/>
+      <elementValue elementRef="ISARRAY" value="false" id="43"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSQREGS" id="44"/>
+      <elementValue elementRef="QUERY" value="" id="45"/>
+      <elementValue elementRef="NODECHECK" value="false" id="46"/>
+      <elementValue elementRef="ISARRAY" value="false" id="47"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSRET" id="48"/>
+      <elementValue elementRef="QUERY" value="" id="49"/>
+      <elementValue elementRef="NODECHECK" value="false" id="50"/>
+      <elementValue elementRef="ISARRAY" value="false" id="51"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="id_cliente" id="52"/>
+      <elementValue elementRef="QUERY" value="&quot;_id_&quot;" id="53"/>
+      <elementValue elementRef="NODECHECK" value="false" id="54"/>
+      <elementValue elementRef="ISARRAY" value="false" id="55"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="acessoPermitido" id="56"/>
+      <elementValue elementRef="QUERY" value="&quot;acessoPermitido&quot;" id="57"/>
+      <elementValue elementRef="NODECHECK" value="false" id="58"/>
+      <elementValue elementRef="ISARRAY" value="false" id="59"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="bairro" id="60"/>
+      <elementValue elementRef="QUERY" value="&quot;bairro&quot;" id="61"/>
+      <elementValue elementRef="NODECHECK" value="false" id="62"/>
+      <elementValue elementRef="ISARRAY" value="false" id="63"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="categoriaPreco" id="64"/>
+      <elementValue elementRef="QUERY" value="&quot;categoriaPreco&quot;" id="65"/>
+      <elementValue elementRef="NODECHECK" value="false" id="66"/>
+      <elementValue elementRef="ISARRAY" value="false" id="67"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cep" id="68"/>
+      <elementValue elementRef="QUERY" value="&quot;cep&quot;" id="69"/>
+      <elementValue elementRef="NODECHECK" value="false" id="70"/>
+      <elementValue elementRef="ISARRAY" value="false" id="71"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cnae" id="72"/>
+      <elementValue elementRef="QUERY" value="&quot;cnae&quot;" id="73"/>
+      <elementValue elementRef="NODECHECK" value="false" id="74"/>
+      <elementValue elementRef="ISARRAY" value="false" id="75"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cnpj" id="76"/>
+      <elementValue elementRef="QUERY" value="&quot;cnpj&quot;" id="77"/>
+      <elementValue elementRef="NODECHECK" value="false" id="78"/>
+      <elementValue elementRef="ISARRAY" value="false" id="79"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigoCliente" id="80"/>
+      <elementValue elementRef="QUERY" value="&quot;codigoCliente&quot;" id="81"/>
+      <elementValue elementRef="NODECHECK" value="false" id="82"/>
+      <elementValue elementRef="ISARRAY" value="false" id="83"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigoEmpresa" id="84"/>
+      <elementValue elementRef="QUERY" value="&quot;codigoEmpresa&quot;" id="85"/>
+      <elementValue elementRef="NODECHECK" value="false" id="86"/>
+      <elementValue elementRef="ISARRAY" value="false" id="87"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="contato" id="88"/>
+      <elementValue elementRef="QUERY" value="&quot;contato&quot;" id="89"/>
+      <elementValue elementRef="NODECHECK" value="false" id="90"/>
+      <elementValue elementRef="ISARRAY" value="false" id="91"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoFilialComercial" id="92"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoFilialComercial&quot;" id="93"/>
+      <elementValue elementRef="NODECHECK" value="false" id="94"/>
+      <elementValue elementRef="ISARRAY" value="false" id="95"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoFilialRegional" id="96"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoFilialRegional&quot;" id="97"/>
+      <elementValue elementRef="NODECHECK" value="false" id="98"/>
+      <elementValue elementRef="ISARRAY" value="false" id="99"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoRamoAtividade" id="100"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoRamoAtividade&quot;" id="101"/>
+      <elementValue elementRef="NODECHECK" value="false" id="102"/>
+      <elementValue elementRef="ISARRAY" value="false" id="103"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoRegiaoVenda" id="104"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoRegiaoVenda&quot;" id="105"/>
+      <elementValue elementRef="NODECHECK" value="false" id="106"/>
+      <elementValue elementRef="ISARRAY" value="false" id="107"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoSituacao" id="108"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoSituacao&quot;" id="109"/>
+      <elementValue elementRef="NODECHECK" value="false" id="110"/>
+      <elementValue elementRef="ISARRAY" value="false" id="111"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoTipoRC" id="112"/>
+      <elementValue elementRef="QUERY" value="&quot;descricaoTipoRC&quot;" id="113"/>
+      <elementValue elementRef="NODECHECK" value="false" id="114"/>
+      <elementValue elementRef="ISARRAY" value="false" id="115"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="emailLogin" id="116"/>
+      <elementValue elementRef="QUERY" value="&quot;emailLogin&quot;" id="117"/>
+      <elementValue elementRef="NODECHECK" value="false" id="118"/>
+      <elementValue elementRef="ISARRAY" value="false" id="119"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="email_id" id="120"/>
+      <elementValue elementRef="QUERY" value="" id="121"/>
+      <elementValue elementRef="NODECHECK" value="false" id="122"/>
+      <elementValue elementRef="ISARRAY" value="false" id="123"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="departamento" id="124"/>
+      <elementValue elementRef="QUERY" value="" id="125"/>
+      <elementValue elementRef="NODECHECK" value="false" id="126"/>
+      <elementValue elementRef="ISARRAY" value="false" id="127"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="email" id="128"/>
+      <elementValue elementRef="QUERY" value="" id="129"/>
+      <elementValue elementRef="NODECHECK" value="false" id="130"/>
+      <elementValue elementRef="ISARRAY" value="false" id="131"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="endereco" id="132"/>
+      <elementValue elementRef="QUERY" value="" id="133"/>
+      <elementValue elementRef="NODECHECK" value="false" id="134"/>
+      <elementValue elementRef="ISARRAY" value="false" id="135"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="estado" id="136"/>
+      <elementValue elementRef="QUERY" value="" id="137"/>
+      <elementValue elementRef="NODECHECK" value="false" id="138"/>
+      <elementValue elementRef="ISARRAY" value="false" id="139"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="filialComercial" id="140"/>
+      <elementValue elementRef="QUERY" value="" id="141"/>
+      <elementValue elementRef="NODECHECK" value="false" id="142"/>
+      <elementValue elementRef="ISARRAY" value="false" id="143"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="filialRegional" id="144"/>
+      <elementValue elementRef="QUERY" value="" id="145"/>
+      <elementValue elementRef="NODECHECK" value="false" id="146"/>
+      <elementValue elementRef="ISARRAY" value="false" id="147"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ie" id="148"/>
+      <elementValue elementRef="QUERY" value="" id="149"/>
+      <elementValue elementRef="NODECHECK" value="false" id="150"/>
+      <elementValue elementRef="ISARRAY" value="false" id="151"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="loginLiberado" id="152"/>
+      <elementValue elementRef="QUERY" value="" id="153"/>
+      <elementValue elementRef="NODECHECK" value="false" id="154"/>
+      <elementValue elementRef="ISARRAY" value="false" id="155"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="municipio" id="156"/>
+      <elementValue elementRef="QUERY" value="" id="157"/>
+      <elementValue elementRef="NODECHECK" value="false" id="158"/>
+      <elementValue elementRef="ISARRAY" value="false" id="159"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="nomeRepresentante" id="160"/>
+      <elementValue elementRef="QUERY" value="" id="161"/>
+      <elementValue elementRef="NODECHECK" value="false" id="162"/>
+      <elementValue elementRef="ISARRAY" value="false" id="163"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="nomeVendedor" id="164"/>
+      <elementValue elementRef="QUERY" value="" id="165"/>
+      <elementValue elementRef="NODECHECK" value="false" id="166"/>
+      <elementValue elementRef="ISARRAY" value="false" id="167"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="pais" id="168"/>
+      <elementValue elementRef="QUERY" value="" id="169"/>
+      <elementValue elementRef="NODECHECK" value="false" id="170"/>
+      <elementValue elementRef="ISARRAY" value="false" id="171"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="podeComprarRemano" id="172"/>
+      <elementValue elementRef="QUERY" value="" id="173"/>
+      <elementValue elementRef="NODECHECK" value="false" id="174"/>
+      <elementValue elementRef="ISARRAY" value="false" id="175"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="potencialCompras" id="176"/>
+      <elementValue elementRef="QUERY" value="" id="177"/>
+      <elementValue elementRef="NODECHECK" value="false" id="178"/>
+      <elementValue elementRef="ISARRAY" value="false" id="179"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ramoAtividade" id="180"/>
+      <elementValue elementRef="QUERY" value="" id="181"/>
+      <elementValue elementRef="NODECHECK" value="false" id="182"/>
+      <elementValue elementRef="ISARRAY" value="false" id="183"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="razaoSocial" id="184"/>
+      <elementValue elementRef="QUERY" value="" id="185"/>
+      <elementValue elementRef="NODECHECK" value="false" id="186"/>
+      <elementValue elementRef="ISARRAY" value="false" id="187"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="regiaoVenda" id="188"/>
+      <elementValue elementRef="QUERY" value="" id="189"/>
+      <elementValue elementRef="NODECHECK" value="false" id="190"/>
+      <elementValue elementRef="ISARRAY" value="false" id="191"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="representante" id="192"/>
+      <elementValue elementRef="QUERY" value="" id="193"/>
+      <elementValue elementRef="NODECHECK" value="false" id="194"/>
+      <elementValue elementRef="ISARRAY" value="false" id="195"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="situacao" id="196"/>
+      <elementValue elementRef="QUERY" value="" id="197"/>
+      <elementValue elementRef="NODECHECK" value="false" id="198"/>
+      <elementValue elementRef="ISARRAY" value="false" id="199"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="telefone" id="200"/>
+      <elementValue elementRef="QUERY" value="" id="201"/>
+      <elementValue elementRef="NODECHECK" value="false" id="202"/>
+      <elementValue elementRef="ISARRAY" value="false" id="203"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="tipoRC" id="204"/>
+      <elementValue elementRef="QUERY" value="" id="205"/>
+      <elementValue elementRef="NODECHECK" value="false" id="206"/>
+      <elementValue elementRef="ISARRAY" value="false" id="207"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="vendedor" id="208"/>
+      <elementValue elementRef="QUERY" value="" id="209"/>
+      <elementValue elementRef="NODECHECK" value="false" id="210"/>
+      <elementValue elementRef="ISARRAY" value="false" id="211"/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="MAPPING_4_JSONPATH">
+      <elementValue elementRef="SCHEMA_COLUMN" value="CODCLI" id="0"/>
+      <elementValue elementRef="QUERY" value="" id="1"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TEMACO" id="2"/>
+      <elementValue elementRef="QUERY" value="" id="3"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TSTAMP" id="4"/>
+      <elementValue elementRef="QUERY" value="" id="5"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VTSTAMP" id="6"/>
+      <elementValue elementRef="QUERY" value="" id="7"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WALM" id="8"/>
+      <elementValue elementRef="QUERY" value="" id="9"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WEMP" id="10"/>
+      <elementValue elementRef="QUERY" value="" id="11"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WFIL" id="12"/>
+      <elementValue elementRef="QUERY" value="" id="13"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZSID" id="14"/>
+      <elementValue elementRef="QUERY" value="" id="15"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDIN" id="16"/>
+      <elementValue elementRef="QUERY" value="" id="17"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDOUT" id="18"/>
+      <elementValue elementRef="QUERY" value="" id="19"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSMSG" id="20"/>
+      <elementValue elementRef="QUERY" value="" id="21"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSQREGS" id="22"/>
+      <elementValue elementRef="QUERY" value="" id="23"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSRET" id="24"/>
+      <elementValue elementRef="QUERY" value="" id="25"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="id_cliente" id="26"/>
+      <elementValue elementRef="QUERY" value="" id="27"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="acessoPermitido" id="28"/>
+      <elementValue elementRef="QUERY" value="" id="29"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="bairro" id="30"/>
+      <elementValue elementRef="QUERY" value="" id="31"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="categoriaPreco" id="32"/>
+      <elementValue elementRef="QUERY" value="" id="33"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cep" id="34"/>
+      <elementValue elementRef="QUERY" value="" id="35"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cnae" id="36"/>
+      <elementValue elementRef="QUERY" value="" id="37"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cnpj" id="38"/>
+      <elementValue elementRef="QUERY" value="" id="39"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigoCliente" id="40"/>
+      <elementValue elementRef="QUERY" value="" id="41"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigoEmpresa" id="42"/>
+      <elementValue elementRef="QUERY" value="" id="43"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="contato" id="44"/>
+      <elementValue elementRef="QUERY" value="" id="45"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoFilialComercial" id="46"/>
+      <elementValue elementRef="QUERY" value="" id="47"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoFilialRegional" id="48"/>
+      <elementValue elementRef="QUERY" value="" id="49"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoRamoAtividade" id="50"/>
+      <elementValue elementRef="QUERY" value="" id="51"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoRegiaoVenda" id="52"/>
+      <elementValue elementRef="QUERY" value="" id="53"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoSituacao" id="54"/>
+      <elementValue elementRef="QUERY" value="" id="55"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoTipoRC" id="56"/>
+      <elementValue elementRef="QUERY" value="" id="57"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="emailLogin" id="58"/>
+      <elementValue elementRef="QUERY" value="" id="59"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="email_id" id="60"/>
+      <elementValue elementRef="QUERY" value="&quot;$._id_&quot;" id="61"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="departamento" id="62"/>
+      <elementValue elementRef="QUERY" value="&quot;$.departamento&quot;" id="63"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="email" id="64"/>
+      <elementValue elementRef="QUERY" value="&quot;$.email&quot;" id="65"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="endereco" id="66"/>
+      <elementValue elementRef="QUERY" value="" id="67"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="estado" id="68"/>
+      <elementValue elementRef="QUERY" value="" id="69"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="filialComercial" id="70"/>
+      <elementValue elementRef="QUERY" value="" id="71"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="filialRegional" id="72"/>
+      <elementValue elementRef="QUERY" value="" id="73"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ie" id="74"/>
+      <elementValue elementRef="QUERY" value="" id="75"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="loginLiberado" id="76"/>
+      <elementValue elementRef="QUERY" value="" id="77"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="municipio" id="78"/>
+      <elementValue elementRef="QUERY" value="" id="79"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="nomeRepresentante" id="80"/>
+      <elementValue elementRef="QUERY" value="" id="81"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="nomeVendedor" id="82"/>
+      <elementValue elementRef="QUERY" value="" id="83"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="pais" id="84"/>
+      <elementValue elementRef="QUERY" value="" id="85"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="podeComprarRemano" id="86"/>
+      <elementValue elementRef="QUERY" value="" id="87"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="potencialCompras" id="88"/>
+      <elementValue elementRef="QUERY" value="" id="89"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ramoAtividade" id="90"/>
+      <elementValue elementRef="QUERY" value="" id="91"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="razaoSocial" id="92"/>
+      <elementValue elementRef="QUERY" value="" id="93"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="regiaoVenda" id="94"/>
+      <elementValue elementRef="QUERY" value="" id="95"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="representante" id="96"/>
+      <elementValue elementRef="QUERY" value="" id="97"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="situacao" id="98"/>
+      <elementValue elementRef="QUERY" value="" id="99"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="telefone" id="100"/>
+      <elementValue elementRef="QUERY" value="" id="101"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="tipoRC" id="102"/>
+      <elementValue elementRef="QUERY" value="" id="103"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="vendedor" id="104"/>
+      <elementValue elementRef="QUERY" value="" id="105"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;UTF-8&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="UTF-8" show="false"/>
+    <elementParameter field="CHECK" name="USE_LOOP_AS_ROOT" value="true"/>
+    <elementParameter field="CHECK" name="SPLIT_LIST" value="true" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tExtractJSONFields_4">
+      <column comment="" key="false" length="-1" name="CODCLI" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TEMACO" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="VTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WALM" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WEMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WFIL" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZSID" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDIN" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDOUT" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSMSG" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSQREGS" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSRET" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_cliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="acessoPermitido" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="bairro" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="categoriaPreco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cep" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnae" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnpj" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoCliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoEmpresa" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="contato" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRamoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRegiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoSituacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoTipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="emailLogin" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email_id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="departamento" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="endereco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="estado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ie" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="loginLiberado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="municipio" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeRepresentante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeVendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="pais" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="podeComprarRemano" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="potencialCompras" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ramoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="razaoSocial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="regiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="representante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="situacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="telefone" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="tipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="vendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REJECT" name="REJECT">
+      <column comment="" key="false" length="-1" name="CODCLI" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TEMACO" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="VTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WALM" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WEMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WFIL" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZSID" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDIN" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDOUT" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSMSG" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSQREGS" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSRET" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_cliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="acessoPermitido" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="bairro" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="categoriaPreco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cep" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnae" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnpj" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoCliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoEmpresa" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="contato" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRamoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRegiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoSituacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoTipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="emailLogin" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email_id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="departamento" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="endereco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="estado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ie" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="loginLiberado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="municipio" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeRepresentante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeVendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="pais" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="podeComprarRemano" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="potencialCompras" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ramoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="razaoSocial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="regiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="representante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="situacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="telefone" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="tipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="vendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorJSONField" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="840" posY="400">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_1" show="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
@@ -346,102 +1202,481 @@
     <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false" show="false"/>
     <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false" show="false"/>
     <elementParameter field="TABLE" name="LENGTHS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="LTSTAMP" id="0"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CODCLI" id="0"/>
       <elementValue elementRef="LENGTH" value="10" id="1"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="WALM" id="2"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TEMACO" id="2"/>
       <elementValue elementRef="LENGTH" value="10" id="3"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="WEMP" id="4"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TSTAMP" id="4"/>
       <elementValue elementRef="LENGTH" value="10" id="5"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="WFIL" id="6"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VTSTAMP" id="6"/>
       <elementValue elementRef="LENGTH" value="10" id="7"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ZSID" id="8"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WALM" id="8"/>
       <elementValue elementRef="LENGTH" value="10" id="9"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSMSG" id="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WEMP" id="10"/>
       <elementValue elementRef="LENGTH" value="10" id="11"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSRET" id="12"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="WFIL" id="12"/>
       <elementValue elementRef="LENGTH" value="10" id="13"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ambiente" id="14"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZSID" id="14"/>
       <elementValue elementRef="LENGTH" value="10" id="15"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="entidade" id="16"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDIN" id="16"/>
       <elementValue elementRef="LENGTH" value="10" id="17"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="operacao" id="18"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSIDOUT" id="18"/>
       <elementValue elementRef="LENGTH" value="10" id="19"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="sistema" id="20"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSMSG" id="20"/>
       <elementValue elementRef="LENGTH" value="10" id="21"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSQREGS" id="22"/>
+      <elementValue elementRef="LENGTH" value="10" id="23"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ZWSRET" id="24"/>
+      <elementValue elementRef="LENGTH" value="10" id="25"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="id_cliente" id="26"/>
+      <elementValue elementRef="LENGTH" value="10" id="27"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="acessoPermitido" id="28"/>
+      <elementValue elementRef="LENGTH" value="10" id="29"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="bairro" id="30"/>
+      <elementValue elementRef="LENGTH" value="10" id="31"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="categoriaPreco" id="32"/>
+      <elementValue elementRef="LENGTH" value="10" id="33"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cep" id="34"/>
+      <elementValue elementRef="LENGTH" value="10" id="35"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cnae" id="36"/>
+      <elementValue elementRef="LENGTH" value="10" id="37"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cnpj" id="38"/>
+      <elementValue elementRef="LENGTH" value="10" id="39"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigoCliente" id="40"/>
+      <elementValue elementRef="LENGTH" value="10" id="41"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigoEmpresa" id="42"/>
+      <elementValue elementRef="LENGTH" value="10" id="43"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="contato" id="44"/>
+      <elementValue elementRef="LENGTH" value="10" id="45"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoFilialComercial" id="46"/>
+      <elementValue elementRef="LENGTH" value="10" id="47"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoFilialRegional" id="48"/>
+      <elementValue elementRef="LENGTH" value="10" id="49"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoRamoAtividade" id="50"/>
+      <elementValue elementRef="LENGTH" value="10" id="51"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoRegiaoVenda" id="52"/>
+      <elementValue elementRef="LENGTH" value="10" id="53"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoSituacao" id="54"/>
+      <elementValue elementRef="LENGTH" value="10" id="55"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="descricaoTipoRC" id="56"/>
+      <elementValue elementRef="LENGTH" value="10" id="57"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="emailLogin" id="58"/>
+      <elementValue elementRef="LENGTH" value="10" id="59"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="email_id" id="60"/>
+      <elementValue elementRef="LENGTH" value="10" id="61"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="departamento" id="62"/>
+      <elementValue elementRef="LENGTH" value="10" id="63"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="email" id="64"/>
+      <elementValue elementRef="LENGTH" value="10" id="65"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="endereco" id="66"/>
+      <elementValue elementRef="LENGTH" value="10" id="67"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="estado" id="68"/>
+      <elementValue elementRef="LENGTH" value="10" id="69"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="filialComercial" id="70"/>
+      <elementValue elementRef="LENGTH" value="10" id="71"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="filialRegional" id="72"/>
+      <elementValue elementRef="LENGTH" value="10" id="73"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ie" id="74"/>
+      <elementValue elementRef="LENGTH" value="10" id="75"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="loginLiberado" id="76"/>
+      <elementValue elementRef="LENGTH" value="10" id="77"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="municipio" id="78"/>
+      <elementValue elementRef="LENGTH" value="10" id="79"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="nomeRepresentante" id="80"/>
+      <elementValue elementRef="LENGTH" value="10" id="81"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="nomeVendedor" id="82"/>
+      <elementValue elementRef="LENGTH" value="10" id="83"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="pais" id="84"/>
+      <elementValue elementRef="LENGTH" value="10" id="85"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="podeComprarRemano" id="86"/>
+      <elementValue elementRef="LENGTH" value="10" id="87"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="potencialCompras" id="88"/>
+      <elementValue elementRef="LENGTH" value="10" id="89"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ramoAtividade" id="90"/>
+      <elementValue elementRef="LENGTH" value="10" id="91"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="razaoSocial" id="92"/>
+      <elementValue elementRef="LENGTH" value="10" id="93"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="regiaoVenda" id="94"/>
+      <elementValue elementRef="LENGTH" value="10" id="95"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="representante" id="96"/>
+      <elementValue elementRef="LENGTH" value="10" id="97"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="situacao" id="98"/>
+      <elementValue elementRef="LENGTH" value="10" id="99"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="telefone" id="100"/>
+      <elementValue elementRef="LENGTH" value="10" id="101"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="tipoRC" id="102"/>
+      <elementValue elementRef="LENGTH" value="10" id="103"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="vendedor" id="104"/>
+      <elementValue elementRef="LENGTH" value="10" id="105"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="false"/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tLogRow_1">
-      <column comment="" key="false" length="-1" name="LTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CODCLI" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TEMACO" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="VTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="WALM" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="WEMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="WFIL" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ZSID" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDIN" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDOUT" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ZWSMSG" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSQREGS" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ZWSRET" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ambiente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="entidade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="operacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="sistema" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_cliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="acessoPermitido" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="bairro" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="categoriaPreco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cep" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnae" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnpj" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoCliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoEmpresa" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="contato" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRamoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRegiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoSituacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoTipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="emailLogin" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email_id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="departamento" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="endereco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="estado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ie" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="loginLiberado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="municipio" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeRepresentante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeVendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="pais" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="podeComprarRemano" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="potencialCompras" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ramoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="razaoSocial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="regiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="representante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="situacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="telefone" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="tipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="vendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="600" posY="320">
+  <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1000" posY="400">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaRow_1" show="false"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.ponteiro = row5.LTSTAMP;&#xD;&#xA;context.ZSID = row5.ZSID;&#xD;&#xA;context.ZWSRET = Integer.parseInt(row5.ZWSRET);&#xD;&#xA;context.ZWSMSG = row5.ZWSMSG;&#xD;&#xA;&#xD;&#xA;System.out.println(&quot;Valor do context.ponteiro: &quot; + context.ponteiro);&#xD;&#xA;System.out.println(&quot;Valor do context.ZSID: &quot; + context.ZSID);&#xD;&#xA;System.out.println(&quot;Valor do context.ZWSRET: &quot; + context.ZWSRET);&#xD;&#xA;System.out.println(&quot;Valor do context.ZWSMSG: &quot; + context.ZWSMSG);&#xD;&#xA;"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.ponteiro_atual = row5.ZWSIDOUT;&#xD;&#xA;//context.ponteiro_max = Integer.parseInt(row5.ZWSIDOUT);&#xD;&#xA;//context.ZWSRET = Integer.parseInt(row5.ZWSRET);&#xD;&#xA;//context.ZWSMSG = row5.ZWSMSG;&#xD;&#xA;"/>
     <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJavaRow_1"/>
   </node>
-  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tSystem_1" offsetLabelX="0" offsetLabelY="0" source="tSystem_1" target="tFileOutputJSON_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1" show="false"/>
-  </connection>
-  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tSystem_1" offsetLabelX="0" offsetLabelY="0" source="tSystem_1" target="tFileInputJSON_1">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="row2" lineStyle="0" metaname="tFileInputJSON_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputJSON_1" target="tJavaFlex_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row2" show="false"/>
-  </connection>
-  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tFileInputJSON_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputJSON_1" target="tFixedFlowInput_1">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="row3" lineStyle="0" metaname="tFixedFlowInput_1" offsetLabelX="0" offsetLabelY="0" source="tFixedFlowInput_1" target="tExtractJSONFields_1">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="conteudo_json" id="0"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="1"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="2"/>
+  <node componentName="tSystem" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="560" posY="120">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSystem_2" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="CHECK" name="ROOTDIR" value="false"/>
+    <elementParameter field="DIRECTORY" name="DIRECTORY" value="&quot;C:/Talend/studio/workspace&quot;" show="false"/>
+    <elementParameter field="RADIO" name="USE_SINGLE_COMMAND" value="true"/>
+    <elementParameter field="MEMO_JAVA" name="COMMAND" value="&quot;java -jar C:/Talend1/jars/opus-service-lib-4.14.24-jar-with-dependencies.jar --run 192.168.1.10:45530 ZWSIDIN=&quot;+((Integer)globalMap.get(&quot;tLoop_1_CURRENT_VALUE&quot;))+&quot; ZWSQREGS=3&quot;&#x9;"/>
+    <elementParameter field="RADIO" name="USE_ARRAY_COMMAND" value="false"/>
+    <elementParameter field="TABLE" name="ARRAY_COMMAND" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="OUTPUT" value="NORMAL_OUTPUT"/>
+    <elementParameter field="CLOSED_LIST" name="ERROROUTPUT" value="RETRIEVE_OUTPUT"/>
+    <elementParameter field="TABLE" name="PARAMS"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tSystem_2">
+      <column key="false" length="255" name="outputline" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1160" posY="400">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_1" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="etl_opus_log_erro"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Default"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="POC_PABU:_D8wEcMxkEfCzps9qGw9O5w"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default" show="false"/>
+    <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="true"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS">
+      <elementValue elementRef="PARAM_NAME_COLUMN" value="ZWSRET" id="0"/>
+      <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.ZWSRET" id="1"/>
+      <elementValue elementRef="PARAM_NAME_COLUMN" value="ZWSMSG" id="2"/>
+      <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.ZWSMSG" id="3"/>
+      <elementValue elementRef="PARAM_NAME_COLUMN" value="lastid" id="4"/>
+      <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.ponteiro" id="5"/>
     </elementParameter>
+    <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true" show="false"/>
+    <elementParameter field="RADIO" name="USE_CHILD_JVM_SETTING" value="true" show="false"/>
+    <elementParameter field="RADIO" name="USE_CUSTOM_JVM_SETTING" value="false" show="false"/>
+    <elementParameter field="TABLE" name="JVM_ARGUMENTS" show="false"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_CONTEXT" value="false"/>
+    <elementParameter field="TEXT" name="DYNAMIC_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXTRA_CLASSPATH" value="false" show="false"/>
+    <elementParameter field="TEXT" name="EXTRA_CLASSPATH" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="LOAD_CONTEXT_FROM_FILE" value="false" show="false"/>
+    <elementParameter field="CHECK" name="USE_BASE64" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="__PROCESS__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRunJob_1"/>
+  </node>
+  <node componentName="tLoop" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="120" posY="40">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLoop_1" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="RADIO" name="FORLOOP" value="true"/>
+    <elementParameter field="RADIO" name="WHILELOOP" value="false"/>
+    <elementParameter field="TEXT" name="FROM" value="context.ponteiro_atual"/>
+    <elementParameter field="TEXT" name="TO" value="context.ponteiro_max"/>
+    <elementParameter field="TEXT" name="STEP" value="1"/>
+    <elementParameter field="CHECK" name="INCREASE" value="true"/>
+    <elementParameter field="TEXT" name="DECLARATION" value="int i=0" show="false"/>
+    <elementParameter field="TEXT" name="CONDITION" value="i&lt;10" show="false"/>
+    <elementParameter field="TEXT" name="ITERATION" value="i++" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="280" posY="40">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="//context.ponteiro_atual = Integer.parseInt(context.ponteiro);&#xD;&#xA;&#xD;&#xA;context.ponteiro_atual = 12345;"/>
+    <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_1"/>
+  </node>
+  <node componentName="tSystem" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="120" posY="280">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSystem_1" show="false"/>
+    <elementParameter field="CHECK" name="ROOTDIR" value="false"/>
+    <elementParameter field="DIRECTORY" name="DIRECTORY" value="&quot;C:/Talend/studio/workspace&quot;" show="false"/>
+    <elementParameter field="RADIO" name="USE_SINGLE_COMMAND" value="true"/>
+    <elementParameter field="MEMO_JAVA" name="COMMAND" value="&quot;java -jar C:/Talend1/jars/opus-service-lib-4.14.24-jar-with-dependencies.jar --run 192.168.1.10:45530 ZWSIDIN=&quot;+context.ponteiro_atual+&quot; ZWSQREGS=100&quot;&#x9;"/>
+    <elementParameter field="RADIO" name="USE_ARRAY_COMMAND" value="false"/>
+    <elementParameter field="TABLE" name="ARRAY_COMMAND" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="OUTPUT" value="NORMAL_OUTPUT"/>
+    <elementParameter field="CLOSED_LIST" name="ERROROUTPUT" value="RETRIEVE_OUTPUT"/>
+    <elementParameter field="TABLE" name="PARAMS"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tSystem_1">
+      <column key="false" length="255" name="outputline" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="320" posY="280">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaFlex_2" show="false"/>
+    <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_START" value="StringBuilder jsonBuilder = new StringBuilder();&#xD;&#xA;boolean inResponseBlock = false;&#xD;&#xA;boolean startedJson = false;&#xD;&#xA;int braceLevel = 0;&#xD;&#xA;"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_MAIN" value="String currentLine = input_row.outputline;&#xD;&#xA;String trimmed = currentLine.trim();&#xD;&#xA;&#xD;&#xA;//1) Detecta início do bloco de resposta&#xD;&#xA;if (trimmed.contains(&quot;[ Resp ]&quot;)) {&#xD;&#xA; inResponseBlock = true;&#xD;&#xA; startedJson = false;&#xD;&#xA; braceLevel = 0;&#xD;&#xA; jsonBuilder.setLength(0); // limpa qualquer lixo anterior&#xD;&#xA;} &#xD;&#xA;//2) Se já estamos no bloco de resposta, começar a capturar o JSON&#xD;&#xA;else if (inResponseBlock) {&#xD;&#xA; &#xD;&#xA; // ignora linhas totalmente vazias&#xD;&#xA; if (trimmed.length() == 0) {&#xD;&#xA;     return;&#xD;&#xA; }&#xD;&#xA;&#xD;&#xA; // ainda não começou o JSON, procura a primeira '{'&#xD;&#xA; if (!startedJson) {&#xD;&#xA;     if (trimmed.startsWith(&quot;{&quot;)) {&#xD;&#xA;         startedJson = true;&#xD;&#xA;     } else {&#xD;&#xA;         // ainda não é o JSON, provavelmente cabeçalho, pula&#xD;&#xA;         return;&#xD;&#xA;     }&#xD;&#xA; }&#xD;&#xA;&#xD;&#xA; // A partir daqui, estamos dentro do JSON: copia a linha como está&#xD;&#xA; if (jsonBuilder.length() > 0) {&#xD;&#xA;     jsonBuilder.append(&quot;\n&quot;);&#xD;&#xA; }&#xD;&#xA; jsonBuilder.append(trimmed);&#xD;&#xA;&#xD;&#xA; // controla nível de chaves para saber quando o JSON terminou&#xD;&#xA; for (int i = 0; i &lt; trimmed.length(); i++) {&#xD;&#xA;     char c = trimmed.charAt(i);&#xD;&#xA;     if (c == '{') {&#xD;&#xA;         braceLevel++;&#xD;&#xA;     } else if (c == '}') {&#xD;&#xA;         braceLevel--;&#xD;&#xA;     }&#xD;&#xA; }&#xD;&#xA;&#xD;&#xA; // se voltou para zero, significa que fechou o último '}' do JSON&#xD;&#xA; if (startedJson &amp;&amp; braceLevel == 0) {&#xD;&#xA;     inResponseBlock = false; // terminou o bloco JSON&#xD;&#xA; }&#xD;&#xA;}&#xD;&#xA;"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_END" value="String jsonFinal = jsonBuilder.toString().trim();&#xD;&#xA;&#xD;&#xA;globalMap.put(&quot;jsonCompleto&quot;, jsonFinal);&#xD;&#xA;&#xD;&#xA;//System.out.println(&quot;DEBUG: JSON final salvo no globalMap -> |&quot; + jsonFinal + &quot;|&quot;);&#xD;&#xA;"/>
+    <elementParameter field="CHECK" name="Version_V2_0" value="false" show="false"/>
+    <elementParameter field="CHECK" name="Version_V3_2" value="false" show="false"/>
+    <elementParameter field="CHECK" name="Version_V4.0" value="true" show="false"/>
+    <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJavaFlex_2">
+      <column comment="" key="false" length="-1" name="jsonCompleto" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="120" posY="160">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_2" show="false"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.ponteiro_atual = &quot;12345&quot;;&#xD;&#xA;System.out.println(&quot;Iniciando chamada do Opus! Ponteiro: &quot;+ context.ponteiro_atual);&#xD;&#xA;"/>
+    <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_2"/>
+  </node>
+  <connection connectorName="FLOW" label="row3" lineStyle="0" metaname="tFixedFlowInput_1" offsetLabelX="0" offsetLabelY="0" source="tFixedFlowInput_1" target="tExtractJSONFields_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row3" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tExtractJSONFields_1" offsetLabelX="0" offsetLabelY="0" source="tExtractJSONFields_1" target="tLogRow_1">
+  <connection connectorName="FLOW" label="row6" lineStyle="0" metaname="tExtractJSONFields_2" offsetLabelX="0" offsetLabelY="0" source="tExtractJSONFields_2" target="tExtractJSONFields_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row6" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tExtractJSONFields_1" offsetLabelX="0" offsetLabelY="0" source="tExtractJSONFields_1" target="tExtractJSONFields_4">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="entidade" id="0"/>
+      <elementValue elementRef="TRACE_COLUMN" value="estado" id="0"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="1"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="2"/>
-      <elementValue elementRef="TRACE_COLUMN" value="sistema" id="3"/>
+      <elementValue elementRef="TRACE_COLUMN" value="situacao" id="3"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="4"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="5"/>
-      <elementValue elementRef="TRACE_COLUMN" value="operacao" id="6"/>
+      <elementValue elementRef="TRACE_COLUMN" value="telefone" id="6"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="7"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="8"/>
+      <elementValue elementRef="TRACE_COLUMN" value="vendedor" id="9"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="10"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="11"/>
+      <elementValue elementRef="TRACE_COLUMN" value="nomeVendedor" id="12"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="13"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="14"/>
+      <elementValue elementRef="TRACE_COLUMN" value="endereco" id="15"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="16"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="17"/>
+      <elementValue elementRef="TRACE_COLUMN" value="municipio" id="18"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="19"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="20"/>
+      <elementValue elementRef="TRACE_COLUMN" value="podeComprarRemano" id="21"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="22"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="23"/>
+      <elementValue elementRef="TRACE_COLUMN" value="filialRegional" id="24"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="25"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="26"/>
+      <elementValue elementRef="TRACE_COLUMN" value="tipoRC" id="27"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="28"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="29"/>
+      <elementValue elementRef="TRACE_COLUMN" value="pais" id="30"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="31"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="32"/>
+      <elementValue elementRef="TRACE_COLUMN" value="nomeRepresentante" id="33"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="34"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="35"/>
+      <elementValue elementRef="TRACE_COLUMN" value="potencialCompras" id="36"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="37"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="38"/>
+      <elementValue elementRef="TRACE_COLUMN" value="representante" id="39"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="40"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="41"/>
+      <elementValue elementRef="TRACE_COLUMN" value="filialComercial" id="42"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="43"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="44"/>
+      <elementValue elementRef="TRACE_COLUMN" value="ie" id="45"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="46"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="47"/>
+      <elementValue elementRef="TRACE_COLUMN" value="loginLiberado" id="48"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="49"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="50"/>
+      <elementValue elementRef="TRACE_COLUMN" value="razaoSocial" id="51"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="52"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="53"/>
+      <elementValue elementRef="TRACE_COLUMN" value="regiaoVenda" id="54"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="55"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="56"/>
+      <elementValue elementRef="TRACE_COLUMN" value="ramoAtividade" id="57"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="58"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="59"/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row4" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tExtractJSONFields_4" offsetLabelX="0" offsetLabelY="0" source="tExtractJSONFields_4" target="tLogRow_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="estado" id="0"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="1"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="2"/>
+      <elementValue elementRef="TRACE_COLUMN" value="situacao" id="3"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="4"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="5"/>
+      <elementValue elementRef="TRACE_COLUMN" value="telefone" id="6"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="7"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="8"/>
+      <elementValue elementRef="TRACE_COLUMN" value="vendedor" id="9"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="10"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="11"/>
+      <elementValue elementRef="TRACE_COLUMN" value="nomeVendedor" id="12"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="13"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="14"/>
+      <elementValue elementRef="TRACE_COLUMN" value="endereco" id="15"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="16"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="17"/>
+      <elementValue elementRef="TRACE_COLUMN" value="municipio" id="18"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="19"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="20"/>
+      <elementValue elementRef="TRACE_COLUMN" value="podeComprarRemano" id="21"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="22"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="23"/>
+      <elementValue elementRef="TRACE_COLUMN" value="filialRegional" id="24"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="25"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="26"/>
+      <elementValue elementRef="TRACE_COLUMN" value="tipoRC" id="27"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="28"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="29"/>
+      <elementValue elementRef="TRACE_COLUMN" value="pais" id="30"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="31"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="32"/>
+      <elementValue elementRef="TRACE_COLUMN" value="nomeRepresentante" id="33"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="34"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="35"/>
+      <elementValue elementRef="TRACE_COLUMN" value="potencialCompras" id="36"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="37"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="38"/>
+      <elementValue elementRef="TRACE_COLUMN" value="representante" id="39"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="40"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="41"/>
+      <elementValue elementRef="TRACE_COLUMN" value="filialComercial" id="42"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="43"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="44"/>
+      <elementValue elementRef="TRACE_COLUMN" value="ie" id="45"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="46"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="47"/>
+      <elementValue elementRef="TRACE_COLUMN" value="loginLiberado" id="48"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="49"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="50"/>
+      <elementValue elementRef="TRACE_COLUMN" value="razaoSocial" id="51"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="52"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="53"/>
+      <elementValue elementRef="TRACE_COLUMN" value="regiaoVenda" id="54"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="55"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="56"/>
+      <elementValue elementRef="TRACE_COLUMN" value="ramoAtividade" id="57"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="58"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="59"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row7" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="row5" lineStyle="0" metaname="tLogRow_1" offsetLabelX="0" offsetLabelY="0" source="tLogRow_1" target="tJavaRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row5" show="false"/>
   </connection>
+  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" source="tJavaRow_1" target="tRunJob_1">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.ZWSRET != 0"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="If1" show="false"/>
+  </connection>
+  <connection connectorName="ITERATE" label="Iterate" lineStyle="7" metaname="tLoop_1" offsetLabelX="0" offsetLabelY="0" source="tLoop_1" target="tJava_2">
+    <elementParameter field="CHECK" name="ENABLE_PARALLEL" value="false"/>
+    <elementParameter field="TEXT" name="NUMBER_PARALLEL" value="2" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="iterate1" show="false"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tJava_1" offsetLabelX="0" offsetLabelY="0" source="tJava_1" target="tLoop_1">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk1" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tSystem_1" offsetLabelX="0" offsetLabelY="0" source="tSystem_1" target="tJavaFlex_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tSystem_1" offsetLabelX="0" offsetLabelY="0" source="tSystem_1" target="tFixedFlowInput_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2" show="false"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tJava_2" offsetLabelX="0" offsetLabelY="0" source="tJava_2" target="tSystem_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2" show="false"/>
+  </connection>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFixedFlowInput_1" show="false"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSystem_2" show="false"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_1" show="false"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLoop_1" show="false"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
+  </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSystem_1" show="false"/>
   </subjob>
   <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputJSON_1" show="false"/>
-  </subjob>
-  <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFixedFlowInput_1" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_2" show="false"/>
   </subjob>
 </talendfile:ProcessType>
