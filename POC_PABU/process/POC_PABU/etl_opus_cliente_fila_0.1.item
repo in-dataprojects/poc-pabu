@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
-  <context confirmationNeeded="false" hide="false" name="Default">
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Dev" jobType="Standard">
+  <context confirmationNeeded="false" hide="false" name="Dev">
     <contextParameter comment="" name="ponteiro" prompt="ponteiro?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxwMPsEfCvS7dW_eK8Qg"/>
     <contextParameter comment="" name="ZSID" prompt="ZSID?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxwcPsEfCvS7dW_eK8Qg"/>
     <contextParameter comment="" name="ZWSRET" prompt="ZWSRET?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="" internalId="_eFSxwsPsEfCvS7dW_eK8Qg"/>
     <contextParameter comment="" name="ZWSMSG" prompt="ZWSMSG?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxw8PsEfCvS7dW_eK8Qg"/>
     <contextParameter comment="" name="ponteiro_atual" prompt="ponteiro_atual?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_GKNsccxiEfCzps9qGw9O5w"/>
     <contextParameter comment="" name="RESP_preenchido" prompt="RESP_preenchido?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="" internalId="_GWLUoNBvEfCxbosgO5XRJg"/>
+    <contextParameter comment="" name="id_cliente" prompt="id_cliente?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_KWQIgNEXEfCxbosgO5XRJg"/>
+  </context>
+  <context confirmationNeeded="false" hide="false" name="PRD">
+    <contextParameter comment="" name="ponteiro" prompt="ponteiro?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxwMPsEfCvS7dW_eK8Qg"/>
+    <contextParameter comment="" name="ZSID" prompt="ZSID?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxwcPsEfCvS7dW_eK8Qg"/>
+    <contextParameter comment="" name="ZWSRET" prompt="ZWSRET?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="" internalId="_eFSxwsPsEfCvS7dW_eK8Qg"/>
+    <contextParameter comment="" name="ZWSMSG" prompt="ZWSMSG?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxw8PsEfCvS7dW_eK8Qg"/>
+    <contextParameter comment="" name="ponteiro_atual" prompt="ponteiro_atual?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_GKNsccxiEfCzps9qGw9O5w"/>
+    <contextParameter comment="" name="RESP_preenchido" prompt="RESP_preenchido?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="" internalId="_GWLUoNBvEfCxbosgO5XRJg"/>
+    <contextParameter comment="" name="id_cliente" prompt="id_cliente?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_KWQIgdEXEfCxbosgO5XRJg"/>
   </context>
   <parameters>
     <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" value="Info" show="false"/>
@@ -1370,7 +1380,7 @@
   </node>
   <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1000" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaRow_1" show="false"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.ponteiro_atual = row5.ZWSIDOUT;&#xD;&#xA;context.ZWSRET = Integer.parseInt(row5.ZWSRET);&#xD;&#xA;context.ZWSMSG = row5.ZWSMSG;&#xD;&#xA;System.out.println(&quot;Proximo ponteiro do Opus! Ponteiro: &quot;+ context.ponteiro_atual);"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.ponteiro_atual = row5.ZWSIDOUT;&#xD;&#xA;context.ZWSRET = Integer.parseInt(row5.ZWSRET);&#xD;&#xA;context.ZWSMSG = row5.ZWSMSG;&#xD;&#xA;context.id_cliente = row5.id_cliente;&#xD;&#xA;System.out.println(&quot;Proximo ponteiro do Opus! Ponteiro: &quot;+ context.ponteiro_atual);"/>
     <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJavaRow_1"/>
@@ -1380,7 +1390,7 @@
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
     <elementParameter field="PROCESS_TYPE" name="PROCESS" value="etl_opus_log_erro"/>
-    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Default"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Dev"/>
     <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="POC_PABU:_D8wEcMxkEfCzps9qGw9O5w"/>
     <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
     <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default" show="false"/>
@@ -1394,6 +1404,8 @@
       <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.ZWSMSG" id="3"/>
       <elementValue elementRef="PARAM_NAME_COLUMN" value="lastid" id="4"/>
       <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.ponteiro_atual" id="5"/>
+      <elementValue elementRef="PARAM_NAME_COLUMN" value="correlationId" id="6"/>
+      <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.id_cliente" id="7"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
     <elementParameter field="CHECK" name="PRINT_PARAMETER" value="false"/>
@@ -1429,7 +1441,7 @@
     <elementParameter field="CHECK" name="ROOTDIR" value="false"/>
     <elementParameter field="DIRECTORY" name="DIRECTORY" value="&quot;C:/Talend/studio/workspace&quot;" show="false"/>
     <elementParameter field="RADIO" name="USE_SINGLE_COMMAND" value="true"/>
-    <elementParameter field="MEMO_JAVA" name="COMMAND" value="&quot;java -jar C:/Talend1/jars/opus-service-lib-4.14.24-jar-with-dependencies.jar --run 192.168.1.10:45530 ZWSIDIN=&quot;+context.ponteiro_atual+&quot; ZWSQREGS=1000&quot;&#x9;"/>
+    <elementParameter field="MEMO_JAVA" name="COMMAND" value="&quot;java -jar C:/Talend1/jars/opus-service-lib-4.14.24-jar-with-dependencies.jar --run 192.168.1.10:45530 ZWSIDIN=&quot;+context.ponteiro_atual+&quot; ZWSQREGS=10&quot;"/>
     <elementParameter field="RADIO" name="USE_ARRAY_COMMAND" value="false"/>
     <elementParameter field="TABLE" name="ARRAY_COMMAND" show="false"/>
     <elementParameter field="CLOSED_LIST" name="OUTPUT" value="NORMAL_OUTPUT"/>

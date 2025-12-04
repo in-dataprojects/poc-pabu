@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
-  <context confirmationNeeded="false" hide="false" name="Default">
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Dev" jobType="Standard">
+  <context confirmationNeeded="false" hide="false" name="Dev">
+    <contextParameter comment="" name="ponteiro" prompt="ponteiro?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_4071gMC9EfCYxOHJBksz1A"/>
+    <contextParameter comment="" name="ZSID" prompt="ZSID?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_OHjnEMGZEfCYxOHJBksz1A"/>
+    <contextParameter comment="" name="ZWSRET" prompt="ZWSRET?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="" internalId="_OHjnEcGZEfCYxOHJBksz1A"/>
+    <contextParameter comment="" name="ZWSMSG" prompt="ZWSMSG?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_Q1VfIMGdEfCYxOHJBksz1A"/>
+    <contextParameter comment="" name="ambiente" prompt="ambiente?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;dev&quot;" internalId="_7eU9INB1EfCxbosgO5XRJg"/>
+    <contextParameter comment="" name="sistema" prompt="sistema?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;poc-talend&quot;" internalId="_7eU9IdB1EfCxbosgO5XRJg"/>
+    <contextParameter comment="" name="entidade" prompt="entidade?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;clientes&quot;" internalId="_7eU9ItB1EfCxbosgO5XRJg"/>
+    <contextParameter comment="" name="operacao" prompt="operacao?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;put&quot;" internalId="_7eU9I9B1EfCxbosgO5XRJg"/>
+    <contextParameter comment="" name="ponteiro_atual" prompt="ponteiro_atual?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_my3lQNB2EfCxbosgO5XRJg"/>
+  </context>
+  <context confirmationNeeded="false" hide="false" name="PRD">
     <contextParameter comment="" name="ponteiro" prompt="ponteiro?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_4071gMC9EfCYxOHJBksz1A"/>
     <contextParameter comment="" name="ZSID" prompt="ZSID?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_OHjnEMGZEfCYxOHJBksz1A"/>
     <contextParameter comment="" name="ZWSRET" prompt="ZWSRET?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="" internalId="_OHjnEcGZEfCYxOHJBksz1A"/>
@@ -342,18 +353,24 @@
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
     <elementParameter field="TEXT" name="CONTEXT_JOB" value="" show="false"/>
     <elementParameter field="PROCESS_TYPE" name="PROCESS" value="etl_opus_log_erro"/>
-    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Default"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Dev"/>
     <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="POC_PABU:_D8wEcMxkEfCzps9qGw9O5w"/>
     <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
     <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default" show="false"/>
     <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
     <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
-    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="false"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="true"/>
     <elementParameter field="TABLE" name="CONTEXTPARAMS">
       <elementValue elementRef="PARAM_NAME_COLUMN" value="ZWSRET" id="0"/>
       <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.ZWSRET" id="1"/>
       <elementValue elementRef="PARAM_NAME_COLUMN" value="ZWSMSG" id="2"/>
       <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.ZWSMSG" id="3"/>
+      <elementValue elementRef="PARAM_NAME_COLUMN" value="entidade" id="4"/>
+      <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.entidade" id="5"/>
+      <elementValue elementRef="PARAM_NAME_COLUMN" value="ambiente" id="6"/>
+      <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.ambiente" id="7"/>
+      <elementValue elementRef="PARAM_NAME_COLUMN" value="sistema" id="8"/>
+      <elementValue elementRef="PARAM_VALUE_COLUMN" value="context.sistema" id="9"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
     <elementParameter field="CHECK" name="PRINT_PARAMETER" value="false"/>
@@ -410,6 +427,21 @@
       <elementValue elementRef="TRACE_COLUMN" value="lastid" id="9"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="10"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="11"/>
+      <elementValue elementRef="TRACE_COLUMN" value="app" id="12"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="13"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="14"/>
+      <elementValue elementRef="TRACE_COLUMN" value="correlationId" id="15"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="16"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="17"/>
+      <elementValue elementRef="TRACE_COLUMN" value="data_hora" id="18"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="19"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="20"/>
+      <elementValue elementRef="TRACE_COLUMN" value="mensagemErro" id="21"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="22"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="23"/>
+      <elementValue elementRef="TRACE_COLUMN" value="status" id="24"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="25"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="26"/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row4" show="false"/>
