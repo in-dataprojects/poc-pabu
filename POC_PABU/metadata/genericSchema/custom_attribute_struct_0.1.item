@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010">
+  <TalendMetadata:GenericSchemaConnection xmi:id="_PV3MMOvpEfCrV-MkKFpT4w" name="repository.metadataGenericSchema" dataPackage="_PV3MMevpEfCrV-MkKFpT4w" mappingTypeUsed="true"/>
+  <TalendMetadata:GenericPackage xmi:id="_PV3MMevpEfCrV-MkKFpT4w" name="repository.metadataGenericSchema" dataManager="_PV3MMOvpEfCrV-MkKFpT4w">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_PV3MMuvpEfCrV-MkKFpT4w" id="__4MkUOvoEfCrV-MkKFpT4w" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_PV3MM-vpEfCrV-MkKFpT4w" name="attribute_code" label="attribute_code" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_PV3MNOvpEfCrV-MkKFpT4w" name="value" label="value" talendType="id_String"/>
+    </ownedElement>
+  </TalendMetadata:GenericPackage>
+</xmi:XMI>

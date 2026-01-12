@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendJSON="http://www.talend.org/json" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendJSON:JSONFileConnection xmi:id="_dJrnoOsIEfCrV-MkKFpT4w" name="clientes" dataPackage="_dJrnx-sIEfCrV-MkKFpT4w" JSONFilePath="C:/Users/fabio.soares_in1/Downloads/json-exemplo.json" Encoding="UTF-8" inputModel="false">
+    <root xmi:id="_dJrnoesIEfCrV-MkKFpT4w" JSONPath="/items" RelatedColumn="" Attribute="main" Order="1" Type="id_String"/>
+    <root xmi:id="_dJrnousIEfCrV-MkKFpT4w" JSONPath="/items/id" RelatedColumn="id" Attribute="branch" Order="2" Type="id_Integer"/>
+    <root xmi:id="_dJrno-sIEfCrV-MkKFpT4w" JSONPath="/items/group_id" RelatedColumn="group_id" Attribute="branch" Order="3" Type="id_Integer"/>
+    <root xmi:id="_dJrnpOsIEfCrV-MkKFpT4w" JSONPath="/items/default_shipping" RelatedColumn="default_shipping" Attribute="branch" Order="4" Type="id_Integer"/>
+    <root xmi:id="_dJrnpesIEfCrV-MkKFpT4w" JSONPath="/items/created_at" RelatedColumn="created_at" Attribute="branch" Order="5" Type="id_Date"/>
+    <root xmi:id="_dJrnpusIEfCrV-MkKFpT4w" JSONPath="/items/updated_at" RelatedColumn="updated_at" Attribute="branch" Order="6" Type="id_Date"/>
+    <root xmi:id="_dJrnp-sIEfCrV-MkKFpT4w" JSONPath="/items/created_in" RelatedColumn="created_in" Attribute="branch" Order="7" Type="id_String"/>
+    <root xmi:id="_dJrnqOsIEfCrV-MkKFpT4w" JSONPath="/items/email" RelatedColumn="email" Attribute="branch" Order="8" Type="id_String"/>
+    <root xmi:id="_dJrnqesIEfCrV-MkKFpT4w" JSONPath="/items/firstname" RelatedColumn="firstname" Attribute="branch" Order="9" Type="id_String"/>
+    <root xmi:id="_dJrnqusIEfCrV-MkKFpT4w" JSONPath="/items/lastname" RelatedColumn="lastname" Attribute="branch" Order="10" Type="id_String"/>
+    <root xmi:id="_dJrnq-sIEfCrV-MkKFpT4w" JSONPath="/items/store_id" RelatedColumn="store_id" Attribute="branch" Order="11" Type="id_Integer"/>
+    <root xmi:id="_dJrnrOsIEfCrV-MkKFpT4w" JSONPath="/items/taxvat" RelatedColumn="taxvat" Attribute="branch" Order="12" Type="id_String"/>
+    <root xmi:id="_dJrnresIEfCrV-MkKFpT4w" JSONPath="/items/website_id" RelatedColumn="website_id" Attribute="branch" Order="13" Type="id_Integer"/>
+    <root xmi:id="_dJrnrusIEfCrV-MkKFpT4w" JSONPath="/items/addresses" RelatedColumn="" Attribute="branch" Order="14" Type="id_String"/>
+    <root xmi:id="_dJrnr-sIEfCrV-MkKFpT4w" JSONPath="/items/addresses/id" RelatedColumn="id1" Attribute="branch" Order="15" Type="id_Integer"/>
+    <root xmi:id="_dJrnsOsIEfCrV-MkKFpT4w" JSONPath="/items/addresses/customer_id" RelatedColumn="customer_id" Attribute="branch" Order="16" Type="id_Integer"/>
+    <root xmi:id="_dJrnsesIEfCrV-MkKFpT4w" JSONPath="/items/addresses/region" RelatedColumn="" Attribute="branch" Order="17" Type="id_String"/>
+    <root xmi:id="_dJrnsusIEfCrV-MkKFpT4w" JSONPath="/items/addresses/region/region_code" RelatedColumn="region_code" Attribute="branch" Order="18" Type="id_String"/>
+    <root xmi:id="_dJrns-sIEfCrV-MkKFpT4w" JSONPath="/items/addresses/region/region" RelatedColumn="region" Attribute="branch" Order="19" Type="id_String"/>
+    <root xmi:id="_dJrntOsIEfCrV-MkKFpT4w" JSONPath="/items/addresses/region/region_id" RelatedColumn="region_id" Attribute="branch" Order="20" Type="id_Integer"/>
+    <root xmi:id="_dJrntesIEfCrV-MkKFpT4w" JSONPath="/items/addresses/region_id" RelatedColumn="region_id1" Attribute="branch" Order="21" Type="id_Integer"/>
+    <root xmi:id="_dJrntusIEfCrV-MkKFpT4w" JSONPath="/items/addresses/country_id" RelatedColumn="country_id" Attribute="branch" Order="22" Type="id_String"/>
+    <root xmi:id="_dJrnt-sIEfCrV-MkKFpT4w" JSONPath="/items/addresses/street" RelatedColumn="street" Attribute="branch" Order="23" Type="id_String"/>
+    <root xmi:id="_dJrnuOsIEfCrV-MkKFpT4w" JSONPath="/items/addresses/telephone" RelatedColumn="telephone" Attribute="branch" Order="24" Type="id_String"/>
+    <root xmi:id="_dJrnuesIEfCrV-MkKFpT4w" JSONPath="/items/addresses/postcode" RelatedColumn="postcode" Attribute="branch" Order="25" Type="id_String"/>
+    <root xmi:id="_dJrnuusIEfCrV-MkKFpT4w" JSONPath="/items/addresses/city" RelatedColumn="city" Attribute="branch" Order="26" Type="id_String"/>
+    <root xmi:id="_dJrnu-sIEfCrV-MkKFpT4w" JSONPath="/items/addresses/firstname" RelatedColumn="firstname1" Attribute="branch" Order="27" Type="id_String"/>
+    <root xmi:id="_dJrnvOsIEfCrV-MkKFpT4w" JSONPath="/items/addresses/lastname" RelatedColumn="lastname1" Attribute="branch" Order="28" Type="id_String"/>
+    <root xmi:id="_dJrnvesIEfCrV-MkKFpT4w" JSONPath="/items/addresses/default_shipping" RelatedColumn="default_shipping1" Attribute="branch" Order="29" Type="id_Boolean"/>
+    <root xmi:id="_dJrnvusIEfCrV-MkKFpT4w" JSONPath="/items/disable_auto_group_change" RelatedColumn="disable_auto_group_change" Attribute="branch" Order="30" Type="id_Integer"/>
+    <root xmi:id="_dJrnv-sIEfCrV-MkKFpT4w" JSONPath="/items/extension_attributes" RelatedColumn="" Attribute="branch" Order="31" Type="id_String"/>
+    <root xmi:id="_dJrnwOsIEfCrV-MkKFpT4w" JSONPath="/items/extension_attributes/company_attributes" RelatedColumn="" Attribute="branch" Order="32" Type="id_String"/>
+    <root xmi:id="_dJrnwesIEfCrV-MkKFpT4w" JSONPath="/items/extension_attributes/company_attributes/company_id" RelatedColumn="company_id" Attribute="branch" Order="33" Type="id_Integer"/>
+    <root xmi:id="_dJrnwusIEfCrV-MkKFpT4w" JSONPath="/items/extension_attributes/company_attributes/status" RelatedColumn="status" Attribute="branch" Order="34" Type="id_Integer"/>
+    <root xmi:id="_dJrnw-sIEfCrV-MkKFpT4w" JSONPath="/items/extension_attributes/is_subscribed" RelatedColumn="is_subscribed" Attribute="branch" Order="35" Type="id_Boolean"/>
+    <loop xmi:id="_dJrnxOsIEfCrV-MkKFpT4w" JSONPath="/items/custom_attributes" RelatedColumn="" Attribute="main" Order="36" Type="id_String"/>
+    <loop xmi:id="_dJrnxesIEfCrV-MkKFpT4w" JSONPath="/items/custom_attributes/attribute_code" RelatedColumn="attribute_code" Attribute="branch" Order="37" Type="id_String"/>
+    <loop xmi:id="_dJrnxusIEfCrV-MkKFpT4w" JSONPath="/items/custom_attributes/value" RelatedColumn="value" Attribute="branch" Order="38" Type="id_String"/>
+  </TalendJSON:JSONFileConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_dJrnx-sIEfCrV-MkKFpT4w" name="default" dataManager="_dJrnoOsIEfCrV-MkKFpT4w">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_dJrnyOsIEfCrV-MkKFpT4w" id="_QqXnQOsIEfCrV-MkKFpT4w" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrnyesIEfCrV-MkKFpT4w" name="id" label="id" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrnyusIEfCrV-MkKFpT4w" name="group_id" label="group_id" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrny-sIEfCrV-MkKFpT4w" name="default_shipping" label="default_shipping" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrnzOsIEfCrV-MkKFpT4w" name="created_at" label="created_at" talendType="id_Date"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrnzesIEfCrV-MkKFpT4w" name="updated_at" label="updated_at" talendType="id_Date"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrnzusIEfCrV-MkKFpT4w" name="created_in" label="created_in" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrnz-sIEfCrV-MkKFpT4w" name="email" label="email" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn0OsIEfCrV-MkKFpT4w" name="firstname" label="firstname" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn0esIEfCrV-MkKFpT4w" name="lastname" label="lastname" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn0usIEfCrV-MkKFpT4w" name="store_id" label="store_id" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn0-sIEfCrV-MkKFpT4w" name="taxvat" label="taxvat" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn1OsIEfCrV-MkKFpT4w" name="website_id" label="website_id" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn1esIEfCrV-MkKFpT4w" name="id" label="id1" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn1usIEfCrV-MkKFpT4w" name="customer_id" label="customer_id" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn1-sIEfCrV-MkKFpT4w" name="region_code" label="region_code" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn2OsIEfCrV-MkKFpT4w" name="region" label="region" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn2esIEfCrV-MkKFpT4w" name="region_id" label="region_id" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn2usIEfCrV-MkKFpT4w" name="region_id" label="region_id1" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn2-sIEfCrV-MkKFpT4w" name="country_id" label="country_id" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn3OsIEfCrV-MkKFpT4w" name="street" label="street" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn3esIEfCrV-MkKFpT4w" name="telephone" label="telephone" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn3usIEfCrV-MkKFpT4w" name="postcode" label="postcode" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn3-sIEfCrV-MkKFpT4w" name="city" label="city" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn4OsIEfCrV-MkKFpT4w" name="firstname" label="firstname1" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn4esIEfCrV-MkKFpT4w" name="lastname" label="lastname1" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn4usIEfCrV-MkKFpT4w" name="default_shipping" label="default_shipping1" talendType="id_Boolean"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn4-sIEfCrV-MkKFpT4w" name="disable_auto_group_change" label="disable_auto_group_change" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn5OsIEfCrV-MkKFpT4w" name="company_id" label="company_id" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn5esIEfCrV-MkKFpT4w" name="status" label="status" talendType="id_Integer"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn5usIEfCrV-MkKFpT4w" name="is_subscribed" label="is_subscribed" talendType="id_Boolean"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn5-sIEfCrV-MkKFpT4w" name="attribute_code" label="attribute_code" talendType="id_String"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_dJrn6OsIEfCrV-MkKFpT4w" name="value" label="value" talendType="id_String"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

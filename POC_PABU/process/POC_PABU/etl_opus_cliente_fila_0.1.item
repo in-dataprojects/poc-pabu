@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMapper="http://www.talend.org/mapper" xmlns:TalendXMLMap="http://www.talend.org/xmlmap" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Dev" jobType="Standard">
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMapper="http://www.talend.org/mapper" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Dev" jobType="Standard">
   <context confirmationNeeded="false" hide="false" name="Dev">
     <contextParameter comment="" name="ponteiro" prompt="ponteiro?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxwMPsEfCvS7dW_eK8Qg"/>
     <contextParameter comment="" name="ZSID" prompt="ZSID?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxwcPsEfCvS7dW_eK8Qg"/>
@@ -8,6 +8,7 @@
     <contextParameter comment="" name="ponteiro_atual" prompt="ponteiro_atual?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_GKNsccxiEfCzps9qGw9O5w"/>
     <contextParameter comment="" name="RESP_preenchido" prompt="RESP_preenchido?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="" internalId="_GWLUoNBvEfCxbosgO5XRJg"/>
     <contextParameter comment="" name="id_cliente" prompt="id_cliente?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_KWQIgNEXEfCxbosgO5XRJg"/>
+    <contextParameter comment="" name="id_magento" prompt="id_magento?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_VaDoUO1fEfCrV-MkKFpT4w"/>
   </context>
   <context confirmationNeeded="false" hide="false" name="PRD">
     <contextParameter comment="" name="ponteiro" prompt="ponteiro?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxwMPsEfCvS7dW_eK8Qg"/>
@@ -17,11 +18,12 @@
     <contextParameter comment="" name="ponteiro_atual" prompt="ponteiro_atual?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_GKNsccxiEfCzps9qGw9O5w"/>
     <contextParameter comment="" name="RESP_preenchido" prompt="RESP_preenchido?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="" internalId="_GWLUoNBvEfCxbosgO5XRJg"/>
     <contextParameter comment="" name="id_cliente" prompt="id_cliente?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_KWQIgdEXEfCxbosgO5XRJg"/>
+    <contextParameter comment="" name="id_magento" prompt="id_magento?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_VaDoUe1fEfCrV-MkKFpT4w"/>
   </context>
   <parameters>
     <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" value="Info" show="false"/>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="50" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="40" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -116,7 +118,7 @@
     <elementParameter field="TEXT" name="FOOTER_CODE" value="" show="false"/>
     <elementParameter field="TEXT" name="FOOTER_IMPORT" value="" show="false"/>
   </parameters>
-  <node componentName="tFixedFlowInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="120" posY="280">
+  <node componentName="tFixedFlowInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="40" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFixedFlowInput_1" show="false"/>
     <elementParameter field="TEXT" name="NB_ROWS" value="1"/>
     <elementParameter field="RADIO" name="USE_SINGLEMODE" value="true"/>
@@ -137,7 +139,7 @@
       <column comment="" key="false" length="-1" name="conteudo_json" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="280" posY="280">
+  <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="200" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tExtractJSONFields_2" show="false"/>
     <elementParameter field="CLOSED_LIST" name="READ_BY" value="JSONPATH"/>
     <elementParameter field="CLOSED_LIST" name="JSON_PATH_VERSION" value="2_1_0"/>
@@ -312,7 +314,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="480" posY="280">
+  <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="400" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tExtractJSONFields_1" show="false"/>
     <elementParameter field="CLOSED_LIST" name="READ_BY" value="JSONPATH"/>
     <elementParameter field="CLOSED_LIST" name="JSON_PATH_VERSION" value="2_1_0"/>
@@ -748,7 +750,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="640" posY="280">
+  <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="560" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tExtractJSONFields_4" show="false"/>
     <elementParameter field="CLOSED_LIST" name="READ_BY" value="JSONPATH"/>
     <elementParameter field="CLOSED_LIST" name="JSON_PATH_VERSION" value="2_1_0"/>
@@ -1198,21 +1200,379 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tFlowToIterate" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="800" posY="280">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="720" posY="280">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_4" show="false"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_ttFi0MPoEfCvS7dW_eK8Qg-tMap_4-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" value="0" show="false"/>
+    <elementParameter field="TEXT" name="JACCARD" value="0" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="concat">
+      <column comment="" key="false" length="-1" name="CODCLI" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TEMACO" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="VTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WALM" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WEMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WFIL" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZSID" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDIN" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDOUT" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSMSG" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSQREGS" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSRET" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_cliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="acessoPermitido" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="bairro" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="categoriaPreco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cep" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnae" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnpj" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoCliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoEmpresa" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="contato" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRamoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRegiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoSituacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoTipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="emailLogin" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email_id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="departamento" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="endereco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="estado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ie" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="loginLiberado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="municipio" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeRepresentante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeVendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="pais" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="podeComprarRemano" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="potencialCompras" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ramoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="razaoSocial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="regiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="representante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="situacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="telefone" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="tipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="vendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email_concat" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties/>
+      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
+      <outputTables sizeState="INTERMEDIATE" name="concat">
+        <mapperTableEntries name="CODCLI" expression="row7.CODCLI" type="id_String" nullable="true"/>
+        <mapperTableEntries name="TEMACO" expression="row7.TEMACO" type="id_String" nullable="true"/>
+        <mapperTableEntries name="TSTAMP" expression="row7.TSTAMP" type="id_String" nullable="true"/>
+        <mapperTableEntries name="VTSTAMP" expression="row7.VTSTAMP" type="id_String" nullable="true"/>
+        <mapperTableEntries name="WALM" expression="row7.WALM" type="id_String" nullable="true"/>
+        <mapperTableEntries name="WEMP" expression="row7.WEMP" type="id_String" nullable="true"/>
+        <mapperTableEntries name="WFIL" expression="row7.WFIL" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZSID" expression="row7.ZSID" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZWSIDIN" expression="row7.ZWSIDIN" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZWSIDOUT" expression="row7.ZWSIDOUT" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZWSMSG" expression="row7.ZWSMSG" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZWSQREGS" expression="row7.ZWSQREGS" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZWSRET" expression="row7.ZWSRET" type="id_String" nullable="true"/>
+        <mapperTableEntries name="id_cliente" expression="row7.id_cliente" type="id_String" nullable="true"/>
+        <mapperTableEntries name="acessoPermitido" expression="row7.acessoPermitido" type="id_String" nullable="true"/>
+        <mapperTableEntries name="bairro" expression="row7.bairro" type="id_String" nullable="true"/>
+        <mapperTableEntries name="categoriaPreco" expression="row7.categoriaPreco" type="id_String" nullable="true"/>
+        <mapperTableEntries name="cep" expression="row7.cep" type="id_String" nullable="true"/>
+        <mapperTableEntries name="cnae" expression="row7.cnae" type="id_String" nullable="true"/>
+        <mapperTableEntries name="cnpj" expression="row7.cnpj" type="id_String" nullable="true"/>
+        <mapperTableEntries name="codigoCliente" expression="row7.codigoCliente" type="id_String" nullable="true"/>
+        <mapperTableEntries name="codigoEmpresa" expression="row7.codigoEmpresa" type="id_String" nullable="true"/>
+        <mapperTableEntries name="contato" expression="row7.contato" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoFilialComercial" expression="row7.descricaoFilialComercial" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoFilialRegional" expression="row7.descricaoFilialRegional" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoRamoAtividade" expression="row7.descricaoRamoAtividade" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoRegiaoVenda" expression="row7.descricaoRegiaoVenda" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoSituacao" expression="row7.descricaoSituacao" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoTipoRC" expression="row7.descricaoTipoRC" type="id_String" nullable="true"/>
+        <mapperTableEntries name="emailLogin" expression="row7.emailLogin" type="id_String" nullable="true"/>
+        <mapperTableEntries name="email_id" expression="row7.email_id" type="id_String" nullable="true"/>
+        <mapperTableEntries name="departamento" expression="row7.departamento" type="id_String" nullable="true"/>
+        <mapperTableEntries name="email" expression="row7.email" type="id_String" nullable="true"/>
+        <mapperTableEntries name="endereco" expression="row7.endereco" type="id_String" nullable="true"/>
+        <mapperTableEntries name="estado" expression="row7.estado" type="id_String" nullable="true"/>
+        <mapperTableEntries name="filialComercial" expression="row7.filialComercial" type="id_String" nullable="true"/>
+        <mapperTableEntries name="filialRegional" expression="row7.filialRegional" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ie" expression="row7.ie" type="id_String" nullable="true"/>
+        <mapperTableEntries name="loginLiberado" expression="row7.loginLiberado" type="id_String" nullable="true"/>
+        <mapperTableEntries name="municipio" expression="row7.municipio" type="id_String" nullable="true"/>
+        <mapperTableEntries name="nomeRepresentante" expression="row7.nomeRepresentante" type="id_String" nullable="true"/>
+        <mapperTableEntries name="nomeVendedor" expression="row7.nomeVendedor" type="id_String" nullable="true"/>
+        <mapperTableEntries name="pais" expression="row7.pais" type="id_String" nullable="true"/>
+        <mapperTableEntries name="podeComprarRemano" expression="row7.podeComprarRemano" type="id_String" nullable="true"/>
+        <mapperTableEntries name="potencialCompras" expression="row7.potencialCompras" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ramoAtividade" expression="row7.ramoAtividade" type="id_String" nullable="true"/>
+        <mapperTableEntries name="razaoSocial" expression="row7.razaoSocial" type="id_String" nullable="true"/>
+        <mapperTableEntries name="regiaoVenda" expression="row7.regiaoVenda" type="id_String" nullable="true"/>
+        <mapperTableEntries name="representante" expression="row7.representante" type="id_String" nullable="true"/>
+        <mapperTableEntries name="situacao" expression="row7.situacao" type="id_String" nullable="true"/>
+        <mapperTableEntries name="telefone" expression="row7.telefone" type="id_String" nullable="true"/>
+        <mapperTableEntries name="tipoRC" expression="row7.tipoRC" type="id_String" nullable="true"/>
+        <mapperTableEntries name="vendedor" expression="row7.vendedor" type="id_String" nullable="true"/>
+        <mapperTableEntries name="email_concat" expression="(row7.departamento != null &amp;&amp; row7.email != null&#xD;&#xA;&amp;&amp; row7.departamento.trim().length() > 0&#xD;&#xA;&amp;&amp; row7.email.trim().length() > 0)&#xD;&#xA;?&#xD;&#xA;row7.departamento + &quot;-&quot; + row7.email:null " type="id_String" nullable="true"/>
+      </outputTables>
+      <inputTables sizeState="INTERMEDIATE" name="row7" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="CODCLI" type="id_String" nullable="true"/>
+        <mapperTableEntries name="TEMACO" type="id_String" nullable="true"/>
+        <mapperTableEntries name="TSTAMP" type="id_String" nullable="true"/>
+        <mapperTableEntries name="VTSTAMP" type="id_String" nullable="true"/>
+        <mapperTableEntries name="WALM" type="id_String" nullable="true"/>
+        <mapperTableEntries name="WEMP" type="id_String" nullable="true"/>
+        <mapperTableEntries name="WFIL" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZSID" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZWSIDIN" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZWSIDOUT" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZWSMSG" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZWSQREGS" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ZWSRET" type="id_String" nullable="true"/>
+        <mapperTableEntries name="id_cliente" type="id_String" nullable="true"/>
+        <mapperTableEntries name="acessoPermitido" type="id_String" nullable="true"/>
+        <mapperTableEntries name="bairro" type="id_String" nullable="true"/>
+        <mapperTableEntries name="categoriaPreco" type="id_String" nullable="true"/>
+        <mapperTableEntries name="cep" type="id_String" nullable="true"/>
+        <mapperTableEntries name="cnae" type="id_String" nullable="true"/>
+        <mapperTableEntries name="cnpj" type="id_String" nullable="true"/>
+        <mapperTableEntries name="codigoCliente" type="id_String" nullable="true"/>
+        <mapperTableEntries name="codigoEmpresa" type="id_String" nullable="true"/>
+        <mapperTableEntries name="contato" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoFilialComercial" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoFilialRegional" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoRamoAtividade" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoRegiaoVenda" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoSituacao" type="id_String" nullable="true"/>
+        <mapperTableEntries name="descricaoTipoRC" type="id_String" nullable="true"/>
+        <mapperTableEntries name="emailLogin" type="id_String" nullable="true"/>
+        <mapperTableEntries name="email_id" type="id_String" nullable="true"/>
+        <mapperTableEntries name="departamento" type="id_String" nullable="true"/>
+        <mapperTableEntries name="email" type="id_String" nullable="true"/>
+        <mapperTableEntries name="endereco" type="id_String" nullable="true"/>
+        <mapperTableEntries name="estado" type="id_String" nullable="true"/>
+        <mapperTableEntries name="filialComercial" type="id_String" nullable="true"/>
+        <mapperTableEntries name="filialRegional" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ie" type="id_String" nullable="true"/>
+        <mapperTableEntries name="loginLiberado" type="id_String" nullable="true"/>
+        <mapperTableEntries name="municipio" type="id_String" nullable="true"/>
+        <mapperTableEntries name="nomeRepresentante" type="id_String" nullable="true"/>
+        <mapperTableEntries name="nomeVendedor" type="id_String" nullable="true"/>
+        <mapperTableEntries name="pais" type="id_String" nullable="true"/>
+        <mapperTableEntries name="podeComprarRemano" type="id_String" nullable="true"/>
+        <mapperTableEntries name="potencialCompras" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ramoAtividade" type="id_String" nullable="true"/>
+        <mapperTableEntries name="razaoSocial" type="id_String" nullable="true"/>
+        <mapperTableEntries name="regiaoVenda" type="id_String" nullable="true"/>
+        <mapperTableEntries name="representante" type="id_String" nullable="true"/>
+        <mapperTableEntries name="situacao" type="id_String" nullable="true"/>
+        <mapperTableEntries name="telefone" type="id_String" nullable="true"/>
+        <mapperTableEntries name="tipoRC" type="id_String" nullable="true"/>
+        <mapperTableEntries name="vendedor" type="id_String" nullable="true"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tAggregateRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="880" posY="280">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tAggregateRow_1" show="false"/>
+    <elementParameter field="TABLE" name="GROUPBYS">
+      <elementValue elementRef="OUTPUT_COLUMN" value="CODCLI" id="0"/>
+      <elementValue elementRef="INPUT_COLUMN" value="CODCLI" id="1"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="TEMACO" id="2"/>
+      <elementValue elementRef="INPUT_COLUMN" value="TEMACO" id="3"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="TSTAMP" id="4"/>
+      <elementValue elementRef="INPUT_COLUMN" value="TSTAMP" id="5"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="VTSTAMP" id="6"/>
+      <elementValue elementRef="INPUT_COLUMN" value="VTSTAMP" id="7"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="WALM" id="8"/>
+      <elementValue elementRef="INPUT_COLUMN" value="WALM" id="9"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="WEMP" id="10"/>
+      <elementValue elementRef="INPUT_COLUMN" value="WEMP" id="11"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="WFIL" id="12"/>
+      <elementValue elementRef="INPUT_COLUMN" value="WFIL" id="13"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ZSID" id="14"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ZSID" id="15"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ZWSIDIN" id="16"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ZWSIDIN" id="17"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ZWSIDOUT" id="18"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ZWSIDOUT" id="19"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ZWSMSG" id="20"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ZWSMSG" id="21"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ZWSQREGS" id="22"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ZWSQREGS" id="23"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ZWSRET" id="24"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ZWSRET" id="25"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="id_cliente" id="26"/>
+      <elementValue elementRef="INPUT_COLUMN" value="id_cliente" id="27"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="acessoPermitido" id="28"/>
+      <elementValue elementRef="INPUT_COLUMN" value="acessoPermitido" id="29"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="bairro" id="30"/>
+      <elementValue elementRef="INPUT_COLUMN" value="bairro" id="31"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="categoriaPreco" id="32"/>
+      <elementValue elementRef="INPUT_COLUMN" value="categoriaPreco" id="33"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="cep" id="34"/>
+      <elementValue elementRef="INPUT_COLUMN" value="cep" id="35"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="cnae" id="36"/>
+      <elementValue elementRef="INPUT_COLUMN" value="cnae" id="37"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="cnpj" id="38"/>
+      <elementValue elementRef="INPUT_COLUMN" value="cnpj" id="39"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="codigoCliente" id="40"/>
+      <elementValue elementRef="INPUT_COLUMN" value="codigoCliente" id="41"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="codigoEmpresa" id="42"/>
+      <elementValue elementRef="INPUT_COLUMN" value="codigoEmpresa" id="43"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="contato" id="44"/>
+      <elementValue elementRef="INPUT_COLUMN" value="contato" id="45"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="descricaoFilialComercial" id="46"/>
+      <elementValue elementRef="INPUT_COLUMN" value="descricaoFilialComercial" id="47"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="descricaoFilialRegional" id="48"/>
+      <elementValue elementRef="INPUT_COLUMN" value="descricaoFilialRegional" id="49"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="descricaoRamoAtividade" id="50"/>
+      <elementValue elementRef="INPUT_COLUMN" value="descricaoRamoAtividade" id="51"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="descricaoRegiaoVenda" id="52"/>
+      <elementValue elementRef="INPUT_COLUMN" value="descricaoRegiaoVenda" id="53"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="descricaoSituacao" id="54"/>
+      <elementValue elementRef="INPUT_COLUMN" value="descricaoSituacao" id="55"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="descricaoTipoRC" id="56"/>
+      <elementValue elementRef="INPUT_COLUMN" value="descricaoTipoRC" id="57"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="emailLogin" id="58"/>
+      <elementValue elementRef="INPUT_COLUMN" value="emailLogin" id="59"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="endereco" id="60"/>
+      <elementValue elementRef="INPUT_COLUMN" value="endereco" id="61"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="estado" id="62"/>
+      <elementValue elementRef="INPUT_COLUMN" value="estado" id="63"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="filialComercial" id="64"/>
+      <elementValue elementRef="INPUT_COLUMN" value="filialComercial" id="65"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="filialRegional" id="66"/>
+      <elementValue elementRef="INPUT_COLUMN" value="filialRegional" id="67"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ie" id="68"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ie" id="69"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="loginLiberado" id="70"/>
+      <elementValue elementRef="INPUT_COLUMN" value="loginLiberado" id="71"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="municipio" id="72"/>
+      <elementValue elementRef="INPUT_COLUMN" value="municipio" id="73"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="nomeRepresentante" id="74"/>
+      <elementValue elementRef="INPUT_COLUMN" value="nomeRepresentante" id="75"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="nomeVendedor" id="76"/>
+      <elementValue elementRef="INPUT_COLUMN" value="nomeVendedor" id="77"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="pais" id="78"/>
+      <elementValue elementRef="INPUT_COLUMN" value="pais" id="79"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="podeComprarRemano" id="80"/>
+      <elementValue elementRef="INPUT_COLUMN" value="podeComprarRemano" id="81"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="potencialCompras" id="82"/>
+      <elementValue elementRef="INPUT_COLUMN" value="potencialCompras" id="83"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="ramoAtividade" id="84"/>
+      <elementValue elementRef="INPUT_COLUMN" value="ramoAtividade" id="85"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="razaoSocial" id="86"/>
+      <elementValue elementRef="INPUT_COLUMN" value="razaoSocial" id="87"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="regiaoVenda" id="88"/>
+      <elementValue elementRef="INPUT_COLUMN" value="regiaoVenda" id="89"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="representante" id="90"/>
+      <elementValue elementRef="INPUT_COLUMN" value="representante" id="91"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="situacao" id="92"/>
+      <elementValue elementRef="INPUT_COLUMN" value="situacao" id="93"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="telefone" id="94"/>
+      <elementValue elementRef="INPUT_COLUMN" value="telefone" id="95"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="tipoRC" id="96"/>
+      <elementValue elementRef="INPUT_COLUMN" value="tipoRC" id="97"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="vendedor" id="98"/>
+      <elementValue elementRef="INPUT_COLUMN" value="vendedor" id="99"/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="OPERATIONS">
+      <elementValue elementRef="OUTPUT_COLUMN" value="email_concat" id="0"/>
+      <elementValue elementRef="FUNCTION" value="list" id="1"/>
+      <elementValue elementRef="INPUT_COLUMN" value="email_concat" id="2"/>
+      <elementValue elementRef="IGNORE_NULL" value="true" id="3"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LIST_DELIMITER" value="&quot;,&quot;"/>
+    <elementParameter field="CHECK" name="USE_FINANCIAL_PRECISION" value="false"/>
+    <elementParameter field="CHECK" name="CHECK_TYPE_OVERFLOW" value="false"/>
+    <elementParameter field="CHECK" name="CHECK_ULP" value="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tAggregateRow_1">
+      <column comment="" key="false" length="-1" name="CODCLI" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TEMACO" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="VTSTAMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WALM" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WEMP" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="WFIL" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZSID" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDIN" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSIDOUT" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSMSG" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSQREGS" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ZWSRET" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_cliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="acessoPermitido" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="bairro" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="categoriaPreco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cep" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnae" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="cnpj" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoCliente" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="codigoEmpresa" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="contato" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoFilialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRamoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoRegiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoSituacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="descricaoTipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="emailLogin" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email_id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="departamento" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="endereco" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="estado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialComercial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="filialRegional" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ie" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="loginLiberado" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="municipio" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeRepresentante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="nomeVendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="pais" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="podeComprarRemano" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="potencialCompras" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ramoAtividade" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="razaoSocial" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="regiaoVenda" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="representante" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="situacao" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="telefone" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="tipoRC" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="vendedor" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="email_concat" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tFlowToIterate" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1040" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFlowToIterate_1" show="false"/>
     <elementParameter field="CHECK" name="DEFAULT_MAP" value="true"/>
     <elementParameter field="TABLE" name="MAP" show="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tFlowToIterate_1"/>
   </node>
-  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="920" posY="280">
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1160" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="System.out.println(&quot;Codigo do Cliente: &quot;+ ((String)globalMap.get(&quot;row7.codigoCliente&quot;)));&#xD;&#xA;context.ponteiro_atual = ((String)globalMap.get(&quot;row7.ZWSIDOUT&quot;));&#xD;&#xA;context.ZWSRET = Integer.parseInt(((String)globalMap.get(&quot;row7.ZWSRET&quot;)));&#xD;&#xA;context.ZWSMSG = ((String)globalMap.get(&quot;row7.ZWSMSG&quot;));&#xD;&#xA;context.id_cliente = ((String)globalMap.get(&quot;row7.id_cliente&quot;));&#xD;&#xA;System.out.println(&quot;Proximo ponteiro do Opus! Ponteiro: &quot;+ context.ponteiro_atual);"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="System.out.println(&quot;Codigo do Cliente: &quot;+ ((String)globalMap.get(&quot;row8.codigoCliente&quot;)));&#xD;&#xA;context.ponteiro_atual = ((String)globalMap.get(&quot;row8.ZWSIDOUT&quot;));&#xD;&#xA;context.ZWSRET = Integer.parseInt(((String)globalMap.get(&quot;row8.ZWSRET&quot;)));&#xD;&#xA;context.ZWSMSG = ((String)globalMap.get(&quot;row8.ZWSMSG&quot;));&#xD;&#xA;context.id_cliente = ((String)globalMap.get(&quot;row8.id_cliente&quot;));&#xD;&#xA;System.out.println(&quot;Proximo ponteiro do Opus! Ponteiro: &quot;+ context.ponteiro_atual);"/>
     <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJava_1"/>
   </node>
-  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1040" posY="280">
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1280" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_1" show="false"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
@@ -1251,7 +1611,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tRunJob_1"/>
   </node>
-  <node componentName="tLoop" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="480" posY="120">
+  <node componentName="tLoop" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="400" posY="120">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLoop_1" show="false"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="RADIO" name="FORLOOP" value="false"/>
@@ -1265,18 +1625,18 @@
     <elementParameter field="TEXT" name="ITERATION" value=""/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="400" posY="-40">
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="320" posY="-40">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_2" show="false"/>
     <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.ponteiro_atual = &quot;1765984230022300&quot;;&#xD;&#xA;context.RESP_preenchido = 1;&#xD;&#xA;System.out.println(&quot;Iniciando chamada do Opus! Ponteiro: &quot;+ context.ponteiro_atual);&#xD;&#xA;"/>
     <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJava_2"/>
   </node>
-  <node componentName="tPrejob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="200" posY="-40">
+  <node componentName="tPrejob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="120" posY="-40">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPrejob_1" show="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tDie" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1200" posY="280">
+  <node componentName="tDie" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1440" posY="280">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDie_1" show="false"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TEXT" name="MESSAGE" value="&quot;Não foi possível coletar cliente: &quot; + context.ZWSMSG"/>
@@ -1286,7 +1646,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tDie_1"/>
   </node>
-  <node componentName="tSystem" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="280" posY="120">
+  <node componentName="tSystem" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="200" posY="120">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSystem_1" show="false"/>
     <elementParameter field="CHECK" name="ROOTDIR" value="false"/>
     <elementParameter field="DIRECTORY" name="DIRECTORY" value="&quot;C:/Talend/studio/workspace&quot;" show="false"/>
@@ -1302,7 +1662,7 @@
       <column key="false" length="255" name="outputline" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="120" posY="120">
+  <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="40" posY="120">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaFlex_2" show="false"/>
     <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
     <elementParameter field="MEMO_EDITOR_JAVA" name="CODE_START" value="StringBuilder jsonBuilder = new StringBuilder();&#xD;&#xA;boolean inResponseBlock = false;&#xD;&#xA;boolean startedJson = false;&#xD;&#xA;int braceLevel = 0;&#xD;&#xA;"/>
@@ -1317,7 +1677,7 @@
       <column comment="" key="false" length="-1" name="jsonCompleto" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tRESTClient" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="920" posY="440">
+  <node componentName="tRESTClient" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1160" posY="480">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRESTClient_1" show="false"/>
     <elementParameter field="TEXT" name="URL" value="&quot;https://mcstaging.pacaembuautopecas.com.br/rest/store01/V1/customers/search&quot;"/>
     <elementParameter field="TEXT" name="PATH" value="&quot;&quot;"/>
@@ -1328,7 +1688,7 @@
       <elementValue elementRef="NAME" value="&quot;searchCriteria[filterGroups][0][filters][0][field]&quot;" id="0"/>
       <elementValue elementRef="VALUE" value="&quot;client_id__c&quot;" id="1"/>
       <elementValue elementRef="NAME" value="&quot;searchCriteria[filterGroups][0][filters][0][value]&quot;" id="2"/>
-      <elementValue elementRef="VALUE" value="((String)globalMap.get(&quot;row7.codigoCliente&quot;))" id="3"/>
+      <elementValue elementRef="VALUE" value="((String)globalMap.get(&quot;row8.codigoCliente&quot;))" id="3"/>
       <elementValue elementRef="NAME" value="&quot;searchCriteria[filterGroups][0][filters][0][conditionType]&quot;" id="4"/>
       <elementValue elementRef="VALUE" value="&quot;eq&quot;" id="5"/>
     </elementParameter>
@@ -1386,44 +1746,14 @@
     <metadata connector="RESPONSE" name="RESPONSE">
       <column defaultValue="" key="false" length="0" name="statusCode" nullable="true" precision="0" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="0" name="body" nullable="true" precision="0" sourceType="" type="id_Document" originalLength="-1" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="4048" name="string" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column key="false" length="4048" name="string" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="FAULT" name="FAULT">
       <column defaultValue="" key="false" length="0" name="errorCode" nullable="true" precision="0" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="1024" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="800" posY="440">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_2" show="false"/>
-    <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
-    <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
-    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
-    <elementParameter field="RADIO" name="PRINT_UNIQUE" value="true" show="false"/>
-    <elementParameter field="RADIO" name="PRINT_LABEL" value="false" show="false"/>
-    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" value="false" show="false"/>
-    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;" show="false"/>
-    <elementParameter field="CHECK" name="PRINT_HEADER" value="false" show="false"/>
-    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false" show="false"/>
-    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false" show="false"/>
-    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false" show="false"/>
-    <elementParameter field="TABLE" name="LENGTHS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="statusCode" id="0"/>
-      <elementValue elementRef="LENGTH" value="10" id="1"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="body" id="2"/>
-      <elementValue elementRef="LENGTH" value="10" id="3"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="string" id="4"/>
-      <elementValue elementRef="LENGTH" value="10" id="5"/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
-    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tLogRow_2">
-      <column defaultValue="" key="false" length="0" name="statusCode" nullable="true" precision="0" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="0" name="body" nullable="true" precision="0" sourceType="" type="id_Document" originalLength="-1" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="4048" name="string" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tExtractXMLField" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="640" posY="440">
+  <node componentName="tExtractXMLField" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="880" posY="480">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tExtractXMLField_1" show="false"/>
     <elementParameter field="PREV_COLUMN_LIST" name="XMLFIELD" value="body"/>
     <elementParameter field="CHECK" name="USE_ITEMS" value="false" show="false"/>
@@ -1452,129 +1782,26 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="480" posY="440">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_1" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_ttFi0MPoEfCvS7dW_eK8Qg-tMap_1-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="LEVENSHTEIN" value="0" show="false"/>
-    <elementParameter field="TEXT" name="JACCARD" value="0" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+  <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="600" posY="400">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaRow_2" show="false"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.id_magento = row9.id; "/>
+    <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="put" name="put">
+    <metadata connector="FLOW" label="put" name="tJavaRow_2">
       <column comment="" key="false" length="-1" name="id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_test" nullable="true" pattern="" precision="-1" sourceType="" type="id_Boolean" originalLength="-1" usefulColumn="true"/>
     </metadata>
-    <metadata connector="FLOW" label="post" name="post">
-      <column comment="" key="false" length="-1" name="id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
-      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
-      <outputTables sizeState="INTERMEDIATE" name="put">
-        <mapperTableEntries name="id" expression="row9.id != null &amp;&amp; row9.id.trim().length() > 0" type="id_String" nullable="true"/>
-      </outputTables>
-      <outputTables sizeState="INTERMEDIATE" name="post">
-        <mapperTableEntries name="id" expression="row9.id == null || row9.id.trim().length() == 0" type="id_String" nullable="true"/>
-      </outputTables>
-      <inputTables sizeState="INTERMEDIATE" name="row9" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
-        <mapperTableEntries name="id" type="id_String" nullable="true"/>
-      </inputTables>
-    </nodeData>
   </node>
-  <node componentName="tXMLMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="280" posY="440">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tXMLMap_2" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DESTINATION" value="" show="false"/>
-    <elementParameter field="TEXT" name="ORIGIN" value="" show="false"/>
-    <elementParameter field="CHECK" name="KEEP_ORDER_FOR_DOCUMENT" value="false"/>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="360" posY="400">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_4" show="false"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="//======================================================&#xD;&#xA;//Função auxiliar para limpeza JSON&#xD;&#xA;//======================================================&#xD;&#xA;java.util.function.Function&lt;String, String> jsonSafe = s -> {&#xD;&#xA;if (s == null) return &quot;&quot;;&#xD;&#xA;return s.replace(&quot;\\&quot;, &quot;\\\\&quot;)&#xD;&#xA;       .replace(&quot;\&quot;&quot;, &quot;\\\&quot;&quot;)&#xD;&#xA;       .replace(&quot;\n&quot;, &quot;\\n&quot;)&#xD;&#xA;       .replace(&quot;\r&quot;, &quot;\\r&quot;);&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//1. Dados principais usando variaiveis para montar json&#xD;&#xA;//======================================================&#xD;&#xA;String id = context.id_magento;&#xD;&#xA;//System.out.println(&quot;ID vindo do tMap_1: &quot; + context.id_magento);&#xD;&#xA;//String id              = jsonSafe.apply(context.id_magento);&#xD;&#xA;String email            = jsonSafe.apply(((String)globalMap.get(&quot;row8.email&quot;)));&#xD;&#xA;String firstname        = jsonSafe.apply(((String)globalMap.get(&quot;row8.razaoSocial&quot;)));&#xD;&#xA;String lastname         = jsonSafe.apply(((String)globalMap.get(&quot;row8.razaoSocial&quot;)));&#xD;&#xA;String taxvat           = jsonSafe.apply(((String)globalMap.get(&quot;row8.cnpj&quot;)));&#xD;&#xA;&#xD;&#xA;String street         = jsonSafe.apply(((String)globalMap.get(&quot;row8.endereco&quot;)));&#xD;&#xA;String bairro         = jsonSafe.apply(((String)globalMap.get(&quot;row8.bairro&quot;)));&#xD;&#xA;String city           = jsonSafe.apply(((String)globalMap.get(&quot;row8.municipio&quot;)));&#xD;&#xA;String region_code    = jsonSafe.apply(((String)globalMap.get(&quot;row8.estado&quot;)));&#xD;&#xA;String postcode       = jsonSafe.apply(((String)globalMap.get(&quot;row8.cep&quot;)));&#xD;&#xA;String telephone      = jsonSafe.apply(((String)globalMap.get(&quot;row8.telefone&quot;)));&#xD;&#xA;String country_id     = jsonSafe.apply(((String)globalMap.get(&quot;row8.pais&quot;)));&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//2. Montar CUSTOM_ATTRIBUTES &#xD;&#xA;//======================================================&#xD;&#xA;java.util.List&lt;String[]> customAttrs = new java.util.ArrayList&lt;>();&#xD;&#xA;&#xD;&#xA;customAttrs.add(new String[]{&quot;client_id__c&quot;, ((String)globalMap.get(&quot;row8.codigoCliente&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;buying_potencial__c&quot;, ((String)globalMap.get(&quot;row8.potencialCompras&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;is_allowed__c&quot;, &quot;&quot;});&#xD;&#xA;customAttrs.add(new String[]{&quot;ie__c&quot;, ((String)globalMap.get(&quot;row8.ie&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;contact_name__c&quot;, ((String)globalMap.get(&quot;row8.contato&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;emails__c&quot;, ((String)globalMap.get(&quot;row8.email_concat&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;region_subsidiary__c&quot;,&#xD;&#xA;   ((String)globalMap.get(&quot;row8.filialRegional&quot;))+&quot; - &quot;+((String)globalMap.get(&quot;row8.descricaoFilialRegional&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;commercial_subsidiary__c&quot;,&#xD;&#xA;   ((String)globalMap.get(&quot;row8.filialComercial&quot;))+&quot; - &quot;+((String)globalMap.get(&quot;row8.descricaoFilialComercial&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;sales_region__c&quot;,&#xD;&#xA;   ((String)globalMap.get(&quot;row8.regiaoVenda&quot;))+&quot; - &quot;+((String)globalMap.get(&quot;row8.descricaoRegiaoVenda&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;field_of_business__c&quot;,&#xD;&#xA;   ((String)globalMap.get(&quot;row8.ramoAtividade&quot;))+&quot; - &quot;+((String)globalMap.get(&quot;row8.descricaoRamoAtividade&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;seller__c&quot;, ((String)globalMap.get(&quot;row8.vendedor&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;representative__c&quot;, ((String)globalMap.get(&quot;row8.representante&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;status__c&quot;, &quot;&quot;});&#xD;&#xA;customAttrs.add(new String[]{&quot;price_category&quot;, ((String)globalMap.get(&quot;row8.categoriaPreco&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;rc_type__c&quot;, &quot;&quot;});&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//3. Montar JSON FINAL&#xD;&#xA;//======================================================&#xD;&#xA;StringBuilder json = new StringBuilder();&#xD;&#xA;&#xD;&#xA;json.append(&quot;{\&quot;items\&quot;:[{&quot;);&#xD;&#xA;&#xD;&#xA;json.append(&quot;\&quot;id\&quot;:&quot;).append(id).append(&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;group_id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;default_shipping\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;created_at\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;updated_at\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;created_in\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;email\&quot;:\&quot;&quot;).append(email).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;firstname\&quot;:\&quot;&quot;).append(firstname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;lastname\&quot;:\&quot;&quot;).append(lastname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;store_id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;taxvat\&quot;:\&quot;&quot;).append(taxvat).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;website_id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- ADDRESSES ----------------&#xD;&#xA;json.append(&quot;\&quot;addresses\&quot;:[{&quot;);&#xD;&#xA;json.append(&quot;\&quot;id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;customer_id\&quot;:&quot;).append(id).append(&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;region\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;region_code\&quot;:\&quot;&quot;).append(region_code).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;region\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;region_id\&quot;:\&quot;\&quot;},&quot;);&#xD;&#xA;json.append(&quot;\&quot;region_id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;country_id\&quot;:\&quot;&quot;).append(country_id).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;street\&quot;:[&quot;);&#xD;&#xA;json.append(&quot;\&quot;&quot;).append(street).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;&quot;).append(bairro).append(&quot;\&quot;],&quot;);&#xD;&#xA;json.append(&quot;\&quot;telephone\&quot;:\&quot;&quot;).append(telephone).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;postcode\&quot;:\&quot;&quot;).append(postcode).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;city\&quot;:\&quot;&quot;).append(city).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;firstname\&quot;:\&quot;&quot;).append(firstname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;lastname\&quot;:\&quot;&quot;).append(lastname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;default_shipping\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;}],&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- EXTENSION ATTRIBUTES ----------------&#xD;&#xA;json.append(&quot;\&quot;disable_auto_group_change\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;extension_attributes\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;company_attributes\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;company_id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;status\&quot;:\&quot;\&quot;},&quot;);&#xD;&#xA;json.append(&quot;\&quot;is_subscribed\&quot;:\&quot;\&quot;},&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- CUSTOM ATTRIBUTES (LOOP) ----------------&#xD;&#xA;json.append(&quot;\&quot;custom_attributes\&quot;:[&quot;);&#xD;&#xA;&#xD;&#xA;for (int i = 0; i &lt; customAttrs.size(); i++) {&#xD;&#xA;String code = jsonSafe.apply(customAttrs.get(i)[0]);&#xD;&#xA;String val  = jsonSafe.apply(customAttrs.get(i)[1]);&#xD;&#xA;&#xD;&#xA;json.append(&quot;{\&quot;attribute_code\&quot;:\&quot;&quot;)&#xD;&#xA;   .append(code)&#xD;&#xA;   .append(&quot;\&quot;,\&quot;value\&quot;:\&quot;&quot;)&#xD;&#xA;   .append(val)&#xD;&#xA;   .append(&quot;\&quot;}&quot;);&#xD;&#xA;&#xD;&#xA;if (i &lt; customAttrs.size() - 1) {&#xD;&#xA;   json.append(&quot;,&quot;);&#xD;&#xA;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;json.append(&quot;]&quot;); // fim custom_attributes&#xD;&#xA;json.append(&quot;}]}&quot;); // fim items&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//4. Variavel para uso no tRESTClient&#xD;&#xA;//======================================================&#xD;&#xA;globalMap.put(&quot;payload_json&quot;, json.toString());&#xD;&#xA;row5.body = globalMap.put(&quot;payload_json&quot;, json.toString());&#xD;&#xA;//System.out.println(globalMap.get(&quot;payload_json&quot;));"/>
+    <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="out_put">
-      <column defaultValue="" key="false" length="0" name="body" nullable="true" precision="0" sourceType="" type="id_Document" originalLength="-1" usefulColumn="true"/>
-      <column key="false" length="4048" name="string" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    <metadata connector="FLOW" label="put" name="tJava_4">
+      <column comment="" key="false" length="-1" name="body" nullable="true" pattern="" precision="-1" sourceType="" type="id_Object" originalLength="-1" usefulColumn="true"/>
     </metadata>
-    <nodeData xsi:type="TalendXMLMap:XmlMapData">
-      <inputTrees name="put" matchingMode="ALL_ROWS" lookupMode="LOAD_ONCE">
-        <nodes name="id" type="id_String" outgoingConnections="//@node.17/@nodeData/@connections.0" xpath="put/id" objID="n221059605"/>
-      </inputTrees>
-      <outputTrees name="out_put">
-        <nodes name="body" expression="" type="id_Document" xpath="out_put/body" objID="n832622577">
-          <children xsi:type="TalendXMLMap:OutputTreeNode" name="root" type="id_String" xpath="out_put.body:/root" main="true" objID="n1312910434">
-            <children xsi:type="TalendXMLMap:OutputTreeNode" name="items" type="id_String" xpath="out_put.body:/root/items" loop="true" main="true" objID="n189399696">
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="id" expression=" put.id" type="id_Integer" incomingConnections="//@node.17/@nodeData/@connections.0" xpath="out_put.body:/root/items/id" pattern="&quot;dd-MM-yyyy&quot;" objID="n1814432439"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="group_id" type="id_Integer" xpath="out_put.body:/root/items/group_id" pattern="&quot;dd-MM-yyyy&quot;" objID="n964867334"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="default_shipping" expression="" type="id_Integer" xpath="out_put.body:/root/items/default_shipping" pattern="&quot;dd-MM-yyyy&quot;" objID="n1204210215"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="created_at" type="id_Date" xpath="out_put.body:/root/items/created_at" pattern="&quot;dd-MM-yyyy&quot;" objID="n444363891"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="updated_at" type="id_Date" xpath="out_put.body:/root/items/updated_at" pattern="&quot;dd-MM-yyyy&quot;" objID="n1290906624"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="created_in" type="id_String" xpath="out_put.body:/root/items/created_in" pattern="&quot;dd-MM-yyyy&quot;" objID="n1718956588"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="email" type="id_String" xpath="out_put.body:/root/items/email" pattern="&quot;dd-MM-yyyy&quot;" objID="n239495477"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="firstname" type="id_String" xpath="out_put.body:/root/items/firstname" pattern="&quot;dd-MM-yyyy&quot;" objID="n540356576"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="lastname" type="id_String" xpath="out_put.body:/root/items/lastname" pattern="&quot;dd-MM-yyyy&quot;" objID="n1430294381"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="store_id" type="id_Integer" xpath="out_put.body:/root/items/store_id" pattern="&quot;dd-MM-yyyy&quot;" objID="n1124382855"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="taxvat" type="id_String" xpath="out_put.body:/root/items/taxvat" pattern="&quot;dd-MM-yyyy&quot;" objID="n441698307"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="website_id" type="id_Integer" xpath="out_put.body:/root/items/website_id" pattern="&quot;dd-MM-yyyy&quot;" objID="n1379239707"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="addresses" type="id_String" xpath="out_put.body:/root/items/addresses" objID="n1366041308">
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="id" type="id_Integer" xpath="out_put.body:/root/items/addresses/id" pattern="&quot;dd-MM-yyyy&quot;" objID="n1943513859"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="customer_id" type="id_Integer" xpath="out_put.body:/root/items/addresses/customer_id" pattern="&quot;dd-MM-yyyy&quot;" objID="n1511453611"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="region" type="id_String" xpath="out_put.body:/root/items/addresses/region" objID="n486010095">
-                  <children xsi:type="TalendXMLMap:OutputTreeNode" name="region_code" type="id_String" xpath="out_put.body:/root/items/addresses/region/region_code" pattern="&quot;dd-MM-yyyy&quot;" objID="n693423885"/>
-                  <children xsi:type="TalendXMLMap:OutputTreeNode" name="region" type="id_String" xpath="out_put.body:/root/items/addresses/region/region" pattern="&quot;dd-MM-yyyy&quot;" objID="n834391180"/>
-                  <children xsi:type="TalendXMLMap:OutputTreeNode" name="region_id" type="id_Integer" xpath="out_put.body:/root/items/addresses/region/region_id" pattern="&quot;dd-MM-yyyy&quot;" objID="n1548211921"/>
-                </children>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="region_id" type="id_Integer" xpath="out_put.body:/root/items/addresses/region_id" pattern="&quot;dd-MM-yyyy&quot;" objID="n247852381"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="country_id" type="id_String" xpath="out_put.body:/root/items/addresses/country_id" pattern="&quot;dd-MM-yyyy&quot;" objID="n23880543"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="street" type="id_String" xpath="out_put.body:/root/items/addresses/street" pattern="&quot;dd-MM-yyyy&quot;" objID="n1384446276"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="telephone" type="id_String" xpath="out_put.body:/root/items/addresses/telephone" pattern="&quot;dd-MM-yyyy&quot;" objID="n277839179"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="postcode" type="id_String" xpath="out_put.body:/root/items/addresses/postcode" pattern="&quot;dd-MM-yyyy&quot;" objID="n743338158"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="city" type="id_String" xpath="out_put.body:/root/items/addresses/city" pattern="&quot;dd-MM-yyyy&quot;" objID="n1606024095"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="firstname" type="id_String" xpath="out_put.body:/root/items/addresses/firstname" pattern="&quot;dd-MM-yyyy&quot;" objID="n64916811"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="lastname" type="id_String" xpath="out_put.body:/root/items/addresses/lastname" pattern="&quot;dd-MM-yyyy&quot;" objID="n1810098542"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="default_shipping" type="id_Boolean" xpath="out_put.body:/root/items/addresses/default_shipping" pattern="&quot;dd-MM-yyyy&quot;" objID="n1983474948"/>
-              </children>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="disable_auto_group_change" type="id_Integer" xpath="out_put.body:/root/items/disable_auto_group_change" pattern="&quot;dd-MM-yyyy&quot;" objID="n949376471"/>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="extension_attributes" type="id_String" xpath="out_put.body:/root/items/extension_attributes" objID="n1801832705">
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="company_attributes" type="id_String" xpath="out_put.body:/root/items/extension_attributes/company_attributes" objID="n898432466">
-                  <children xsi:type="TalendXMLMap:OutputTreeNode" name="company_id" type="id_Integer" xpath="out_put.body:/root/items/extension_attributes/company_attributes/company_id" pattern="&quot;dd-MM-yyyy&quot;" objID="n1283066542"/>
-                  <children xsi:type="TalendXMLMap:OutputTreeNode" name="status" type="id_Integer" xpath="out_put.body:/root/items/extension_attributes/company_attributes/status" pattern="&quot;dd-MM-yyyy&quot;" objID="n639468340"/>
-                </children>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="is_subscribed" type="id_Boolean" xpath="out_put.body:/root/items/extension_attributes/is_subscribed" pattern="&quot;dd-MM-yyyy&quot;" objID="n331098138"/>
-              </children>
-              <children xsi:type="TalendXMLMap:OutputTreeNode" name="custom_attributes" type="id_String" xpath="out_put.body:/root/items/custom_attributes" objID="n1686098012">
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="attribute_code" type="id_String" xpath="out_put.body:/root/items/custom_attributes/attribute_code" pattern="&quot;dd-MM-yyyy&quot;" objID="n626078384"/>
-                <children xsi:type="TalendXMLMap:OutputTreeNode" name="value" type="id_String" xpath="out_put.body:/root/items/custom_attributes/value" pattern="&quot;dd-MM-yyyy&quot;" objID="n1685518498"/>
-              </children>
-            </children>
-          </children>
-        </nodes>
-        <nodes name="string" type="id_String" xpath="out_put/string" objID="n945709278"/>
-      </outputTrees>
-      <varTables name="Var" minimized="true"/>
-      <connections xsi:type="TalendXMLMap:Connection" source="n221059605" target="n1814432439"/>
-    </nodeData>
   </node>
-  <node componentName="tXMLMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="280" posY="560">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tXMLMap_1" show="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false" show="false"/>
-    <elementParameter field="TEXT" name="DESTINATION" value="" show="false"/>
-    <elementParameter field="TEXT" name="ORIGIN" value="" show="false"/>
-    <elementParameter field="CHECK" name="KEEP_ORDER_FOR_DOCUMENT" value="false"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="out_post">
-      <column defaultValue="" key="false" length="0" name="body" nullable="true" precision="0" sourceType="" type="id_Document" originalLength="-1" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="4048" name="string" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="TalendXMLMap:XmlMapData">
-      <outputTrees name="out_post"/>
-      <varTables name="Var" minimized="true"/>
-    </nodeData>
-  </node>
-  <node componentName="tRESTClient" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="80" posY="440">
+  <node componentName="tRESTClient" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="160" posY="400">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRESTClient_2" show="false"/>
     <elementParameter field="TEXT" name="URL" value="&quot;https://mcstaging.pacaembuautopecas.com.br/rest/store01/V1/customers/search&quot;"/>
     <elementParameter field="TEXT" name="PATH" value="&quot;&quot;"/>
@@ -1610,7 +1837,7 @@
     <elementParameter field="CHECK" name="REDIRECT_NON_SAME_HOST" value="false" show="false"/>
     <elementParameter field="CHECK" name="MAINTAIN_SESSION" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_WEBCLIENT_OPERATION_REPORTING" value="true"/>
-    <elementParameter field="CHECK" name="CONVERT_RESPONSE_TO_DOM" value="true"/>
+    <elementParameter field="CHECK" name="CONVERT_RESPONSE_TO_DOM" value="false"/>
     <elementParameter field="CHECK" name="UNWRAP_JSON_REQUEST" value="false"/>
     <elementParameter field="CHECK" name="WRAP_JSON_RESPONSE" value="true"/>
     <elementParameter field="CHECK" name="CONVERT_TYPES_TO_STRINGS" value="false"/>
@@ -1622,6 +1849,8 @@
       <elementValue elementRef="VALUE" value="&quot;postman.e9c1c1c3-fa18-474c-bd37-fb8a8f546150&quot;" id="3"/>
       <elementValue elementRef="NAME" value="&quot;Cookie&quot;" id="4"/>
       <elementValue elementRef="VALUE" value="&quot;PHPSESSID=74e087f90f51f00dc33ba604798e9f65&quot;" id="5"/>
+      <elementValue elementRef="NAME" value="&quot;Content-Type&quot;" id="6"/>
+      <elementValue elementRef="VALUE" value="&quot;application/json&quot;" id="7"/>
     </elementParameter>
     <elementParameter field="TABLE" name="SERVICE_LOCATOR_CUSTOM_PROPERTIES" show="false"/>
     <elementParameter field="TABLE" name="SERVICE_ACTIVITY_MONITOR_CUSTOM_PROPERTIES" show="false"/>
@@ -1636,9 +1865,8 @@
     <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:zgQX2Gj39ozLKehJKNz/a2QXcBfQk3aFiBfWDRss" show="false"/>
     <elementParameter field="TEXT" name="ARRAY_KEYS" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tRESTClient_2">
-      <column defaultValue="" key="false" length="0" name="body" nullable="true" precision="0" sourceType="" type="id_Document" originalLength="-1" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="4048" name="string" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    <metadata connector="FLOW" label="put" name="tRESTClient_2">
+      <column comment="" key="false" length="-1" name="body" nullable="true" pattern="" precision="-1" sourceType="" type="id_Object" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="RESPONSE" name="RESPONSE">
       <column defaultValue="" key="false" length="0" name="statusCode" nullable="true" precision="0" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -1650,8 +1878,17 @@
       <column defaultValue="" key="false" length="1024" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tRESTClient" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="80" posY="560">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRESTClient_3" show="false"/>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="360" posY="520">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_3" show="false"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="//======================================================&#xD;&#xA;//Função auxiliar para limpeza JSON&#xD;&#xA;//======================================================&#xD;&#xA;java.util.function.Function&lt;String, String> jsonSafe = s -> {&#xD;&#xA;if (s == null) return &quot;&quot;;&#xD;&#xA;return s.replace(&quot;\\&quot;, &quot;\\\\&quot;)&#xD;&#xA;     .replace(&quot;\&quot;&quot;, &quot;\\\&quot;&quot;)&#xD;&#xA;     .replace(&quot;\n&quot;, &quot;\\n&quot;)&#xD;&#xA;     .replace(&quot;\r&quot;, &quot;\\r&quot;);&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//1. Dados principais usando variaiveis para montar json&#xD;&#xA;//======================================================&#xD;&#xA;String id = context.id_magento;&#xD;&#xA;//System.out.println(&quot;ID vindo do tMap_1: &quot; + context.id_magento);&#xD;&#xA;//String id              = jsonSafe.apply(context.id_magento);&#xD;&#xA;String email            = jsonSafe.apply(((String)globalMap.get(&quot;row8.email&quot;)));&#xD;&#xA;String firstname        = jsonSafe.apply(((String)globalMap.get(&quot;row8.razaoSocial&quot;)));&#xD;&#xA;String lastname         = jsonSafe.apply(((String)globalMap.get(&quot;row8.razaoSocial&quot;)));&#xD;&#xA;String taxvat           = jsonSafe.apply(((String)globalMap.get(&quot;row8.cnpj&quot;)));&#xD;&#xA;&#xD;&#xA;String street         = jsonSafe.apply(((String)globalMap.get(&quot;row8.endereco&quot;)));&#xD;&#xA;String bairro         = jsonSafe.apply(((String)globalMap.get(&quot;row8.bairro&quot;)));&#xD;&#xA;String city           = jsonSafe.apply(((String)globalMap.get(&quot;row8.municipio&quot;)));&#xD;&#xA;String region_code    = jsonSafe.apply(((String)globalMap.get(&quot;row8.estado&quot;)));&#xD;&#xA;String postcode       = jsonSafe.apply(((String)globalMap.get(&quot;row8.cep&quot;)));&#xD;&#xA;String telephone      = jsonSafe.apply(((String)globalMap.get(&quot;row8.telefone&quot;)));&#xD;&#xA;String country_id     = jsonSafe.apply(((String)globalMap.get(&quot;row8.pais&quot;)));&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//2. Montar CUSTOM_ATTRIBUTES &#xD;&#xA;//======================================================&#xD;&#xA;java.util.List&lt;String[]> customAttrs = new java.util.ArrayList&lt;>();&#xD;&#xA;&#xD;&#xA;customAttrs.add(new String[]{&quot;client_id__c&quot;, ((String)globalMap.get(&quot;row8.codigoCliente&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;buying_potencial__c&quot;, ((String)globalMap.get(&quot;row8.potencialCompras&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;is_allowed__c&quot;, &quot;&quot;});&#xD;&#xA;customAttrs.add(new String[]{&quot;ie__c&quot;, ((String)globalMap.get(&quot;row8.ie&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;contact_name__c&quot;, ((String)globalMap.get(&quot;row8.contato&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;emails__c&quot;, ((String)globalMap.get(&quot;row8.email_concat&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;region_subsidiary__c&quot;,&#xD;&#xA; ((String)globalMap.get(&quot;row8.filialRegional&quot;))+&quot; - &quot;+((String)globalMap.get(&quot;row8.descricaoFilialRegional&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;commercial_subsidiary__c&quot;,&#xD;&#xA; ((String)globalMap.get(&quot;row8.filialComercial&quot;))+&quot; - &quot;+((String)globalMap.get(&quot;row8.descricaoFilialComercial&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;sales_region__c&quot;,&#xD;&#xA; ((String)globalMap.get(&quot;row8.regiaoVenda&quot;))+&quot; - &quot;+((String)globalMap.get(&quot;row8.descricaoRegiaoVenda&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;field_of_business__c&quot;,&#xD;&#xA; ((String)globalMap.get(&quot;row8.ramoAtividade&quot;))+&quot; - &quot;+((String)globalMap.get(&quot;row8.descricaoRamoAtividade&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;seller__c&quot;, ((String)globalMap.get(&quot;row8.vendedor&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;representative__c&quot;, ((String)globalMap.get(&quot;row8.representante&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;status__c&quot;, &quot;&quot;});&#xD;&#xA;customAttrs.add(new String[]{&quot;price_category&quot;, ((String)globalMap.get(&quot;row8.categoriaPreco&quot;))});&#xD;&#xA;customAttrs.add(new String[]{&quot;rc_type__c&quot;, &quot;&quot;});&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//3. Montar JSON FINAL&#xD;&#xA;//======================================================&#xD;&#xA;StringBuilder json = new StringBuilder();&#xD;&#xA;&#xD;&#xA;json.append(&quot;{\&quot;items\&quot;:[{&quot;);&#xD;&#xA;&#xD;&#xA;//json.append(&quot;\&quot;id\&quot;:&quot;).append(id).append(&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;group_id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;default_shipping\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;created_at\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;updated_at\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;created_in\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;email\&quot;:\&quot;&quot;).append(email).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;firstname\&quot;:\&quot;&quot;).append(firstname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;lastname\&quot;:\&quot;&quot;).append(lastname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;store_id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;taxvat\&quot;:\&quot;&quot;).append(taxvat).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;website_id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- ADDRESSES ----------------&#xD;&#xA;json.append(&quot;\&quot;addresses\&quot;:[{&quot;);&#xD;&#xA;json.append(&quot;\&quot;id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;customer_id\&quot;:&quot;).append(id).append(&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;region\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;region_code\&quot;:\&quot;&quot;).append(region_code).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;region\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;region_id\&quot;:\&quot;\&quot;},&quot;);&#xD;&#xA;json.append(&quot;\&quot;region_id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;country_id\&quot;:\&quot;&quot;).append(country_id).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;street\&quot;:[&quot;);&#xD;&#xA;json.append(&quot;\&quot;&quot;).append(street).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;&quot;).append(bairro).append(&quot;\&quot;],&quot;);&#xD;&#xA;json.append(&quot;\&quot;telephone\&quot;:\&quot;&quot;).append(telephone).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;postcode\&quot;:\&quot;&quot;).append(postcode).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;city\&quot;:\&quot;&quot;).append(city).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;firstname\&quot;:\&quot;&quot;).append(firstname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;lastname\&quot;:\&quot;&quot;).append(lastname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;default_shipping\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;}],&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- EXTENSION ATTRIBUTES ----------------&#xD;&#xA;json.append(&quot;\&quot;disable_auto_group_change\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;extension_attributes\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;company_attributes\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;company_id\&quot;:\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;status\&quot;:\&quot;\&quot;},&quot;);&#xD;&#xA;json.append(&quot;\&quot;is_subscribed\&quot;:\&quot;\&quot;},&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- CUSTOM ATTRIBUTES (LOOP) ----------------&#xD;&#xA;json.append(&quot;\&quot;custom_attributes\&quot;:[&quot;);&#xD;&#xA;&#xD;&#xA;for (int i = 0; i &lt; customAttrs.size(); i++) {&#xD;&#xA;String code = jsonSafe.apply(customAttrs.get(i)[0]);&#xD;&#xA;String val  = jsonSafe.apply(customAttrs.get(i)[1]);&#xD;&#xA;&#xD;&#xA;json.append(&quot;{\&quot;attribute_code\&quot;:\&quot;&quot;)&#xD;&#xA; .append(code)&#xD;&#xA; .append(&quot;\&quot;,\&quot;value\&quot;:\&quot;&quot;)&#xD;&#xA; .append(val)&#xD;&#xA; .append(&quot;\&quot;}&quot;);&#xD;&#xA;&#xD;&#xA;if (i &lt; customAttrs.size() - 1) {&#xD;&#xA; json.append(&quot;,&quot;);&#xD;&#xA;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;json.append(&quot;]&quot;); // fim custom_attributes&#xD;&#xA;json.append(&quot;}]}&quot;); // fim items&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//4. Variavel para uso no tRESTClient&#xD;&#xA;//======================================================&#xD;&#xA;globalMap.put(&quot;payload_json&quot;, json.toString());&#xD;&#xA;row10.body = globalMap.put(&quot;payload_json&quot;, json.toString());&#xD;&#xA;//System.out.println(globalMap.get(&quot;payload_json&quot;));"/>
+    <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="put" name="tJava_3">
+      <column comment="" key="false" length="-1" name="body" nullable="true" pattern="" precision="-1" sourceType="" type="id_Object" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tRESTClient" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="160" posY="520">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRESTClient_4" show="false"/>
     <elementParameter field="TEXT" name="URL" value="&quot;https://mcstaging.pacaembuautopecas.com.br/rest/store01/V1/customers/search&quot;"/>
     <elementParameter field="TEXT" name="PATH" value="&quot;&quot;"/>
     <elementParameter field="CLOSED_LIST" name="METHOD" value="POST"/>
@@ -1665,7 +1902,7 @@
     <elementParameter field="CHECK" name="NEED_AUTH" value="false"/>
     <elementParameter field="CLOSED_LIST" name="AUTH_TYPE" value="BASIC" show="false"/>
     <elementParameter field="TEXT" name="AUTH_USERNAME" value="&quot;username&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="AUTH_PASSWORD" value="enc:system.encryption.key.v1:TyGdds1HNeeoNKNyg20w9Ua4ijug3YmQz7EEkOQO6HUBPCiN+LA=" show="false"/>
+    <elementParameter field="PASSWORD" name="AUTH_PASSWORD" value="enc:system.encryption.key.v1:13m2ZvZMAD9KcOo6uCrtirynAh93aFwRCZFUUHKmIeEH3i8Pysg=" show="false"/>
     <elementParameter field="TEXT" name="AUTH_BEARER_TOKEN" value="&quot;&quot;" show="false"/>
     <elementParameter field="CHECK" name="NEED_AUTHORIZATION" value="false" show="false"/>
     <elementParameter field="TEXT" name="ROLE" value="&quot;&quot;" show="false"/>
@@ -1679,7 +1916,7 @@
     <elementParameter field="CHECK" name="REDIRECT_NON_SAME_HOST" value="false" show="false"/>
     <elementParameter field="CHECK" name="MAINTAIN_SESSION" value="false" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_WEBCLIENT_OPERATION_REPORTING" value="true"/>
-    <elementParameter field="CHECK" name="CONVERT_RESPONSE_TO_DOM" value="true"/>
+    <elementParameter field="CHECK" name="CONVERT_RESPONSE_TO_DOM" value="false"/>
     <elementParameter field="CHECK" name="UNWRAP_JSON_REQUEST" value="false"/>
     <elementParameter field="CHECK" name="WRAP_JSON_RESPONSE" value="true"/>
     <elementParameter field="CHECK" name="CONVERT_TYPES_TO_STRINGS" value="false"/>
@@ -1691,6 +1928,8 @@
       <elementValue elementRef="VALUE" value="&quot;postman.e9c1c1c3-fa18-474c-bd37-fb8a8f546150&quot;" id="3"/>
       <elementValue elementRef="NAME" value="&quot;Cookie&quot;" id="4"/>
       <elementValue elementRef="VALUE" value="&quot;PHPSESSID=74e087f90f51f00dc33ba604798e9f65&quot;" id="5"/>
+      <elementValue elementRef="NAME" value="&quot;Content-Type&quot;" id="6"/>
+      <elementValue elementRef="VALUE" value="&quot;application/json&quot;" id="7"/>
     </elementParameter>
     <elementParameter field="TABLE" name="SERVICE_LOCATOR_CUSTOM_PROPERTIES" show="false"/>
     <elementParameter field="TABLE" name="SERVICE_ACTIVITY_MONITOR_CUSTOM_PROPERTIES" show="false"/>
@@ -1702,12 +1941,11 @@
     <elementParameter field="TEXT" name="PROXY_HOST" value="&quot;127.0.0.1&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROXY_PORT" value="8080" show="false"/>
     <elementParameter field="TEXT" name="PROXY_USERNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:u+3CJA1tjiRaHdVllfAlHLt6zfQfGhMsLcZQVNxm" show="false"/>
+    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:0T0ZRT/HbfyAu0JfWy47jRqdEtakaXBUdnqtKCGL" show="false"/>
     <elementParameter field="TEXT" name="ARRAY_KEYS" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tRESTClient_3">
-      <column defaultValue="" key="false" length="0" name="body" nullable="true" precision="0" sourceType="" type="id_Document" originalLength="-1" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="4048" name="string" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    <metadata connector="FLOW" label="put" name="tRESTClient_4">
+      <column comment="" key="false" length="-1" name="body" nullable="true" pattern="" precision="-1" sourceType="" type="id_Object" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="RESPONSE" name="RESPONSE">
       <column defaultValue="" key="false" length="0" name="statusCode" nullable="true" precision="0" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
@@ -1793,71 +2031,17 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row4" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tExtractJSONFields_4" offsetLabelX="0" offsetLabelY="0" source="tExtractJSONFields_4" target="tFlowToIterate_1">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="estado" id="0"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="1"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="2"/>
-      <elementValue elementRef="TRACE_COLUMN" value="situacao" id="3"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="4"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="5"/>
-      <elementValue elementRef="TRACE_COLUMN" value="telefone" id="6"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="7"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="8"/>
-      <elementValue elementRef="TRACE_COLUMN" value="vendedor" id="9"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="10"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="11"/>
-      <elementValue elementRef="TRACE_COLUMN" value="nomeVendedor" id="12"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="13"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="14"/>
-      <elementValue elementRef="TRACE_COLUMN" value="endereco" id="15"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="16"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="17"/>
-      <elementValue elementRef="TRACE_COLUMN" value="municipio" id="18"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="19"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="20"/>
-      <elementValue elementRef="TRACE_COLUMN" value="podeComprarRemano" id="21"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="22"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="23"/>
-      <elementValue elementRef="TRACE_COLUMN" value="filialRegional" id="24"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="25"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="26"/>
-      <elementValue elementRef="TRACE_COLUMN" value="tipoRC" id="27"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="28"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="29"/>
-      <elementValue elementRef="TRACE_COLUMN" value="pais" id="30"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="31"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="32"/>
-      <elementValue elementRef="TRACE_COLUMN" value="nomeRepresentante" id="33"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="34"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="35"/>
-      <elementValue elementRef="TRACE_COLUMN" value="potencialCompras" id="36"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="37"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="38"/>
-      <elementValue elementRef="TRACE_COLUMN" value="representante" id="39"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="40"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="41"/>
-      <elementValue elementRef="TRACE_COLUMN" value="filialComercial" id="42"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="43"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="44"/>
-      <elementValue elementRef="TRACE_COLUMN" value="ie" id="45"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="46"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="47"/>
-      <elementValue elementRef="TRACE_COLUMN" value="loginLiberado" id="48"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="49"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="50"/>
-      <elementValue elementRef="TRACE_COLUMN" value="razaoSocial" id="51"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="52"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="53"/>
-      <elementValue elementRef="TRACE_COLUMN" value="regiaoVenda" id="54"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="55"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="56"/>
-      <elementValue elementRef="TRACE_COLUMN" value="ramoAtividade" id="57"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="58"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="59"/>
-    </elementParameter>
+  <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tExtractJSONFields_4" offsetLabelX="0" offsetLabelY="0" source="tExtractJSONFields_4" target="tMap_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row7" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="concat" lineStyle="0" metaname="concat" offsetLabelX="0" offsetLabelY="0" source="tMap_4" target="tAggregateRow_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="concat" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row8" lineStyle="0" metaname="tAggregateRow_1" offsetLabelX="0" offsetLabelY="0" source="tAggregateRow_1" target="tFlowToIterate_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row8" show="false"/>
   </connection>
   <connection connectorName="ITERATE" label="Iterate" lineStyle="7" metaname="tFlowToIterate_1" offsetLabelX="0" offsetLabelY="0" source="tFlowToIterate_1" target="tJava_1">
     <elementParameter field="CHECK" name="ENABLE_PARALLEL" value="false"/>
@@ -1892,33 +2076,29 @@
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tJavaFlex_2" offsetLabelX="0" offsetLabelY="0" source="tJavaFlex_2" target="tFixedFlowInput_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2" show="false"/>
   </connection>
-  <connection connectorName="RESPONSE" label="row2" lineStyle="0" metaname="RESPONSE" offsetLabelX="0" offsetLabelY="0" source="tRESTClient_1" target="tLogRow_2">
+  <connection connectorName="RESPONSE" label="row2" lineStyle="0" metaname="RESPONSE" offsetLabelX="0" offsetLabelY="0" source="tRESTClient_1" target="tExtractXMLField_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row2" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="row8" lineStyle="0" metaname="tLogRow_2" offsetLabelX="0" offsetLabelY="0" source="tLogRow_2" target="tExtractXMLField_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row8" show="false"/>
-  </connection>
-  <connection connectorName="FLOW" label="row9" lineStyle="0" metaname="tExtractXMLField_1" offsetLabelX="0" offsetLabelY="0" source="tExtractXMLField_1" target="tMap_1">
+  <connection connectorName="FLOW" label="row9" lineStyle="0" metaname="tExtractXMLField_1" offsetLabelX="0" offsetLabelY="0" source="tExtractXMLField_1" target="tJavaRow_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row9" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="put" lineStyle="0" metaname="put" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tMap_1" target="tXMLMap_2">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="put" show="false"/>
+  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tJavaRow_2" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tJavaRow_2" target="tJava_4">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.id_magento != null &amp;&amp; context.id_magento.trim().length() > 0"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="If2" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="post" lineStyle="0" metaname="post" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tMap_1" target="tXMLMap_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="post" show="false"/>
+  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tJavaRow_2" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tJavaRow_2" target="tJava_3">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.id_magento == null || context.id_magento.trim().length() == 0; "/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="If3" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="out_put" lineStyle="0" metaname="out_put" offsetLabelX="0" offsetLabelY="0" source="tXMLMap_2" target="tRESTClient_2">
+  <connection connectorName="FLOW" label="row5" lineStyle="0" metaname="tJava_4" offsetLabelX="0" offsetLabelY="0" source="tJava_4" target="tRESTClient_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="out_put" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row5" show="false"/>
   </connection>
-  <connection connectorName="FLOW" label="out_post" lineStyle="0" metaname="out_post" offsetLabelX="0" offsetLabelY="0" source="tXMLMap_1" target="tRESTClient_3">
+  <connection connectorName="FLOW" label="row10" lineStyle="0" metaname="tJava_3" offsetLabelX="0" offsetLabelY="0" source="tJava_3" target="tRESTClient_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="out_post" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row10" show="false"/>
   </connection>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFixedFlowInput_1" show="false"/>
@@ -1944,5 +2124,11 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRESTClient_1" show="false"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_4" show="false"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_3" show="false"/>
   </subjob>
 </talendfile:ProcessType>
