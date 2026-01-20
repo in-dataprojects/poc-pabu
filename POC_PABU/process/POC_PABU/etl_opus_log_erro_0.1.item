@@ -11,6 +11,7 @@
     <contextParameter comment="ponteiro do erro" name="lastid" prompt="lastid?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="__X4VoMxkEfCzps9qGw9O5w"/>
     <contextParameter comment="sistema chamado" name="sistema" prompt="sistema?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_DAowYNEYEfCxbosgO5XRJg"/>
     <contextParameter comment="id do dado que tá sendo transitado" name="correlationId" prompt="correlationId?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_DAowYdEYEfCxbosgO5XRJg"/>
+    <contextParameter comment="" name="ZSID" prompt="ZSID?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_6fNwIPIMEfCoF4DTXPv3NA"/>
   </context>
   <context confirmationNeeded="false" hide="false" name="PRD">
     <contextParameter comment="código de retorno da api" name="ZWSRET" prompt="ZWSRET?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="" internalId="_2fxsgMxkEfCzps9qGw9O5w"/>
@@ -23,6 +24,7 @@
     <contextParameter comment="ponteiro do erro" name="lastid" prompt="lastid?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="__X4VoMxkEfCzps9qGw9O5w"/>
     <contextParameter comment="sistema chamado" name="sistema" prompt="sistema?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_DAowYtEYEfCxbosgO5XRJg"/>
     <contextParameter comment="id do dado que tá sendo transitado" name="correlationId" prompt="correlationId?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_DAowY9EYEfCxbosgO5XRJg"/>
+    <contextParameter comment="" name="ZSID" prompt="ZSID?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_6fNwIfIMEfCoF4DTXPv3NA"/>
   </context>
   <parameters>
     <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" value="Info" show="false"/>
@@ -385,7 +387,7 @@
   </node>
   <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="925" posY="249">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaRow_1" show="false"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.ZSID = row5.ZSID;&#xD;&#xA;context.ZWSRET = Integer.parseInt(row5.ZWSRET);&#xD;&#xA;context.ZWSMSG = row5.ZWSMSG;&#xD;&#xA;&#xD;&#xA;System.out.println(&quot;Valor do context.ponteiro: &quot; + context.ponteiro_atual);&#xD;&#xA;System.out.println(&quot;Valor do context.ZSID: &quot; + context.ZSID);&#xD;&#xA;System.out.println(&quot;Valor do context.ZWSRET: &quot; + context.ZWSRET);&#xD;&#xA;System.out.println(&quot;Valor do context.ZWSMSG: &quot; + context.ZWSMSG);&#xD;&#xA;"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.ZSID = row5.ZSID;&#xD;&#xA;context.ZWSRET = Integer.parseInt(row5.ZWSRET);&#xD;&#xA;context.ZWSMSG = row5.ZWSMSG;&#xD;&#xA;&#xD;&#xA;//System.out.println(&quot;Valor do context.ponteiro: &quot; + context.ponteiro_atual);&#xD;&#xA;System.out.println(&quot;Valor do context.ZSID: &quot; + context.ZSID);&#xD;&#xA;System.out.println(&quot;Valor do context.ZWSRET: &quot; + context.ZWSRET);&#xD;&#xA;System.out.println(&quot;Valor do context.ZWSMSG: &quot; + context.ZWSMSG);&#xD;&#xA;"/>
     <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJavaRow_1"/>
