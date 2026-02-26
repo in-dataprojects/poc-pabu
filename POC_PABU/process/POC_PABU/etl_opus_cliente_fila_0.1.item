@@ -10,6 +10,8 @@
     <contextParameter comment="" name="id_cliente" prompt="id_cliente?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_KWQIgNEXEfCxbosgO5XRJg"/>
     <contextParameter comment="" name="id_magento" prompt="id_magento?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_VaDoUO1fEfCrV-MkKFpT4w"/>
     <contextParameter comment="" name="endpoint" prompt="endpoint?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;https://mcstaging.pacaembuautopecas.com.br&quot;" internalId="_09HOEAj4EfGyWLg-Cfb5pg"/>
+    <contextParameter comment="" name="json" prompt="json?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_DeDuoBJzEfGhcM00JuQ31A"/>
+    <contextParameter comment="" name="path" prompt="path?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_0iY4MBKAEfGhcM00JuQ31A"/>
   </context>
   <context confirmationNeeded="false" hide="false" name="PRD">
     <contextParameter comment="" name="ponteiro" prompt="ponteiro?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_eFSxwMPsEfCvS7dW_eK8Qg"/>
@@ -21,11 +23,13 @@
     <contextParameter comment="" name="id_cliente" prompt="id_cliente?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_KWQIgdEXEfCxbosgO5XRJg"/>
     <contextParameter comment="" name="id_magento" prompt="id_magento?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_VaDoUe1fEfCrV-MkKFpT4w"/>
     <contextParameter comment="" name="endpoint" prompt="endpoint?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;https://mcstaging.pacaembuautopecas.com.br&quot;" internalId="_09HOEQj4EfGyWLg-Cfb5pg"/>
+    <contextParameter comment="" name="json" prompt="json?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_DeDuoRJzEfGhcM00JuQ31A"/>
+    <contextParameter comment="" name="path" prompt="path?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_0iY4MRKAEfGhcM00JuQ31A"/>
   </context>
   <parameters>
     <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" value="Info" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
-    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="40" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="56" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="50" show="false"/>
     <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
     <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
@@ -1753,9 +1757,9 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="600" posY="400">
+  <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="600" posY="440">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaRow_2" show="false"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.id_magento = row9.id; "/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.id_magento = row9.id; &#xD;&#xA;row12.id = context.id_magento;"/>
     <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="put" name="tJavaRow_2">
@@ -1763,17 +1767,180 @@
       <column comment="" key="false" length="-1" name="id_test" nullable="true" pattern="" precision="-1" sourceType="" type="id_Boolean" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
+  <node componentName="tFilterRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="600" posY="600">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFilterRow_13" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOGICAL_OP" value="&amp;&amp;"/>
+    <elementParameter field="TABLE" name="CONDITIONS">
+      <elementValue elementRef="INPUT_COLUMN" value="id" id="0"/>
+      <elementValue elementRef="FUNCTION" value="" id="1"/>
+      <elementValue elementRef="OPERATOR" value="!=" id="2"/>
+      <elementValue elementRef="RVALUE" value="null" id="3"/>
+      <elementValue elementRef="INPUT_COLUMN" value="id" id="4"/>
+      <elementValue elementRef="FUNCTION" value="$source == null? false : $source.length() $operator $target" id="5"/>
+      <elementValue elementRef="OPERATOR" value=">" id="6"/>
+      <elementValue elementRef="RVALUE" value="0" id="7"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="USE_ADVANCED" value="false"/>
+    <elementParameter field="MEMO_JAVA" name="ADVANCED_COND" value="// code sample : use input_row to define the condition.&#xA;// input_row.columnName1.equals(&quot;foo&quot;) ||!(input_row.columnName2.equals(&quot;bar&quot;))&#xA;// replace the following expression by your own filter condition &#xA;input_row.columnName1.equals(input_row.columnName2)&#xA;&#x9;&#x9;&#x9;" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="put" name="tFilterRow_13">
+      <column comment="" key="false" length="-1" name="id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_test" nullable="true" pattern="" precision="-1" sourceType="" type="id_Boolean" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="FILTER" label="put" name="FILTER">
+      <column comment="" key="false" length="-1" name="id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_test" nullable="true" pattern="" precision="-1" sourceType="" type="id_Boolean" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REJECT" label="put" name="REJECT">
+      <column comment="" key="false" length="-1" name="id" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="id_test" nullable="true" pattern="" precision="-1" sourceType="" type="id_Boolean" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="600" posY="720">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJavaRow_1" show="false"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="//======================================================&#xD;&#xA;//Função auxiliar para limpeza JSON (somente strings)&#xD;&#xA;//======================================================&#xD;&#xA;java.util.function.Function&lt;String, String> jsonSafe = s -> {&#xD;&#xA;if (s == null) return &quot;&quot;;&#xD;&#xA;return s.replace(&quot;\\&quot;, &quot;\\\\&quot;)&#xD;&#xA;     .replace(&quot;\&quot;&quot;, &quot;\\\&quot;&quot;)&#xD;&#xA;     .replace(&quot;\n&quot;, &quot;\\n&quot;)&#xD;&#xA;     .replace(&quot;\r&quot;, &quot;\\r&quot;);&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//1. Dados principais&#xD;&#xA;//======================================================&#xD;&#xA;String id     = jsonSafe.apply(context.id_magento);&#xD;&#xA;String email     = jsonSafe.apply((String) globalMap.get(&quot;row8.emailLogin&quot;));&#xD;&#xA;String firstname = jsonSafe.apply((String) globalMap.get(&quot;row8.razaoSocial&quot;));&#xD;&#xA;String lastname  = jsonSafe.apply((String) globalMap.get(&quot;row8.razaoSocial&quot;));&#xD;&#xA;String taxvat    = jsonSafe.apply((String) globalMap.get(&quot;row8.cnpj&quot;));&#xD;&#xA;&#xD;&#xA;String street    = jsonSafe.apply((String) globalMap.get(&quot;row8.endereco&quot;));&#xD;&#xA;String bairro    = jsonSafe.apply((String) globalMap.get(&quot;row8.bairro&quot;));&#xD;&#xA;String city      = jsonSafe.apply((String) globalMap.get(&quot;row8.municipio&quot;));&#xD;&#xA;String region_code    = jsonSafe.apply(((String)globalMap.get(&quot;row8.estado&quot;)));&#xD;&#xA;String postcode  = jsonSafe.apply((String) globalMap.get(&quot;row8.cep&quot;));&#xD;&#xA;String telephone = jsonSafe.apply((String) globalMap.get(&quot;row8.telefone&quot;));&#xD;&#xA;String country_id     = jsonSafe.apply(((String)globalMap.get(&quot;row8.pais&quot;)));&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//2. Custom Attributes&#xD;&#xA;//======================================================&#xD;&#xA;java.util.List&lt;Object[]> customAttrs = new java.util.ArrayList&lt;>();&#xD;&#xA;&#xD;&#xA;customAttrs.add(new Object[]{&quot;client_id__c&quot;, globalMap.get(&quot;row8.codigoCliente&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;is_allowed__c&quot;, 1, &quot;number&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;ie__c&quot;, globalMap.get(&quot;row8.ie&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;rc_type__c&quot;, null, &quot;number&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;region_subsidiary__c&quot;, globalMap.get(&quot;row8.filialRegional&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoFilialRegional&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;commercial_subsidiary__c&quot;, globalMap.get(&quot;row8.filialComercial&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoFilialComercial&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;buying_potencial__c&quot;, globalMap.get(&quot;row8.potencialCompras&quot;), &quot;number&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;price_category&quot;, globalMap.get(&quot;row8.categoriaPreco&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;field_of_business__c&quot;, globalMap.get(&quot;row8.ramoAtividade&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoRamoAtividade&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;sales_region__c&quot;, globalMap.get(&quot;row8.regiaoVenda&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoRegiaoVenda&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;representative__c&quot;, globalMap.get(&quot;row8.representante&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;status__c&quot;, null, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;seller__c&quot;, globalMap.get(&quot;row8.vendedor&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;contact_name__c&quot;, globalMap.get(&quot;row8.contato&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;telephone&quot;, globalMap.get(&quot;row8.telefone&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;emails__c&quot;, globalMap.get(&quot;row8.email_concat&quot;), &quot;string&quot;});&#xD;&#xA;&#xD;&#xA;//billing_* = null&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_street__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_neighborhood__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_city__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_region__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_postcode__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_country_id__c&quot;, null, &quot;null&quot;});&#xD;&#xA;&#xD;&#xA;//frotas vazias&#xD;&#xA;customAttrs.add(new Object[]{&quot;agricultural_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;truck_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;trailer_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;bus_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;van_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//3. Montagem do JSON FINAL (IGUAL AO MODELO)&#xD;&#xA;//======================================================&#xD;&#xA;StringBuilder json = new StringBuilder();&#xD;&#xA;&#xD;&#xA;json.append(&quot;{\&quot;customer\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;id\&quot;:\&quot;&quot;).append(id).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;email\&quot;:\&quot;&quot;).append(email).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;firstname\&quot;:\&quot;&quot;).append(firstname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;lastname\&quot;:\&quot;&quot;).append(lastname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;taxvat\&quot;:\&quot;&quot;).append(taxvat).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;website_id\&quot;:1,&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- ADDRESSES ----------------&#xD;&#xA;json.append(&quot;\&quot;addresses\&quot;:[{&quot;);&#xD;&#xA;json.append(&quot;\&quot;street\&quot;:[&quot;);&#xD;&#xA;json.append(&quot;\&quot;&quot;).append(street).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;&quot;).append(bairro).append(&quot;\&quot;],&quot;);&#xD;&#xA;json.append(&quot;\&quot;city\&quot;:\&quot;&quot;).append(city).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;country_id\&quot;:\&quot;&quot;).append(country_id).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;postcode\&quot;:\&quot;&quot;).append(postcode).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;firstname\&quot;:\&quot;&quot;).append(firstname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;lastname\&quot;:\&quot;&quot;).append(lastname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;telephone\&quot;:\&quot;&quot;).append(telephone).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;default_shipping\&quot;:true,&quot;);&#xD;&#xA;json.append(&quot;\&quot;default_billing\&quot;:false&quot;);&#xD;&#xA;json.append(&quot;}],&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- EXTENSION ATTRIBUTES ----------------&#xD;&#xA;json.append(&quot;\&quot;extension_attributes\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;is_subscribed\&quot;:false&quot;);&#xD;&#xA;json.append(&quot;},&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- CUSTOM ATTRIBUTES ----------------&#xD;&#xA;json.append(&quot;\&quot;custom_attributes\&quot;:[&quot;);&#xD;&#xA;&#xD;&#xA;for (int i = 0; i &lt; customAttrs.size(); i++) {&#xD;&#xA;Object[] attr = customAttrs.get(i);&#xD;&#xA;String code = jsonSafe.apply((String) attr[0]);&#xD;&#xA;Object val = attr[1];&#xD;&#xA;String type = (String) attr[2];&#xD;&#xA;&#xD;&#xA;json.append(&quot;{\&quot;attribute_code\&quot;:\&quot;&quot;).append(code).append(&quot;\&quot;,&quot;);&#xD;&#xA;&#xD;&#xA;if (&quot;number&quot;.equals(type) || &quot;boolean&quot;.equals(type)) {&#xD;&#xA; json.append(&quot;\&quot;value\&quot;:&quot;).append(val);&#xD;&#xA;} else if (&quot;null&quot;.equals(type)) {&#xD;&#xA; json.append(&quot;\&quot;value\&quot;:null&quot;);&#xD;&#xA;} else {&#xD;&#xA; json.append(&quot;\&quot;value\&quot;:\&quot;&quot;).append(jsonSafe.apply(val == null ? &quot;&quot; : val.toString())).append(&quot;\&quot;&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;json.append(&quot;}&quot;);&#xD;&#xA;if (i &lt; customAttrs.size() - 1) json.append(&quot;,&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;json.append(&quot;]&quot;);&#xD;&#xA;json.append(&quot;}}&quot;);&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//4. Envio para tRESTClient&#xD;&#xA;//======================================================&#xD;&#xA;globalMap.put(&quot;payload_json&quot;, json.toString());&#xD;&#xA;//row15.body = json.toString();&#xD;&#xA;context.json =  json.toString();&#xD;&#xA;//context.path = &quot;/rest/store01/V1/customers/&quot; + context.id_magento;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;System.out.println(context.json);&#xD;&#xA;System.out.println(context.endpoint + context.path);&#xD;&#xA;//System.out.println(row15.body);&#xD;&#xA;"/>
+    <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJavaRow_1">
+      <column comment="" key="false" length="-1" name="body" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="HTTPClient" componentVersion="5" offsetLabelX="0" offsetLabelY="0" posX="800" posY="760">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tHTTPClient_1" show="false"/>
+    <elementParameter field="TECHNICAL" name="TACOKIT_COMPONENT_ID" value="aHR0cC1zdHVkaW8jSFRUUCNDbGllbnQ" show="false"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.base" value="https://mcstaging.pacaembuautopecas.com.br"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.datastore.authentication.type" value="NoAuth"/>
+    <elementParameter field="PASSWORD" name="configuration.dataset.datastore.authentication.bearerToken" value="enc:system.encryption.key.v1:RAfICJyCbsSzLj5y5eJqZew/8F3MJDz8QAUL7BApRraZ6QQkJ1KMIjnBT9COQOJkOm9i5+9wmjSK+IE7Wpo=" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.datastore.authentication.apiKey.destination" value="HEADERS" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.authentication.apiKey.headerName" value="Authorization" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.authentication.apiKey.queryName" value="apikey" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.authentication.apiKey.prefix" value="Bearer" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.datastore.authentication.oauth20.flow" value="CLIENT_CREDENTIAL" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.datastore.authentication.oauth20.authenticationType" value="FORM" show="false"/>
+    <elementParameter field="TABLE" name="configuration.dataset.datastore.authentication.oauth20.params" show="false"/>
+    <elementParameter field="TACOKIT_VALUE_SELECTION" name="configuration.dataset.methodType" value="PUT"/>
+    <elementParameter field="TEXT" name="configuration.dataset.resource" value="rest/store01/V1/customers/"/>
+    <elementParameter field="CHECK" name="configuration.dataset.hasPathParams" value="true"/>
+    <elementParameter field="TABLE" name="configuration.dataset.pathParams">
+      <elementValue elementRef="configuration.dataset.pathParams[].key" value="id" id="0"/>
+      <elementValue elementRef="configuration.dataset.pathParams[].value" value="context.id_magento" id="1"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="configuration.dataset.hasQueryParams" value="false"/>
+    <elementParameter field="TABLE" name="configuration.dataset.queryParams" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.hasHeaders" value="true"/>
+    <elementParameter field="TABLE" name="configuration.dataset.headers">
+      <elementValue elementRef="configuration.dataset.headers[].key" value="Content-Type" id="0"/>
+      <elementValue elementRef="configuration.dataset.headers[].value" value="application/json" id="1"/>
+      <elementValue elementRef="configuration.dataset.headers[].query" value="MAIN" id="2"/>
+      <elementValue elementRef="configuration.dataset.headers[].key" value="x-correlation-id" id="3"/>
+      <elementValue elementRef="configuration.dataset.headers[].value" value="postman.f4e1e233-7e5e-4b9f-ad78-0b60918fcc8c" id="4"/>
+      <elementValue elementRef="configuration.dataset.headers[].query" value="MAIN" id="5"/>
+      <elementValue elementRef="configuration.dataset.headers[].key" value="Cookie" id="6"/>
+      <elementValue elementRef="configuration.dataset.headers[].value" value="PHPSESSID=df1ae4118d9dff902fb13484c46b0409" id="7"/>
+      <elementValue elementRef="configuration.dataset.headers[].query" value="MAIN" id="8"/>
+      <elementValue elementRef="configuration.dataset.headers[].key" value="Authorization" id="9"/>
+      <elementValue elementRef="configuration.dataset.headers[].value" value="Bearer h7dgsryji31w6angyiri6vd2zrlu5pq5" id="10"/>
+      <elementValue elementRef="configuration.dataset.headers[].query" value="AUTHENT" id="11"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="configuration.dataset.hasBody" value="true"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.body.type" value="TEXT"/>
+    <elementParameter field="TACOKIT_TEXT_AREA" name="configuration.dataset.body.textValue" value="context.json"/>
+    <elementParameter field="MEMO" name="configuration.dataset.body.jsonValue" value="" show="false"/>
+    <elementParameter field="TABLE" name="configuration.dataset.body.params" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.format" value="JSON"/>
+    <elementParameter field="TEXT" name="configuration.dataset.dssl" value=""/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.returnedContent" value="STATUS_HEADERS_BODY"/>
+    <elementParameter field="CHECK" name="configuration.dataset.outputKeyValuePairs" value="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.forwardInput" value="false" show="false"/>
+    <elementParameter field="TABLE" name="configuration.dataset.keyValuePairs" show="false"/>
+    <elementParameter field="CHECK" name="configuration.downloadFile" value="false"/>
+    <elementParameter field="CHECK" name="configuration.specifyFileName" value="false" show="false"/>
+    <elementParameter field="CHECK" name="configuration.useCacheToSave" value="false" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.datastore.authentication.oauth20.customizeHeaderName" value="false" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.authentication.oauth20.customHeaderName" value="Authorization" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.datastore.authentication.oauth20.customizeTokenPrefix" value="false" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.authentication.oauth20.customTokenPrefix" value="Bearer" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.connectionTimeout" value="30000"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.receiveTimeout" value="120000"/>
+    <elementParameter field="CHECK" name="configuration.dataset.datastore.bypassCertificateValidation" value="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.datastore.useProxy" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.datastore.proxyConfiguration.proxyType" value="HTTP" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.proxyConfiguration.proxyPort" value="443" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.datastore.hasRetry" value="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.retry.backoff" value="500" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.retry.factor" value="1" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.datastore.retry.maxAttempts" value="2" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.acceptRedirections" value="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.maxRedirectOnSameURL" value="3" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.onlySameHost" value="false" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.hasPagination" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.pagination.strategy" value="OFFSET_LIMIT" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.pagination.offsetLimitStrategyConfig.location" value="QUERY_PARAMETERS" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataset.pagination.markerStrategyConfig.location" value="QUERY_PARAMETERS" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataset.pagination.markerStrategyConfig.limitValue" value="100" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.jsonForceDouble" value="true"/>
+    <elementParameter field="CHECK" name="configuration.dataset.normalizeJson" value="false"/>
+    <elementParameter field="TABLE" name="configuration.dataset.jsonCastConfigurations" show="false"/>
+    <elementParameter field="TABLE" name="configuration.dataset.jsonFilterConfigurations" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.enforceNumberAsString" value="true" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.useCookies" value="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.saveCookies" value="false"/>
+    <elementParameter field="DIRECTORY" name="configuration.dataset.cookieDirectory" value="&quot;PHPSESSID=df1ae4118d9dff902fb13484c46b0409&quot;" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataset.disableChunkedEncoding" value="true"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.httpVersion" value="HTTP_1_1"/>
+    <elementParameter field="CHECK" name="configuration.uploadFiles" value="false"/>
+    <elementParameter field="TABLE" name="configuration.uploadFileTable" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dieOnError" value="false"/>
+    <elementParameter field="TECHNICAL" name="configuration.dataset.__version" value="5" show="false"/>
+    <elementParameter field="TECHNICAL" name="configuration.dataset.datastore.__version" value="5" show="false"/>
+    <metadata connector="LOOKUP" name="LOOKUP"/>
+    <metadata connector="MERGE" name="MERGE"/>
+    <metadata connector="REJECT" name="REJECT"/>
+    <metadata connector="FLOW" name="tHTTPClient_1">
+      <column comment="" key="false" length="-1" name="body" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="960" posY="760">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_2" show="false"/>
+    <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE" value="true" show="false"/>
+    <elementParameter field="RADIO" name="PRINT_LABEL" value="false" show="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter field="TABLE" name="LENGTHS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="body" id="0"/>
+      <elementValue elementRef="LENGTH" value="10" id="1"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tLogRow_2">
+      <column comment="" key="false" length="-1" name="body" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
   <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="360" posY="400">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_4" show="false"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="//======================================================&#xD;&#xA;//Função auxiliar para limpeza JSON (somente strings)&#xD;&#xA;//======================================================&#xD;&#xA;java.util.function.Function&lt;String, String> jsonSafe = s -> {&#xD;&#xA;if (s == null) return &quot;&quot;;&#xD;&#xA;return s.replace(&quot;\\&quot;, &quot;\\\\&quot;)&#xD;&#xA;       .replace(&quot;\&quot;&quot;, &quot;\\\&quot;&quot;)&#xD;&#xA;       .replace(&quot;\n&quot;, &quot;\\n&quot;)&#xD;&#xA;       .replace(&quot;\r&quot;, &quot;\\r&quot;);&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//1. Dados principais&#xD;&#xA;//======================================================&#xD;&#xA;String id     = jsonSafe.apply(context.id_magento);&#xD;&#xA;String email     = jsonSafe.apply((String) globalMap.get(&quot;row8.emailLogin&quot;));&#xD;&#xA;String firstname = jsonSafe.apply((String) globalMap.get(&quot;row8.razaoSocial&quot;));&#xD;&#xA;String lastname  = jsonSafe.apply((String) globalMap.get(&quot;row8.razaoSocial&quot;));&#xD;&#xA;String taxvat    = jsonSafe.apply((String) globalMap.get(&quot;row8.cnpj&quot;));&#xD;&#xA;&#xD;&#xA;String street    = jsonSafe.apply((String) globalMap.get(&quot;row8.endereco&quot;));&#xD;&#xA;String bairro    = jsonSafe.apply((String) globalMap.get(&quot;row8.bairro&quot;));&#xD;&#xA;String city      = jsonSafe.apply((String) globalMap.get(&quot;row8.municipio&quot;));&#xD;&#xA;String region_code    = jsonSafe.apply(((String)globalMap.get(&quot;row8.estado&quot;)));&#xD;&#xA;String postcode  = jsonSafe.apply((String) globalMap.get(&quot;row8.cep&quot;));&#xD;&#xA;String telephone = jsonSafe.apply((String) globalMap.get(&quot;row8.telefone&quot;));&#xD;&#xA;String country_id     = jsonSafe.apply(((String)globalMap.get(&quot;row8.pais&quot;)));&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//2. Custom Attributes&#xD;&#xA;//======================================================&#xD;&#xA;java.util.List&lt;Object[]> customAttrs = new java.util.ArrayList&lt;>();&#xD;&#xA;&#xD;&#xA;customAttrs.add(new Object[]{&quot;client_id__c&quot;, globalMap.get(&quot;row8.codigoCliente&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;is_allowed__c&quot;, 1, &quot;number&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;ie__c&quot;, globalMap.get(&quot;row8.ie&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;rc_type__c&quot;, null, &quot;number&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;region_subsidiary__c&quot;, globalMap.get(&quot;row8.filialRegional&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoFilialRegional&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;commercial_subsidiary__c&quot;, globalMap.get(&quot;row8.filialComercial&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoFilialComercial&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;buying_potencial__c&quot;, globalMap.get(&quot;row8.potencialCompras&quot;), &quot;number&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;price_category&quot;, globalMap.get(&quot;row8.categoriaPreco&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;field_of_business__c&quot;, globalMap.get(&quot;row8.ramoAtividade&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoRamoAtividade&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;sales_region__c&quot;, globalMap.get(&quot;row8.regiaoVenda&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoRegiaoVenda&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;representative__c&quot;, globalMap.get(&quot;row8.representante&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;status__c&quot;, null, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;seller__c&quot;, globalMap.get(&quot;row8.vendedor&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;contact_name__c&quot;, globalMap.get(&quot;row8.contato&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;telephone&quot;, globalMap.get(&quot;row8.telefone&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;emails__c&quot;, globalMap.get(&quot;row8.email_concat&quot;), &quot;string&quot;});&#xD;&#xA;&#xD;&#xA;//billing_* = null&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_street__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_neighborhood__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_city__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_region__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_postcode__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_country_id__c&quot;, null, &quot;null&quot;});&#xD;&#xA;&#xD;&#xA;//frotas vazias&#xD;&#xA;customAttrs.add(new Object[]{&quot;agricultural_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;truck_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;trailer_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;bus_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;van_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//3. Montagem do JSON FINAL (IGUAL AO MODELO)&#xD;&#xA;//======================================================&#xD;&#xA;StringBuilder json = new StringBuilder();&#xD;&#xA;&#xD;&#xA;json.append(&quot;{\&quot;customer\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;id\&quot;:\&quot;&quot;).append(id).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;email\&quot;:\&quot;&quot;).append(email).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;firstname\&quot;:\&quot;&quot;).append(firstname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;lastname\&quot;:\&quot;&quot;).append(lastname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;taxvat\&quot;:\&quot;&quot;).append(taxvat).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;website_id\&quot;:1,&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- ADDRESSES ----------------&#xD;&#xA;json.append(&quot;\&quot;addresses\&quot;:[{&quot;);&#xD;&#xA;json.append(&quot;\&quot;street\&quot;:[&quot;);&#xD;&#xA;json.append(&quot;\&quot;&quot;).append(street).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;&quot;).append(bairro).append(&quot;\&quot;],&quot;);&#xD;&#xA;json.append(&quot;\&quot;city\&quot;:\&quot;&quot;).append(city).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;country_id\&quot;:\&quot;&quot;).append(country_id).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;postcode\&quot;:\&quot;&quot;).append(postcode).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;firstname\&quot;:\&quot;&quot;).append(firstname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;lastname\&quot;:\&quot;&quot;).append(lastname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;telephone\&quot;:\&quot;&quot;).append(telephone).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;default_shipping\&quot;:true,&quot;);&#xD;&#xA;json.append(&quot;\&quot;default_billing\&quot;:false&quot;);&#xD;&#xA;json.append(&quot;}],&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- EXTENSION ATTRIBUTES ----------------&#xD;&#xA;json.append(&quot;\&quot;extension_attributes\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;is_subscribed\&quot;:false&quot;);&#xD;&#xA;json.append(&quot;},&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- CUSTOM ATTRIBUTES ----------------&#xD;&#xA;json.append(&quot;\&quot;custom_attributes\&quot;:[&quot;);&#xD;&#xA;&#xD;&#xA;for (int i = 0; i &lt; customAttrs.size(); i++) {&#xD;&#xA;Object[] attr = customAttrs.get(i);&#xD;&#xA;String code = jsonSafe.apply((String) attr[0]);&#xD;&#xA;Object val = attr[1];&#xD;&#xA;String type = (String) attr[2];&#xD;&#xA;&#xD;&#xA;json.append(&quot;{\&quot;attribute_code\&quot;:\&quot;&quot;).append(code).append(&quot;\&quot;,&quot;);&#xD;&#xA;&#xD;&#xA;if (&quot;number&quot;.equals(type) || &quot;boolean&quot;.equals(type)) {&#xD;&#xA;   json.append(&quot;\&quot;value\&quot;:&quot;).append(val);&#xD;&#xA;} else if (&quot;null&quot;.equals(type)) {&#xD;&#xA;   json.append(&quot;\&quot;value\&quot;:null&quot;);&#xD;&#xA;} else {&#xD;&#xA;   json.append(&quot;\&quot;value\&quot;:\&quot;&quot;).append(jsonSafe.apply(val == null ? &quot;&quot; : val.toString())).append(&quot;\&quot;&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;json.append(&quot;}&quot;);&#xD;&#xA;if (i &lt; customAttrs.size() - 1) json.append(&quot;,&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;json.append(&quot;]&quot;);&#xD;&#xA;json.append(&quot;}}&quot;);&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//4. Envio para tRESTClient&#xD;&#xA;//======================================================&#xD;&#xA;globalMap.put(&quot;payload_json&quot;, json.toString());&#xD;&#xA;row5.body = json.toString();&#xD;&#xA;&#xD;&#xA;//System.out.println(json.toString());&#xD;&#xA;System.out.println(row5.body);&#xD;&#xA;"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="//======================================================&#xD;&#xA;//Função auxiliar para limpeza JSON (somente strings)&#xD;&#xA;//======================================================&#xD;&#xA;java.util.function.Function&lt;String, String> jsonSafe = s -> {&#xD;&#xA;if (s == null) return &quot;&quot;;&#xD;&#xA;return s.replace(&quot;\\&quot;, &quot;\\\\&quot;)&#xD;&#xA;       .replace(&quot;\&quot;&quot;, &quot;\\\&quot;&quot;)&#xD;&#xA;       .replace(&quot;\n&quot;, &quot;\\n&quot;)&#xD;&#xA;       .replace(&quot;\r&quot;, &quot;\\r&quot;);&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//1. Dados principais&#xD;&#xA;//======================================================&#xD;&#xA;String id     = jsonSafe.apply(context.id_magento);&#xD;&#xA;String email     = jsonSafe.apply((String) globalMap.get(&quot;row8.emailLogin&quot;));&#xD;&#xA;String firstname = jsonSafe.apply((String) globalMap.get(&quot;row8.razaoSocial&quot;));&#xD;&#xA;String lastname  = jsonSafe.apply((String) globalMap.get(&quot;row8.razaoSocial&quot;));&#xD;&#xA;String taxvat    = jsonSafe.apply((String) globalMap.get(&quot;row8.cnpj&quot;));&#xD;&#xA;&#xD;&#xA;String street    = jsonSafe.apply((String) globalMap.get(&quot;row8.endereco&quot;));&#xD;&#xA;String bairro    = jsonSafe.apply((String) globalMap.get(&quot;row8.bairro&quot;));&#xD;&#xA;String city      = jsonSafe.apply((String) globalMap.get(&quot;row8.municipio&quot;));&#xD;&#xA;String region_code    = jsonSafe.apply(((String)globalMap.get(&quot;row8.estado&quot;)));&#xD;&#xA;String postcode  = jsonSafe.apply((String) globalMap.get(&quot;row8.cep&quot;));&#xD;&#xA;String telephone = jsonSafe.apply((String) globalMap.get(&quot;row8.telefone&quot;));&#xD;&#xA;String country_id     = jsonSafe.apply(((String)globalMap.get(&quot;row8.pais&quot;)));&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//2. Custom Attributes&#xD;&#xA;//======================================================&#xD;&#xA;java.util.List&lt;Object[]> customAttrs = new java.util.ArrayList&lt;>();&#xD;&#xA;&#xD;&#xA;customAttrs.add(new Object[]{&quot;client_id__c&quot;, globalMap.get(&quot;row8.codigoCliente&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;is_allowed__c&quot;, 1, &quot;number&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;ie__c&quot;, globalMap.get(&quot;row8.ie&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;rc_type__c&quot;, null, &quot;number&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;region_subsidiary__c&quot;, globalMap.get(&quot;row8.filialRegional&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoFilialRegional&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;commercial_subsidiary__c&quot;, globalMap.get(&quot;row8.filialComercial&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoFilialComercial&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;buying_potencial__c&quot;, globalMap.get(&quot;row8.potencialCompras&quot;), &quot;number&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;price_category&quot;, globalMap.get(&quot;row8.categoriaPreco&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;field_of_business__c&quot;, globalMap.get(&quot;row8.ramoAtividade&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoRamoAtividade&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;sales_region__c&quot;, globalMap.get(&quot;row8.regiaoVenda&quot;) + &quot; - &quot; + globalMap.get(&quot;row8.descricaoRegiaoVenda&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;representative__c&quot;, globalMap.get(&quot;row8.representante&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;status__c&quot;, null, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;seller__c&quot;, globalMap.get(&quot;row8.vendedor&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;contact_name__c&quot;, globalMap.get(&quot;row8.contato&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;telephone&quot;, globalMap.get(&quot;row8.telefone&quot;), &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;emails__c&quot;, globalMap.get(&quot;row8.email_concat&quot;), &quot;string&quot;});&#xD;&#xA;&#xD;&#xA;//billing_* = null&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_street__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_neighborhood__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_city__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_region__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_postcode__c&quot;, null, &quot;null&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;billing_country_id__c&quot;, null, &quot;null&quot;});&#xD;&#xA;&#xD;&#xA;//frotas vazias&#xD;&#xA;customAttrs.add(new Object[]{&quot;agricultural_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;truck_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;trailer_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;bus_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;customAttrs.add(new Object[]{&quot;van_fleet__c&quot;, &quot;&quot;, &quot;string&quot;});&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//3. Montagem do JSON FINAL (IGUAL AO MODELO)&#xD;&#xA;//======================================================&#xD;&#xA;StringBuilder json = new StringBuilder();&#xD;&#xA;&#xD;&#xA;json.append(&quot;{\&quot;customer\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;id\&quot;:\&quot;&quot;).append(id).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;email\&quot;:\&quot;&quot;).append(email).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;firstname\&quot;:\&quot;&quot;).append(firstname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;lastname\&quot;:\&quot;&quot;).append(lastname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;taxvat\&quot;:\&quot;&quot;).append(taxvat).append(&quot;\&quot;,&quot;);&#xD;&#xA;//json.append(&quot;\&quot;website_id\&quot;:1,&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- ADDRESSES ----------------&#xD;&#xA;json.append(&quot;\&quot;addresses\&quot;:[{&quot;);&#xD;&#xA;json.append(&quot;\&quot;street\&quot;:[&quot;);&#xD;&#xA;json.append(&quot;\&quot;&quot;).append(street).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;&quot;).append(bairro).append(&quot;\&quot;],&quot;);&#xD;&#xA;json.append(&quot;\&quot;city\&quot;:\&quot;&quot;).append(city).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;country_id\&quot;:\&quot;&quot;).append(country_id).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;postcode\&quot;:\&quot;&quot;).append(postcode).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;firstname\&quot;:\&quot;&quot;).append(firstname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;lastname\&quot;:\&quot;&quot;).append(lastname).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;telephone\&quot;:\&quot;&quot;).append(telephone).append(&quot;\&quot;,&quot;);&#xD;&#xA;json.append(&quot;\&quot;default_shipping\&quot;:true,&quot;);&#xD;&#xA;json.append(&quot;\&quot;default_billing\&quot;:false&quot;);&#xD;&#xA;json.append(&quot;}],&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- EXTENSION ATTRIBUTES ----------------&#xD;&#xA;json.append(&quot;\&quot;extension_attributes\&quot;:{&quot;);&#xD;&#xA;json.append(&quot;\&quot;is_subscribed\&quot;:false&quot;);&#xD;&#xA;json.append(&quot;},&quot;);&#xD;&#xA;&#xD;&#xA;//---------------- CUSTOM ATTRIBUTES ----------------&#xD;&#xA;json.append(&quot;\&quot;custom_attributes\&quot;:[&quot;);&#xD;&#xA;&#xD;&#xA;for (int i = 0; i &lt; customAttrs.size(); i++) {&#xD;&#xA;Object[] attr = customAttrs.get(i);&#xD;&#xA;String code = jsonSafe.apply((String) attr[0]);&#xD;&#xA;Object val = attr[1];&#xD;&#xA;String type = (String) attr[2];&#xD;&#xA;&#xD;&#xA;json.append(&quot;{\&quot;attribute_code\&quot;:\&quot;&quot;).append(code).append(&quot;\&quot;,&quot;);&#xD;&#xA;&#xD;&#xA;if (&quot;number&quot;.equals(type) || &quot;boolean&quot;.equals(type)) {&#xD;&#xA;   json.append(&quot;\&quot;value\&quot;:&quot;).append(val);&#xD;&#xA;} else if (&quot;null&quot;.equals(type)) {&#xD;&#xA;   json.append(&quot;\&quot;value\&quot;:null&quot;);&#xD;&#xA;} else {&#xD;&#xA;   json.append(&quot;\&quot;value\&quot;:\&quot;&quot;).append(jsonSafe.apply(val == null ? &quot;&quot; : val.toString())).append(&quot;\&quot;&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;json.append(&quot;}&quot;);&#xD;&#xA;if (i &lt; customAttrs.size() - 1) json.append(&quot;,&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;json.append(&quot;]&quot;);&#xD;&#xA;json.append(&quot;}}&quot;);&#xD;&#xA;&#xD;&#xA;//======================================================&#xD;&#xA;//4. Envio para tRESTClient&#xD;&#xA;//======================================================&#xD;&#xA;globalMap.put(&quot;payload_json&quot;, json.toString());&#xD;&#xA;row5.body = json.toString();&#xD;&#xA;&#xD;&#xA;//System.out.println(json.toString());&#xD;&#xA;System.out.println(row5.body);&#xD;&#xA;"/>
     <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="put" name="tJava_4">
       <column comment="" key="false" length="-1" name="body" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tRESTClient" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="160" posY="400">
+  <node componentName="tRESTClient" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="80" posY="400">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRESTClient_2" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TEXT" name="URL" value="context.endpoint+&quot;/rest/store01/V1/customers/&quot;+ context.id_magento"/>
     <elementParameter field="TEXT" name="PATH" value="&quot;&quot;"/>
     <elementParameter field="CLOSED_LIST" name="METHOD" value="PUT"/>
@@ -1803,7 +1970,7 @@
     <elementParameter field="CHECK" name="ENABLE_WEBCLIENT_OPERATION_REPORTING" value="false"/>
     <elementParameter field="CHECK" name="CONVERT_RESPONSE_TO_DOM" value="false"/>
     <elementParameter field="CHECK" name="UNWRAP_JSON_REQUEST" value="false"/>
-    <elementParameter field="CHECK" name="WRAP_JSON_RESPONSE" value="false"/>
+    <elementParameter field="CHECK" name="WRAP_JSON_RESPONSE" value="true"/>
     <elementParameter field="CHECK" name="CONVERT_TYPES_TO_STRINGS" value="false"/>
     <elementParameter field="CHECK" name="FORCE_HTTP_VERSION_TO_1_1" value="true"/>
     <elementParameter field="TABLE" name="HEADERS">
@@ -1820,7 +1987,7 @@
     </elementParameter>
     <elementParameter field="TABLE" name="SERVICE_LOCATOR_CUSTOM_PROPERTIES" show="false"/>
     <elementParameter field="TABLE" name="SERVICE_ACTIVITY_MONITOR_CUSTOM_PROPERTIES" show="false"/>
-    <elementParameter field="CHECK" name="DISABLE_CHUNKED_ENCODING" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_CHUNKED_ENCODING" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_TIMEOUT" value="30"/>
     <elementParameter field="TEXT" name="RECEIVE_TIMEOUT" value="60"/>
     <elementParameter field="LABEL" name="RECEIVE_TIMEOUT_DESC" value="(See tRESTClient doc. to configure timeouts for Talend Runtime)"/>
@@ -1844,8 +2011,9 @@
       <column defaultValue="" key="false" length="1024" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="40" posY="520">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="-40" posY="520">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_1" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
     <elementParameter field="RADIO" name="VERTICAL" value="false"/>
@@ -2061,6 +2229,108 @@
       <column comment="" key="false" length="-1" name="jsonCompleto" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
+  <node componentName="tRESTClient" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="800" posY="680">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRESTClient_7" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="TEXT" name="URL" value="context.endpoint"/>
+    <elementParameter field="TEXT" name="PATH" value="&quot;/rest/store01/V1/customers/&quot;+ context.id_magento"/>
+    <elementParameter field="CLOSED_LIST" name="METHOD" value="PUT"/>
+    <elementParameter field="CLOSED_LIST" name="CONTENT_TYPE" value="application/json"/>
+    <elementParameter field="CLOSED_LIST" name="ACCEPT_TYPE" value="application/json"/>
+    <elementParameter field="TABLE" name="QUERY"/>
+    <elementParameter field="CHECK" name="SERVICE_LOCATOR" value="false"/>
+    <elementParameter field="TEXT" name="SERVICE_NAMESPACE" value="&quot;http://www.talend.org/rest/&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SERVICE_NAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="SERVICE_ACTIVITY_MONITOR" value="false"/>
+    <elementParameter field="CHECK" name="NEED_AUTH" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="AUTH_TYPE" value="BASIC" show="false"/>
+    <elementParameter field="TEXT" name="AUTH_USERNAME" value="&quot;username&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="AUTH_PASSWORD" value="enc:system.encryption.key.v1:/vuaoZS8B6HDq2eLdPKWP96LjBnkAFxyQiSLrVgmiPJh5XKRJXg=" show="false"/>
+    <elementParameter field="TEXT" name="AUTH_BEARER_TOKEN" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="NEED_AUTHORIZATION" value="false" show="false"/>
+    <elementParameter field="TEXT" name="ROLE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="USE_BUSINESS_CORRELATION" value="false"/>
+    <elementParameter field="TEXT" name="CORRELATION_VALUE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="CHECK_SERVER_IDENTITY" value="false"/>
+    <elementParameter field="CHECK" name="REUSE_SSL_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true"/>
+    <elementParameter field="CHECK" name="LOG_MESSAGES" value="true"/>
+    <elementParameter field="CHECK" name="FOLLOW_REDIRECTS" value="false"/>
+    <elementParameter field="CHECK" name="REDIRECT_NON_SAME_HOST" value="false" show="false"/>
+    <elementParameter field="CHECK" name="MAINTAIN_SESSION" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_WEBCLIENT_OPERATION_REPORTING" value="true"/>
+    <elementParameter field="CHECK" name="CONVERT_RESPONSE_TO_DOM" value="true"/>
+    <elementParameter field="CHECK" name="UNWRAP_JSON_REQUEST" value="false"/>
+    <elementParameter field="CHECK" name="WRAP_JSON_RESPONSE" value="true"/>
+    <elementParameter field="CHECK" name="CONVERT_TYPES_TO_STRINGS" value="false"/>
+    <elementParameter field="CHECK" name="FORCE_HTTP_VERSION_TO_1_1" value="false"/>
+    <elementParameter field="TABLE" name="HEADERS">
+      <elementValue elementRef="NAME" value="&quot;Content-Type&quot;" id="0"/>
+      <elementValue elementRef="VALUE" value="&quot;application/json&quot;" id="1"/>
+      <elementValue elementRef="NAME" value="&quot;Authorization&quot;" id="2"/>
+      <elementValue elementRef="VALUE" value="&quot;Bearer h7dgsryji31w6angyiri6vd2zrlu5pq5&quot;" id="3"/>
+      <elementValue elementRef="NAME" value="&quot;x-correlation-id&quot;" id="4"/>
+      <elementValue elementRef="VALUE" value="&quot;postman.f4e1e233-7e5e-4b9f-ad78-0b60918fcc8c&quot;" id="5"/>
+      <elementValue elementRef="NAME" value="&quot;Cookie&quot;" id="6"/>
+      <elementValue elementRef="VALUE" value="&quot;PHPSESSID=df1ae4118d9dff902fb13484c46b0409&quot;" id="7"/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="SERVICE_LOCATOR_CUSTOM_PROPERTIES" show="false"/>
+    <elementParameter field="TABLE" name="SERVICE_ACTIVITY_MONITOR_CUSTOM_PROPERTIES" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_CHUNKED_ENCODING" value="true"/>
+    <elementParameter field="TEXT" name="CONNECTION_TIMEOUT" value="30"/>
+    <elementParameter field="TEXT" name="RECEIVE_TIMEOUT" value="60"/>
+    <elementParameter field="LABEL" name="RECEIVE_TIMEOUT_DESC" value="(See tRESTClient doc. to configure timeouts for Talend Runtime)"/>
+    <elementParameter field="CHECK" name="USE_PROXY" value="false"/>
+    <elementParameter field="TEXT" name="PROXY_HOST" value="&quot;127.0.0.1&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROXY_PORT" value="8080" show="false"/>
+    <elementParameter field="TEXT" name="PROXY_USERNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:lLGpkZ2Nh3tqz5lEwbAcrGIBFXApcya9+UV4U5Tq" show="false"/>
+    <elementParameter field="TEXT" name="ARRAY_KEYS" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRESTClient_7">
+      <column comment="" key="false" length="-1" name="body" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="RESPONSE" name="RESPONSE">
+      <column defaultValue="" key="false" length="0" name="statusCode" nullable="true" precision="0" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="body" nullable="true" precision="0" sourceType="" type="id_Document" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="4048" name="string" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="FAULT" name="FAULT">
+      <column defaultValue="" key="false" length="0" name="errorCode" nullable="true" precision="0" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column key="false" length="1024" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1040" posY="640">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_4" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE" value="true" show="false"/>
+    <elementParameter field="RADIO" name="PRINT_LABEL" value="false" show="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter field="TABLE" name="LENGTHS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="statusCode" id="0"/>
+      <elementValue elementRef="LENGTH" value="10" id="1"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="body" id="2"/>
+      <elementValue elementRef="LENGTH" value="10" id="3"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="string" id="4"/>
+      <elementValue elementRef="LENGTH" value="10" id="5"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" value="100" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tLogRow_4">
+      <column defaultValue="" key="false" length="0" name="statusCode" nullable="true" precision="0" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="0" name="body" nullable="true" precision="0" sourceType="" type="id_Document" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="4048" name="string" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
   <connection connectorName="FLOW" label="row3" lineStyle="0" metaname="tFixedFlowInput_1" offsetLabelX="0" offsetLabelY="0" source="tFixedFlowInput_1" target="tExtractJSONFields_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row3" show="false"/>
@@ -2181,21 +2451,40 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row9" show="false"/>
   </connection>
-  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tJavaRow_2" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tJavaRow_2" target="tJava_4">
-    <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.id_magento != null &amp;&amp; context.id_magento.trim().length() > 0"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="If2" show="false"/>
+  <connection connectorName="FLOW" label="row12" lineStyle="0" metaname="tJavaRow_2" offsetLabelX="0" offsetLabelY="0" source="tJavaRow_2" target="tFilterRow_13">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row12" show="false"/>
   </connection>
-  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tJavaRow_2" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tJavaRow_2" target="tJava_3">
+  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tJavaRow_2" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tJavaRow_2" target="tJava_3">
     <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.id_magento == null || context.id_magento.trim().length() == 0; "/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="If3" show="false"/>
   </connection>
+  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tJavaRow_2" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tJavaRow_2" target="tJava_4">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.id_magento != null &amp;&amp; context.id_magento.trim().length() > 0"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="If2" show="false"/>
+  </connection>
+  <connection connectorName="FILTER" label="row13" lineStyle="0" metaname="FILTER" offsetLabelX="0" offsetLabelY="0" source="tFilterRow_13" target="tJavaRow_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row13" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row15" lineStyle="0" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" source="tJavaRow_1" target="tHTTPClient_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row15" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="row14" lineStyle="0" metaname="tHTTPClient_1" offsetLabelX="0" offsetLabelY="0" source="tHTTPClient_1" target="tLogRow_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row14" show="false"/>
+  </connection>
   <connection connectorName="FLOW" label="row5" lineStyle="0" metaname="tJava_4" offsetLabelX="0" offsetLabelY="0" source="tJava_4" target="tRESTClient_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row5" show="false"/>
   </connection>
   <connection connectorName="FAULT" label="row11" lineStyle="0" metaname="FAULT" offsetLabelX="0" offsetLabelY="0" source="tRESTClient_2" target="tLogRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row11" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="row10" lineStyle="0" metaname="tJava_3" offsetLabelX="0" offsetLabelY="0" source="tJava_3" target="tRESTClient_4">
@@ -2209,6 +2498,11 @@
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tJavaFlex_2" offsetLabelX="0" offsetLabelY="0" source="tJavaFlex_2" target="tFixedFlowInput_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk2" show="false"/>
+  </connection>
+  <connection connectorName="RESPONSE" label="row17" lineStyle="0" metaname="RESPONSE" offsetLabelX="0" offsetLabelY="0" source="tRESTClient_7" target="tLogRow_4">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row17" show="false"/>
   </connection>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFixedFlowInput_1" show="false"/>
@@ -2263,5 +2557,8 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSystem_1" show="false"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRESTClient_7" show="false"/>
   </subjob>
 </talendfile:ProcessType>
