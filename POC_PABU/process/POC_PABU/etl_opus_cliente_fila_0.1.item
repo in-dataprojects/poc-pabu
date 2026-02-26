@@ -1812,6 +1812,7 @@
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="CHECK" name="TSTATCATCHER_STATS" value="true"/>
     <elementParameter field="TEXT" name="configuration.dataset.datastore.base" value="https://mcstaging.pacaembuautopecas.com.br"/>
     <elementParameter field="CLOSED_LIST" name="configuration.dataset.datastore.authentication.type" value="NoAuth"/>
     <elementParameter field="PASSWORD" name="configuration.dataset.datastore.authentication.bearerToken" value="enc:system.encryption.key.v1:RAfICJyCbsSzLj5y5eJqZew/8F3MJDz8QAUL7BApRraZ6QQkJ1KMIjnBT9COQOJkOm9i5+9wmjSK+IE7Wpo=" show="false"/>
@@ -1823,9 +1824,9 @@
     <elementParameter field="CLOSED_LIST" name="configuration.dataset.datastore.authentication.oauth20.authenticationType" value="FORM" show="false"/>
     <elementParameter field="TABLE" name="configuration.dataset.datastore.authentication.oauth20.params" show="false"/>
     <elementParameter field="TACOKIT_VALUE_SELECTION" name="configuration.dataset.methodType" value="PUT"/>
-    <elementParameter field="TEXT" name="configuration.dataset.resource" value="rest/store01/V1/customers/"/>
-    <elementParameter field="CHECK" name="configuration.dataset.hasPathParams" value="true"/>
-    <elementParameter field="TABLE" name="configuration.dataset.pathParams">
+    <elementParameter field="TEXT" name="configuration.dataset.resource" value="&quot;/rest/store01/V1/customers/&quot; + context.id_magento"/>
+    <elementParameter field="CHECK" name="configuration.dataset.hasPathParams" value="false"/>
+    <elementParameter field="TABLE" name="configuration.dataset.pathParams" show="false">
       <elementValue elementRef="configuration.dataset.pathParams[].key" value="id" id="0"/>
       <elementValue elementRef="configuration.dataset.pathParams[].value" value="context.id_magento" id="1"/>
     </elementParameter>
@@ -1836,15 +1837,9 @@
       <elementValue elementRef="configuration.dataset.headers[].key" value="Content-Type" id="0"/>
       <elementValue elementRef="configuration.dataset.headers[].value" value="application/json" id="1"/>
       <elementValue elementRef="configuration.dataset.headers[].query" value="MAIN" id="2"/>
-      <elementValue elementRef="configuration.dataset.headers[].key" value="x-correlation-id" id="3"/>
-      <elementValue elementRef="configuration.dataset.headers[].value" value="postman.f4e1e233-7e5e-4b9f-ad78-0b60918fcc8c" id="4"/>
-      <elementValue elementRef="configuration.dataset.headers[].query" value="MAIN" id="5"/>
-      <elementValue elementRef="configuration.dataset.headers[].key" value="Cookie" id="6"/>
-      <elementValue elementRef="configuration.dataset.headers[].value" value="PHPSESSID=df1ae4118d9dff902fb13484c46b0409" id="7"/>
-      <elementValue elementRef="configuration.dataset.headers[].query" value="MAIN" id="8"/>
-      <elementValue elementRef="configuration.dataset.headers[].key" value="Authorization" id="9"/>
-      <elementValue elementRef="configuration.dataset.headers[].value" value="Bearer h7dgsryji31w6angyiri6vd2zrlu5pq5" id="10"/>
-      <elementValue elementRef="configuration.dataset.headers[].query" value="AUTHENT" id="11"/>
+      <elementValue elementRef="configuration.dataset.headers[].key" value="Authorization" id="3"/>
+      <elementValue elementRef="configuration.dataset.headers[].value" value="Bearer h7dgsryji31w6angyiri6vd2zrlu5pq5" id="4"/>
+      <elementValue elementRef="configuration.dataset.headers[].query" value="AUTHENT" id="5"/>
     </elementParameter>
     <elementParameter field="CHECK" name="configuration.dataset.hasBody" value="true"/>
     <elementParameter field="CLOSED_LIST" name="configuration.dataset.body.type" value="TEXT"/>
