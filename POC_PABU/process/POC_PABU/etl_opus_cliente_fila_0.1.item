@@ -1662,7 +1662,7 @@
   </node>
   <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="40" posY="40">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_2" show="false"/>
-    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="//context.ponteiro_atual = &quot;12345&quot;;&#xD;&#xA;//context.ponteiro_atual = &quot;1772557367737979&quot;;&#xD;&#xA;//context.ponteiro_atual = context.ponteiro;&#xD;&#xA;context.RESP_preenchido = 1;&#xD;&#xA;System.out.println(&quot;Job filho recebendo ponteito: &quot;+ context.ponteiro_atual);&#xD;&#xA;System.out.println(&quot;Iniciando chamada do Opus! Ponteiro: &quot;+ context.ponteiro_atual);&#xD;&#xA;"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.ponteiro_atual = &quot;1773333544448143&quot;;&#xD;&#xA;//context.ponteiro_atual = &quot;1772557367737979&quot;;&#xD;&#xA;//context.ponteiro_atual = context.ponteiro;&#xD;&#xA;context.RESP_preenchido = 1;&#xD;&#xA;System.out.println(&quot;Job filho recebendo ponteito: &quot;+ context.ponteiro_atual);&#xD;&#xA;System.out.println(&quot;Iniciando chamada do Opus! Ponteiro: &quot;+ context.ponteiro_atual);&#xD;&#xA;"/>
     <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJava_2"/>
@@ -2267,14 +2267,14 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row16" show="false"/>
   </connection>
-  <connection connectorName="RESPONSE" label="row19" lineStyle="0" metaname="RESPONSE" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tRESTClient_5" target="tLogRow_5">
+  <connection connectorName="FAULT" label="row18" lineStyle="0" metaname="FAULT" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tRESTClient_5" target="tLogRow_3">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row18" show="false"/>
+  </connection>
+  <connection connectorName="RESPONSE" label="row19" lineStyle="0" metaname="RESPONSE" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tRESTClient_5" target="tLogRow_5">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row19" show="false"/>
-  </connection>
-  <connection connectorName="FAULT" label="row18" lineStyle="0" metaname="FAULT" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tRESTClient_5" target="tLogRow_3">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row18" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="row10" lineStyle="0" metaname="tJava_3" offsetLabelX="0" offsetLabelY="0" source="tJava_3" target="tJavaRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
@@ -2284,14 +2284,14 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row11" show="false"/>
   </connection>
-  <connection connectorName="RESPONSE" label="row12" lineStyle="0" metaname="RESPONSE" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tRESTClient_2" target="tLogRow_1">
+  <connection connectorName="FAULT" label="row13" lineStyle="0" metaname="FAULT" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tRESTClient_2" target="tLogRow_4">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row13" show="false"/>
+  </connection>
+  <connection connectorName="RESPONSE" label="row12" lineStyle="0" metaname="RESPONSE" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tRESTClient_2" target="tLogRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row12" show="false"/>
-  </connection>
-  <connection connectorName="FAULT" label="row13" lineStyle="0" metaname="FAULT" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tRESTClient_2" target="tLogRow_4">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row13" show="false"/>
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPostjob_1" offsetLabelX="0" offsetLabelY="0" source="tPostjob_1" target="tJava_5">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk6" show="false"/>
